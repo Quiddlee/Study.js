@@ -1,31 +1,21 @@
 "use strict";
 
-const number0Films = [];
-    number0Films[0] = prompt("Сколько фильмов вы уже посмотрели", "");
+const numberOfFilms = prompt("Сколько фильмов вы уже посмотрели");
 
-    Object.personalMovieDB = {
-        count:[0],
-        movies: {
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+        actors: {},
+            genres: [],
+    private: false,
+};
 
-        movie:[number0Films[1]],
+const a = prompt("Один из последних просмотренных фильмов?");
+const b = prompt("На сколько оцените его?");
+const c = prompt("Один из последних просмотренных фильмов?");
+const d = prompt("На сколько оцените его?");
 
-        movie:[number0Films[2]]
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;  
 
-
-        },
-        actors:{
-
-        },
-        genres:[
-
-        ],
-        private:false
-
-    };
-
-    number0Films[1] = prompt("Один из последних просмотренных фильмов?", "");
-    number0Films[2] = prompt("На сколько оцените его?", "");
-
-    console.log(Object.personalMovieDB);
-
-
+console.log(personalMovieDB);
