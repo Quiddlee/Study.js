@@ -3,7 +3,7 @@
 
 let numberOfFilms;
 do {
-    (numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?"));
+    (numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?"));
 } while (numberOfFilms.length == "" || numberOfFilms.length > "50");
 
 
@@ -15,23 +15,23 @@ const personalMovieDB = {
     private: false,
 };
 
-let a;
-let b;
 for (let i = 0; i < 2; i++) {
-    do {
-     a = prompt("Какой последний фильм вы посмотрели?");
-    } while (a == "" || a.length > "50");
-    do {
-     b = prompt("Как вы оцените его?");
-    } while (b == "" || b.length > "50");
+    const a = +prompt("Какой последний фильм вы посмотрели?");
+    const b = +prompt("Как вы оцените его?");
+    if (a != null && b != null && a != "" && b != "" && a.length < 50 && b.length < 50) {
+        console.log("done");
+    } else {
+        console.log("error");
+        i--;
+    }
     personalMovieDB.movies[a] = b;
 }
 
-if(personalMovieDB.count < 10) {
+if (personalMovieDB.count < 10) {
     console.log("Просмотренно довольно мало фильмов");
-} else if(personalMovieDB.count > 10 && personalMovieDB.count < 30){
+} else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
     console.log("Вы классический зритель");
-} else if(personalMovieDB.count > 30) {
+} else if (personalMovieDB.count > 30) {
     console.log("Вы киноман");
 } else {
     console.log("Произошла ошибка");
