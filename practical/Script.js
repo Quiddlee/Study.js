@@ -1,10 +1,34 @@
 "use strict";
 
 
+// let numberOfFilms;
+// do {
+//     numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?");
+// } while (numberOfFilms.length == "" || numberOfFilms.length > "50" || numberOfFilms == null);
+
+// let numberOfFilms;
+// let i = 0;
+// while (i < 1) {
+//     numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?");
+//     i++;
+//     if (numberOfFilms !== null && numberOfFilms !== "" && numberOfFilms.length < 50) {
+//         console.log("Done");
+//     } else {
+//         console.log("Error");
+//         i--;
+//     }
+// }
+
 let numberOfFilms;
-do {
-    numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?");
-} while (numberOfFilms.length == "" || numberOfFilms.length > "50" || numberOfFilms == null);
+for (let i = 0; i < 1; i++) {
+    numberOfFilms = prompt("Сколько фильмо вы уже посмотрели");
+    if (numberOfFilms !== null && numberOfFilms !== "" && numberOfFilms < 50) {
+        console.log("Done");
+    } else {
+        console.log("Error");
+        i--;
+    }
+}
 
 const personalMovieDB = {
     count: numberOfFilms,
