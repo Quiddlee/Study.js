@@ -14,9 +14,6 @@ const personalMovieDB = {
     private: false,
 };
 
-
-
-
 for (let i = 0; i < 2; i++) {
     const a = prompt("Какой последний фильм вы посмотрели?");
     const b = prompt("Как вы оцените его?");
@@ -28,6 +25,34 @@ for (let i = 0; i < 2; i++) {
     }
     personalMovieDB.movies[a] = b;
 }
+
+// let i = 0;
+// while (i < 2) {
+//     const a = prompt("Какой последний фильм вы посмотрели?");
+//     const b = prompt("Как вы оцените его?");
+//     i++;
+//     if (a != null && b != null && a != "" && b != "" && a.length < 50 && b.length < 50) {
+//         console.log("Done");
+//     } else {
+//         console.log("Error");
+//         i--;
+//     }
+//     personalMovieDB.movies [a] = b;
+// }
+
+// let i = 0;
+// do {
+//     i++;
+//     const a = prompt("Какой последний фильм вы посмотрели?");
+//     const b = prompt("Как вы его оцените?");
+//     if (a != null && b != null && a != "" && b != "" && a.length < 50 && b.length < 50) {
+//                 console.log("Done");
+//             } else {
+//                 console.log("Error");
+//                 i--;
+//             }
+//             personalMovieDB.movies [a] = b;
+// } while (i < 2);
 
 if (personalMovieDB.count < 10) {
     console.log("Просмотренно довольно мало фильмов");
