@@ -152,3 +152,67 @@ console.log(arrw.join(", "));
 // console.log(arr);
 
 
+const obj = {
+    a: 2,
+    b: 3,
+    c: 4,
+};
+
+
+function copy (obj) {
+    let copyObj = {};
+
+    let key;
+    for (key in obj) {
+        copyObj[key] = obj[key];
+    }
+    return copyObj;
+}
+
+const newObj = copy(obj); //*** значения объекта нельзя присвоить другому объекту
+                            // нужно писать функцию клонирования выше
+
+
+newObj.a = 15;
+
+console.log(obj);
+console.log(newObj);
+
+
+
+const xd = {
+    d: 2,
+    e: 10,
+};
+
+const clone = Object.assign({}, xd); //условно говоря скобки - новый объект, а второе название нужного оюъекта, чтобы скопировать его в пустой.
+
+clone.d = 32;
+
+console.log(xd);
+console.log(clone);
+
+
+const newArray = ["nigga", "mamba", "shrek"];
+
+const array = newArray.slice(); // метод слайс условно говоря копирует один массив в другой
+
+array[0] = "chort";
+console.log(newArray);
+console.log(array);
+
+
+const video = ["youtube", "twitch", "Eugene"];
+const blogs = ["myBlog", "youtBlog", "ourBlog"]; //метод объеденения массивов "...спред" ёпта
+const myArr = [...video, ...blogs, "insta", "vscode"];
+console.log(myArr);
+
+
+const q = {
+    one: 1,
+    two: 2,
+};
+
+const w =  {...q}; // клонирование объекта профит
+
+console.log(w);
