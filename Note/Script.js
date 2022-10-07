@@ -39,9 +39,10 @@ console.log(parseFloat(test)); // Выводит значение с плава�
 
 
 let result;
+
 function calculateVolumeAndArea(userNum) {
     if (userNum === "" || userNum <= 0 || !Number.isInteger(userNum)) {
-        return("При вычислении произошла ошибка");
+        return ("При вычислении произошла ошибка");
     } else {
         let a = Math.pow(userNum, 3);
         let b = 6 * Math.pow(userNum, 2);
@@ -51,7 +52,6 @@ function calculateVolumeAndArea(userNum) {
 }
 
 console.log(calculateVolumeAndArea(5.3));
-
 const coup = [];
 coup[0] = 1, 2, 3, 4;
 console.log(coup);
@@ -63,19 +63,92 @@ console.log(coup);
 
 function getCoupNumber(userNum) {
     if (userNum === "" || userNum < 0 || !Number.isInteger(userNum)) {
-        return("Ошибка. Проверьте правильность введенного номера места");
-    } else if(userNum > 36 || userNum == 0) {
-        return("Таких мест в вагоне не существует");
+        return ("Ошибка. Проверьте правильность введенного номера места");
+    } else if (userNum > 36 || userNum == 0) {
+        return ("Таких мест в вагоне не существует");
     } else {
         for (let l = 1; l <= 9; l += 0.24) {
             console.log(l);
             for (let i = 1; i <= 36; i++) {
                 console.log(i);
-                if(userNum === i) {
+                if (userNum === i) {
                     return Math.round(l);
                 }
             }
         }
-    }   
+    }
 }
 console.log(getCoupNumber(34));
+
+
+function learnJS(lang, callback) {
+    console.log(`Я учу: ${lang}`);
+    callback();
+}
+
+learnJS("JavaScript", me); // call back function
+
+function me(i) {
+    console.log("Да да я");
+}
+
+
+
+
+const options = {
+    name: "test",
+    width: "1024",
+    height: "1024",
+    colors: {
+        border: "black",
+        bg: "red",
+    },
+    makeTest: function () {
+        console.log("test");
+    }
+};
+
+const {border, bg} = options.colors; // деструктуризация объекта. Условно говоря разобрать объект и добраться до его частей.
+options.makeTest();
+console.log(Object.keys(options).length); // замена каунтера. 
+// console.log(options['colors']['border']);
+
+
+// delete options.name;
+// console.log(options);
+
+let counter = 0;
+for (let key in options) { // цикл перебора объектов.
+    if (typeof (options[key]) === "object") {
+        for (let key2 in options[key]) {
+            console.log(`Свойство ${key} Имеет значение: ${options[key][key2]}`);
+            counter++;
+        }
+    } else {
+        console.log(`Свойство ${key} Имеет значение: ${options[key]}`);
+        counter++;
+    }
+}
+console.log(counter);
+
+
+
+const arr = [1, 2, 4, 6,];
+arr.forEach(function (items, key, arr){
+    console.log(`${key}: ${items} внутри массива ${arr}`);
+}); 
+
+
+
+
+const arrw = ["qqq", "aaa", "bbb"];
+arrw.sort();
+console.log(arrw.join(", "));
+
+
+
+// arr.pop();
+// arr.push("wassup");
+// console.log(arr);
+
+
