@@ -282,4 +282,25 @@
 // }
 // standardizeStrings(favoriteCities); // решение задачи выше в 3 строки ёмаё
 
+// const someString = 'This is some strange string';
 
+// function reverse(str) {
+//     let a = "";
+//     const arr = str.split("");
+//     return a += arr.reverse().join("");
+// }
+// console.log(reverse(someString));
+
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+const allCurr = [...baseCurrencies, ...additionalCurrencies];
+function availableCurr(arr, missingCurr) {
+    const Currs = [arr];
+    if (missingCurr == Currs) {
+        console.log(true);
+    } else {
+        console.log(false);
+    }
+}
+availableCurr(allCurr, "CNY");
