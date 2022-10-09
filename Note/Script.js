@@ -221,23 +221,23 @@
 
 const personalPlanPeter = {
     name: "Peter",
-    age: "29",
+    age: "30",
     skills: {
-        languages: ['ru', 'eng', ],
+        languages: ['ru', 'ua', ],
         programmingLangs: {
             js: '20%',
             php: '10%'
         },
         exp: '1 month'
     },
-    showAgeAndLangs: function () {
+    showAgeAndLangs: function (myFunct) {
         let a;
         let b;
-        a = personalPlanPeter.skills.languages.join(' ');
-        return b = `Мне ${personalPlanPeter.age} и я владею языками:${a.toUpperCase()}`;
+        a = myFunct.skills.languages.join(' ');  // Join - делает из массива строку, в скобочка указывать, как выводить данные (, || ; || " ")
+        return b = `Мне ${myFunct.age} и я владею языками:${a.toUpperCase()}`;
     }
 };
-// console.log(personalPlanPeter.showAgeAndLangs());
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
 // const personalPlanPeterCopy = {
 //     ...personalPlanPeter
 // };
