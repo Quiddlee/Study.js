@@ -274,7 +274,7 @@
 // }
 // showFamily(family);
 
-const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+// const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
 
 // function standardizeStrings(arr) {
 //     let res = "";
@@ -286,9 +286,11 @@ const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
 // }
 // standardizeStrings(favoriteCities);
 
-function standardizeStrings(arr) {
-    arr.forEach(element => {
-        console.log(element.toLowerCase());
-    });
-}
-standardizeStrings(favoriteCities); // решение задачи выше в 3 строки ёмаё
+// function standardizeStrings(arr) {
+//     arr.forEach(element => {
+//         console.log(element.toLowerCase());
+//     });
+// }
+// standardizeStrings(favoriteCities); // решение задачи выше в 3 строки ёмаё
+
+
