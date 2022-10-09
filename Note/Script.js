@@ -219,25 +219,25 @@
 
 
 
-const personalPlanPeter = {
-    name: "Peter",
-    age: "30",
-    skills: {
-        languages: ['ru', 'ua', ],
-        programmingLangs: {
-            js: '20%',
-            php: '10%'
-        },
-        exp: '1 month'
-    },
-    showAgeAndLangs: function (myFunct) {
-        let a;
-        let b;
-        a = myFunct.skills.languages.join(' ');  // Join - делает из массива строку, в скобочка указывать, как выводить данные (, || ; || " ")
-        return b = `Мне ${myFunct.age} и я владею языками:${a.toUpperCase()}`;
-    }
-};
-console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+// const personalPlanPeter = {
+//     name: "Peter",
+//     age: "30",
+//     skills: {
+//         languages: ['ru', 'ua', ],
+//         programmingLangs: {
+//             js: '20%',
+//             php: '10%'
+//         },
+//         exp: '1 month'
+//     },
+//     showAgeAndLangs: function (myFunct) {
+//         let a;
+//         let b;
+//         a = myFunct.skills.languages.join(' ');  // Join - делает из массива строку, в скобочка указывать, как выводить данные (, || ; || " ")
+//         return b = `Мне ${myFunct.age} и я владею языками:${a.toUpperCase()}`;
+//     }
+// };
+// console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
 // const personalPlanPeterCopy = {
 //     ...personalPlanPeter
 // };
@@ -260,3 +260,35 @@ console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
 //     return a;
 // }
 // console.log(showProgrammingLangs(personalPlanPeterCopy));
+
+
+// const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+
+// function showFamily(arr) {
+// let [fam1, fam2, fam3, fam4] = arr;
+// if (arr.length !== 0) {
+//     return `Семья состоит из: ${fam1} ${fam2} ${fam3} ${fam4}`;
+// } else {
+//     return "Семья пуста";
+// }
+// }
+// showFamily(family);
+
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+// function standardizeStrings(arr) {
+//     let res = "";
+//     let a = [...arr];
+//     for (let i = 0; i < a.length; i++) {
+//        res += `${a[i].toLowerCase()} \n`;
+//     }
+//     console.log(res);
+// }
+// standardizeStrings(favoriteCities);
+
+function standardizeStrings(arr) {
+    arr.forEach(element => {
+        console.log(element.toLowerCase());
+    });
+}
+standardizeStrings(favoriteCities); // решение задачи выше в 3 строки ёмаё
