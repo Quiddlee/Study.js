@@ -223,7 +223,7 @@ const personalPlanPeter = {
     name: "Peter",
     age: "29",
     skills: {
-        languages: ['ru', 'eng',],
+        languages: ['ru', 'eng', ],
         programmingLangs: {
             js: '20%',
             php: '10%'
@@ -237,7 +237,7 @@ const personalPlanPeter = {
         return b = `Мне ${personalPlanPeter.age} и я владею языками:${a.toUpperCase()}`;
     }
 };
-console.log(personalPlanPeter.showAgeAndLangs());
+// console.log(personalPlanPeter.showAgeAndLangs());
 // const personalPlanPeterCopy = {
 //     ...personalPlanPeter
 // };
