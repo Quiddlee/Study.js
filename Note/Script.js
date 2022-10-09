@@ -18,8 +18,6 @@
 // }
 // console.log(getMathResult(10, 3));
 
-
-
 // const text = "wassup";
 // console.log(text.toUpperCase()); //012345
 // console.log(text.indexOf("s")); // wassup (s = 2)
@@ -36,7 +34,6 @@
 // const test = "12.2px";
 // console.log(parseInt(test)); // переводит число в другую систему исчеслений.
 // console.log(parseFloat(test)); // Выводит значение с плавающей точкой.
-
 
 // let result;
 
@@ -55,11 +52,6 @@
 // const coup = [];
 // coup[0] = 1, 2, 3, 4;
 // console.log(coup);
-
-
-
-
-
 
 // function getCoupNumber(userNum) {
 //     if (userNum === "" || userNum < 0 || !Number.isInteger(userNum)) {
@@ -91,9 +83,6 @@
 // function me(i) {
 //     console.log("Да да я");
 // }
-
-
-
 
 // const options = {
 //     name: "test",
