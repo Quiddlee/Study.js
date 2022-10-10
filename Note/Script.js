@@ -282,8 +282,18 @@
 // }
 // standardizeStrings(favoriteCities); // решение задачи выше в 3 строки ёмаё
 
-// ;
+// const someString = 'This is some strange string';
 
+// function reverse(str) {
+//     if (typeof(str) == "string") {
+//     let a = "";
+//     const arr = str.split("");
+//     return a += arr.reverse().join("");
+//     } else {
+//         return "Ошибка!";
+//     }
+// }
+// console.log(reverse(someString));
 
 const baseCurrencies = ['USD', 'EUR'];
 const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
@@ -296,12 +306,13 @@ function availableCurr(arr, missingCurr) {
             i++;
         }
         arr.splice(i, 1);
-        console.log("Доступные валюты:");
-        return arr.forEach(element => {
-            console.log(element);
-        });
+        let a = "Доступные валюты: \n";
+        for (let i = 0; i < arr.length; i++) {
+            a += `${arr[i]}\n`;
+        }
+        return a;
     } else {
-        console.log("Нету доступных валют");
+        return "Нету доступных валют";
     }
 }
-availableCurr(allCurr, 'RUB');
+console.log(availableCurr(allCurr, 'USD'));
