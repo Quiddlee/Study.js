@@ -295,24 +295,46 @@
 // }
 // console.log(reverse(someString));
 
-const baseCurrencies = ['USD', 'EUR'];
-const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
-const allCurr = [...baseCurrencies, ...additionalCurrencies];
+// const baseCurrencies = ['USD', 'EUR'];
+// const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+// const allCurr = [...baseCurrencies, ...additionalCurrencies];
 
-function availableCurr(arr, missingCurr) {
-    let i = 0;
-    if (i !== arr.length) {
-        while (missingCurr !== arr[i]) {
-            i++;
-        }
-        arr.splice(i, 1);
-        let a = "Доступные валюты: \n";
-        for (let i = 0; i < arr.length; i++) {
-            a += `${arr[i]}\n`;
-        }
-        return a;
-    } else {
-        return "Нету доступных валют";
-    }
-}
-console.log(availableCurr(allCurr, 'USD'));
+// function availableCurr(arr, missingCurr) {
+//     let i = 0;
+//     if (i !== arr.length) {
+//         while (missingCurr !== arr[i]) {
+//             i++;
+//         }
+//         arr.splice(i, 1);
+//         let a = "Доступные валюты: \n";
+//         for (let i = 0; i < arr.length; i++) {
+//             a += `${arr[i]}\n`;
+//         }
+//         return a;
+//     } else {
+//         return "Нету доступных валют";
+//     }
+// }
+// console.log(availableCurr(allCurr, 'USD'));
+
+
+// const soldier = {
+//     health: 400,
+//     armor: 100
+// };
+
+// const john = {
+//     health: 100
+// };
+
+// john.__proto__ = soldier; // прото связывает один объект с другим ***Это устаревший формат***
+
+
+// Object.setPrototypeOf(john, soldier); // 1 объект которому навязывают прототип 2 - прототип 
+// console.log(john.armor); 
+
+// const john = Object.create(soldier);
+
+// Object.getPrototypeOf();
+// Object.setPrototypeOf();
+
