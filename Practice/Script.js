@@ -93,7 +93,7 @@ const personalMovieDB = {
         let j = 0;
         personalMovieDB.genres.forEach(element => {
             j++;
-            console.log(`Любимый жанр ${j} - это ${element}`);
+            console.log(`Любимый жанр №${j} - это ${element}`);
         });
     },
     toggleVisivleMyDB: function () {
