@@ -84,7 +84,7 @@ const personalMovieDB = {
     writeYourGenres: function () {
         for (let i = 1; i <= 3; i++) {
             personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`, "");
-            if (personalMovieDB.genres != null && personalMovieDB.genres != "" && personalMovieDB.genres.length < 50) {
+            if (personalMovieDB.genres[i - 1] != null && personalMovieDB.genres[i - 1] != "" && personalMovieDB.genres[i - 1].length < 50) {
                 console.log("passed");
             } else {
                 console.log("not passed");
