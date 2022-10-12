@@ -295,24 +295,24 @@
 // }
 // console.log(reverse(someString));
 
-// const baseCurrencies = ['USD', 'EUR'];
-// const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
-// const allCurr = [...baseCurrencies, ...additionalCurrencies];
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+const allCurr = [...baseCurrencies, ...additionalCurrencies];
 
-// function availableCurr(arr, missingCurr) {
-//     let i = 0;
-//     if (i !== arr.length) {
-//         while (missingCurr !== arr[i]) {
-//             i++;
-//         }
-//         arr.splice(i, 1);
-//         let a = "Доступные валюты: \n";
-//         for (let i = 0; i < arr.length; i++) {
-//             a += `${arr[i]}\n`;
-//         }
-//         return a;
-//     } else {
-//         return "Нету доступных валют";
-//     }
-// }
-// console.log(availableCurr(allCurr, 'USD'));
+function availableCurr(arr, missingCurr) {
+    let i = 0;
+    if (i !== arr.length) {
+        while (missingCurr !== arr[i]) {
+            i++;
+        }
+        arr.splice(i, 1);
+        let a = "Доступные валюты: \n";
+        for (let i = 0; i < arr.length; i++) {
+            a += `${arr[i]}\n`;
+        }
+        return a;
+    } else {
+        return "Нету доступных валют";
+    }
+}
+console.log(availableCurr(allCurr, 'USD'));
