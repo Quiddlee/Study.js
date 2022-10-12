@@ -340,64 +340,77 @@
 
 
 
-const shoppingMallData = {
-    shops: [{
-            width: 10,
-            length: 5
-        },
-        {
-            width: 15,
-            length: 7
-        },
-        {
-            width: 20,
-            length: 5
-        },
-        {
-            width: 8,
-            length: 10
-        }
-    ],
-    height: 5,
-    moneyPer1m3: 30,
-    budget: 50000
-};
+// const shoppingMallData = {
+//     shops: [{
+//             width: 10,
+//             length: 5
+//         },
+//         {
+//             width: 15,
+//             length: 7
+//         },
+//         {
+//             width: 20,
+//             length: 5
+//         },
+//         {
+//             width: 8,
+//             length: 10
+//         }
+//     ],
+//     height: 5,
+//     moneyPer1m3: 30,
+//     budget: 50000
+// };
 
-const mallsWidth = [];
-const mallsLength = [];
-for (let i = 0; i < shoppingMallData.shops.length; i++) {
-    mallsWidth[i] = shoppingMallData.shops[i].width;
-    mallsLength[i] = shoppingMallData.shops[i].length;
-}
+// // for (let i = 0; i < shoppingMallData.shops.length; i++) {
+// //     mallsWidth[i] = shoppingMallData.shops[i].width;
+// //     mallsLength[i] = shoppingMallData.shops[i].length;
+// // }
 
-let widthSum = 0;
-let lengthSum = 0;
-let square;
-let volume;
 
-function mallsSquare() {
-    for (let i = 0; i < mallsWidth.length; i++) {
-        widthSum += mallsWidth[i];
-    }
-    for (let i = 0; i < mallsLength.length; i++) {
-        lengthSum += mallsLength[i];
-    }
-    square = widthSum * lengthSum;
-    return square;
-}
-mallsSquare();
 
-function mallVolume() {
-    volume = square * shoppingMallData.height;
-    return volume;
-}
-mallVolume();
 
-function isBudgetEnough(data) {
-    if (data.budget - (volume * data.moneyPer1m3) >= 0) {
-        return "Бюджета достаточно";
-    } else {
-        return "Бюджета недостаточно";
-    }
-}
-console.log(isBudgetEnough(shoppingMallData));
+// function isBudgetEnough(data) {
+//     // const mallsWidth = [];
+//     // const mallsLength = [];
+//     // let widthSum = 0;
+//     // let lengthSum = 0;
+//     let square = 0;
+//     let volume = 0;
+//     // for (let i = 0; i < data.shops.length; i++) {
+//     //     mallsWidth[i] = data.shops[i].width;
+//     //     mallsLength[i] = data.shops[i].length;
+//     // }
+
+//     // function mallsSquare() {
+//     //     for (let i = 0; i < mallsWidth.length; i++) {
+//     //         widthSum += mallsWidth[i];
+//     //     }
+//     //     for (let i = 0; i < mallsLength.length; i++) {
+//     //         lengthSum += mallsLength[i];
+//     //     }
+//     //     square = widthSum * lengthSum;
+//     //     return square;
+//     // }
+//     // mallsSquare();
+
+//     data.shops.forEach(shops => {
+//         square += shops.width * shops.length
+//     });
+
+//     // function mallVolume() {
+//     //     volume = square * data.height;
+//     //     return volume;
+//     // }
+//     // mallVolume();
+
+//     volume = data.height * square;
+
+//     if (data.budget - (volume * data.moneyPer1m3) >= 0) {
+//         return "Бюджета достаточно";
+//     } else {
+//         return "Бюджета недостаточно";
+//     }
+// }
+// console.log(isBudgetEnough(shoppingMallData));
