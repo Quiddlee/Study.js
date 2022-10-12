@@ -85,12 +85,16 @@ const personalMovieDB = {
         for (let i = 1; i <= 3; i++) {
             personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`, "");
             if (personalMovieDB.genres[i - 1] != null && personalMovieDB.genres[i - 1] != "" && personalMovieDB.genres[i - 1].length < 50) {
-                console.log("passed");
+                    // console.log(`Любимый жанр ${i} - это ${personalMovieDB.genres[i - 1]}`);
             } else {
-                console.log("not passed");
                 i--;
             }
         }
+        let j = 0;
+        personalMovieDB.genres.forEach(element => {
+            j++;
+            console.log(`Любимый жанр ${j} - это ${element}`);
+        });
     },
     toggleVisivleMyDB: function () {
         if (personalMovieDB.private === false) {
