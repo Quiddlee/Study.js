@@ -338,3 +338,48 @@
 // Object.getPrototypeOf();
 // Object.setPrototypeOf();
 
+
+
+const shoppingMallData = {
+    shops: [{
+            width: 10,
+            length: 5
+        },
+        {
+            width: 15,
+            length: 7
+        },
+        {
+            width: 20,
+            length: 5
+        },
+        {
+            width: 8,
+            length: 10
+        }
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000
+};
+
+console.log(shoppingMallData.shops[0]);
+const mallsWidth = [];
+const mallsLength = [];
+for (let i = 0; i < shoppingMallData.shops.length; i++ ) {
+    mallsWidth[i] = shoppingMallData.shops[i].width;
+    mallsLength[i] = shoppingMallData.shops[i].length;
+}
+console.log(mallsWidth);
+console.log(mallsLength);
+
+
+// function isBudgetEnough() {
+//     let a;
+//     shoppingMallData.shops.forEach((width, length) => {
+//         a = width * length;
+//     });
+//     return a;
+// }
+// // console.log(isBudgetEnough());
+// console.log(shoppingMallData.shops);
