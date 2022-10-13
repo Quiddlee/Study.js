@@ -429,3 +429,7 @@
 //     }
 // }
 // console.log(sortStudentsByGroups(students));
+
+// !!"1" // Bang! Bang! you're boolian 
+
+// console.log("b" > "a");
