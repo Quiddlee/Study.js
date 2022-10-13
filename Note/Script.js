@@ -414,3 +414,18 @@
 //     }
 // }
 // console.log(isBudgetEnough(shoppingMallData));
+
+// const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam',];
+
+// function sortStudentsByGroups(stdnts) {
+//     const Groups = [];
+//     stdnts.forEach(element => {
+//         Groups.push(stdnts.sort().splice(0, 3));
+//     });
+//     if (stdnts.length === 0) {
+//         return `${Groups}Оставшиеся студенты: -`;
+//     } else {
+//         return `${Groups}Оставшиеся студенты: ${stdnts}`;
+//     }
+// }
+// console.log(sortStudentsByGroups(students));
