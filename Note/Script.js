@@ -497,6 +497,6 @@ shoppingMallData.shops.forEach(element => {
     wdth += element.width;
     lnght += element.length;
 });
-console.log(wdth);
-console.log(lnght);
+console.log(`width sum is: ${wdth}`);
+console.log(`length sum is: ${lnght}`);
 
