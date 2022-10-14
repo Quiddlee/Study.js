@@ -456,47 +456,49 @@
 
 
 
-const arr = [];
-for (let i = 5; i <= 10; i++) {
-    arr[i - 5] = i;
-}
-// console.log(arr);
-const result = [];
+// const arr = [];
+// for (let i = 5; i <= 10; i++) {
+//     arr[i - 5] = i;
+// }
+// // console.log(arr);
+// const result = [];
 
-arr.forEach(element => {
-    result.push(element * 2);
-});
-// console.log(result);
+// arr.forEach(element => {
+//     result.push(element * 2);
+// });
+// // console.log(result);
 
-const shoppingMallData = {
-    shops: [{
-            width: 10,
-            length: 5
-        },
-        {
-            width: 15,
-            length: 7
-        },
-        {
-            width: 20,
-            length: 5
-        },
-        {
-            width: 8,
-            length: 10
-        }
-    ],
-    height: 5,
-    moneyPer1m3: 30,
-    budget: 50000
-};
-let lnght = 0;
-let wdth = 0;
+// const shoppingMallData = {
+//     shops: [{
+//             width: 10,  // ключ у этого значения 0
+//             length: 5
+//         },
+//         {
+//             width: 15, // ключ у этого 1 и тд
+//             length: 7
+//         },
+//         {
+//             width: 20,
+//             length: 5
+//         },
+//         {
+//             width: 8,
+//             length: 10
+//         }
+//     ],
+//     height: 5,
+//     moneyPer1m3: 30,
+//     budget: 50000
+// };
+// let square = 0;
+// shoppingMallData.shops.forEach(shop => {
+//     square += shop.width * shop.length;
+// });
+// console.log(square);
 
-shoppingMallData.shops.forEach(element => {
-    wdth += element.width;
-    lnght += element.length;
-});
-console.log(`width sum is: ${wdth}`);
-console.log(`length sum is: ${lnght}`);
 
+// function getData(data) {
+//     let square = 0;
+
+// }
+// console.log(getData(shoppingMallData));
