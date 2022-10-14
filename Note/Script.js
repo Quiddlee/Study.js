@@ -495,10 +495,3 @@
 //     square += shop.width * shop.length;
 // });
 // console.log(square);
-
-
-// function getData(data) {
-//     let square = 0;
-
-// }
-// console.log(getData(shoppingMallData));
