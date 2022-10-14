@@ -495,3 +495,35 @@
 //     square += shop.width * shop.length;
 // });
 // console.log(square);
+
+
+// const myName = "bravo";
+
+// function areYouPlayingBanjo(name) {
+//     const test1 = name.split("").splice(0,1).includes("R", 1);
+//     const test2 = name.split("").splice(0,1).includes("r", 1);
+//     if (test1) {
+//         return name + " plays banjo";
+//     } else {  if (test2) {
+//         return name + " plays banjo";
+//     } else {
+//         return name + " does not play banjo";
+//     }  
+//     }
+// }
+// console.log(areYouPlayingBanjo(myName));
+
+// const flwr1 = 4;
+// const flwr2 = 1;
+
+// function lovefunc(flower1, flower2) {
+//     function test(flwr) {
+//         let testRes = flwr % 2 == 0 ? 1 : 0;
+//         return testRes;
+//     }
+//     const res1 = test(flower1);
+//     const res2 = test(flower2);
+//     const fnlRes = res1 === res2 ? 0 : 1;
+//     return !!fnlRes;
+// }
+// console.log(lovefunc(flwr1, flwr2));
