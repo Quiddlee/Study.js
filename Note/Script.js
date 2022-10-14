@@ -433,3 +433,70 @@
 // !!"1" // Bang! Bang! you're boolian 
 
 // console.log("b" > "a");
+
+// const personalMovieDB = {
+//     count: 0,
+//     detectPersonalLevel: () => {
+//         (personalMovieDB.count < 10) ? console.log("Просмотрено довольно мало фильмов"):
+//             (personalMovieDB.count > 10 && personalMovieDB.count < 30) ? console.log("Вы классический зритель") :
+//             (personalMovieDB.count > 30) ? console.log("Вы киноман") : console.log("Произошла ошибка");
+//     }
+// };
+// personalMovieDB.detectPersonalLevel();
+
+// if (personalMovieDB.count < 10) {
+//     console.log("Просмотренно довольно мало фильмов");
+// } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+//     console.log("Вы классический зритель");
+// } else if (personalMovieDB.count > 30) {
+//     console.log("Вы киноман");
+// } else {
+//     console.log("Произошла ошибка");
+// }
+
+
+
+const arr = [];
+for (let i = 5; i <= 10; i++) {
+    arr[i - 5] = i;
+}
+// console.log(arr);
+const result = [];
+
+arr.forEach(element => {
+    result.push(element * 2);
+});
+// console.log(result);
+
+const shoppingMallData = {
+    shops: [{
+            width: 10,
+            length: 5
+        },
+        {
+            width: 15,
+            length: 7
+        },
+        {
+            width: 20,
+            length: 5
+        },
+        {
+            width: 8,
+            length: 10
+        }
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000
+};
+let lnght = 0;
+let wdth = 0;
+
+shoppingMallData.shops.forEach(element => {
+    wdth += element.width;
+    lnght += element.length;
+});
+console.log(wdth);
+console.log(lnght);
+
