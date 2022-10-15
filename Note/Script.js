@@ -513,8 +513,8 @@
 // }
 // console.log(areYouPlayingBanjo(myName));
 
-// const flwr1 = 4;
-// const flwr2 = 1;
+// const flwr1 = 1;
+// const flwr2 = 2;
 
 // function lovefunc(flower1, flower2) {
 //     function test(flwr) {
@@ -527,3 +527,9 @@
 //     return !!fnlRes;
 // }
 // console.log(lovefunc(flwr1, flwr2));
+
+// function loveFunc(flower1, flower2) {
+//     return (flower1 + flower2) % 2 !== 0 ? !!1 : !!0 ;
+// }
+// console.log(loveFunc(flwr1, flwr2));
+
