@@ -533,13 +533,21 @@
 // }
 // console.log(loveFunc(flwr1, flwr2));
 
-const classScore = [100, 40, 34, 57, 29, 72, 57, 88];
+// const classScore = [100, 40, 34, 57, 29, 72, 57, 88];
 
-function betterThanAverage(classPoints, yourPoints) {
-    let sum = 0;
-    classPoints.forEach(element => {
-       sum += element / classPoints.length;
-    });
-    return sum < yourPoints ? !!1 : !!0;
-}
-console.log(betterThanAverage(classScore, 90));
+// function betterThanAverage(classPoints, yourPoints) {
+//     let sum = 0;
+//     classPoints.forEach(element => {
+//        sum += element / classPoints.length;
+//     });
+//     return sum < yourPoints ? !!1 : !!0;
+// }
+// console.log(betterThanAverage(classScore, 90));
+
+
+// let word = "";
+
+// function removeChar(str) {
+//     return str.split("").slice(1, -1).join("");
+// }
+// console.log(removeChar(word));
