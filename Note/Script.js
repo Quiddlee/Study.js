@@ -567,3 +567,18 @@
 //     return number % 2 ? "Odd" : "Even"; // можно не писать 0 когда проверяем отсаток от деления
 // }
 // console.log(evenOrOdd(10));
+
+
+// function litres(time) {
+//     let res = time;
+//     for (let i = 0; i <= time; i++) {
+//         res -= 0.5;
+//     }
+//     return Math.floor(res);
+// }
+// console.log(litres(12.3));
+
+// function litres(time) {
+//     return Math.floor(time / 2);
+// }
+// console.log(litres(11.8));
