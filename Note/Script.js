@@ -551,3 +551,24 @@
 //     return str.split("").slice(1, -1).join("");
 // }
 // console.log(removeChar(word));
+
+// function countSheep(num) {
+//     let res = "";
+//     let i = 1;
+//     while (i <= num) {
+//         res += i++ + " sheep...";
+//     }
+//     return res;
+// }
+// console.log(countSheep(3));
+
+
+// function countSheep(num) {
+//     let i = 1;
+//     let res = "";
+//     do {
+//         res += i++ + " sheep...";
+//     } while (i <= num);
+//     return res;
+// }
+// console.log(countSheep(0));
