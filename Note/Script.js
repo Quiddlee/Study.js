@@ -587,3 +587,17 @@
 //     return number % 2 ? number * 9 : number * 8; 
 // }
 // console.log(simpleMultiplication(3));
+
+// function hero(b, d) {
+//     return b > d* 2 ? !!1 : !!0;
+// }
+// console.log(hero(10, 5));
+
+// function squareSum(numbers) {
+//     let sum = 0;
+//     numbers.forEach(element => {
+//         sum += element ** 2;
+//     });
+//     return sum;
+// }
+// console.log(squareSum([0, 3, 4, 5]));
