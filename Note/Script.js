@@ -582,3 +582,8 @@
 //     return Math.floor(time / 2);
 // }
 // console.log(litres(11.8));
+
+// function simpleMultiplication(number) {
+//     return number % 2 ? number * 9 : number * 8; 
+// }
+// console.log(simpleMultiplication(3));
