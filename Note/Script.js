@@ -563,12 +563,7 @@
 // console.log(countSheep(3));
 
 
-// function countSheep(num) {
-//     let i = 1;
-//     let res = "";
-//     do {
-//         res += i++ + " sheep...";
-//     } while (i <= num);
-//     return res;
+// function evenOrOdd(number) {
+//     return number % 2 ? "Odd" : "Even"; // можно не писать 0 когда проверяем отсаток от деления
 // }
-// console.log(countSheep(0));
+// console.log(evenOrOdd(10));
