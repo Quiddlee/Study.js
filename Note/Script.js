@@ -647,3 +647,14 @@
 //     return Math.round(year / 100 + 0.49);
 // }
 // console.log(century(2001));
+
+// function disemvowel(str) {
+//     return str.replace(/[iaeuo]/gi, "");
+// }
+// console.log(disemvowel("yo wassup"));
+
+// function findSmallestInt(args) {
+//     return Math.min(...args);
+// }
+// console.log(findSmallestInt([34, 15, 88, 2]));
+
