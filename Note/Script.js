@@ -706,6 +706,7 @@
 // };
 // console.log(getSum(1, 5));
 
-function validatePIN (pin) {
-    //return true or false
-  }
+function validatePIN(pin) {
+    return pin.length == 4; // || = true
+}
+console.log(validatePIN("1234"));
