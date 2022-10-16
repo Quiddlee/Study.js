@@ -1,3 +1,4 @@
+"use strict";
 // let s = "";
 
 // function getMathResult(a, b) {
@@ -657,4 +658,13 @@
 //     return Math.min(...args);
 // }
 // console.log(findSmallestInt([34, 15, 88, 2]));
+
+// function summation(num) {
+//     let res = 0;
+//     for (let i = 1; i <= num; i++) {
+//         res += i;
+//     }
+//     return res;
+// }
+// console.log(summation(1));
 
