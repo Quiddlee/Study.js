@@ -601,3 +601,49 @@
 //     return sum;
 // }
 // console.log(squareSum([0, 3, 4, 5]));
+
+// const arr = ['hello', 'world', 'this', 'is', 'great'];
+// const smash = (words) => {
+//     return words.join(" ");
+// };
+// console.log(smash(arr));
+
+// function positiveSum(arr) {
+//     let res = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] < 0) {
+//             continue;
+//         } else{ 
+//         res += arr[i];
+//         }
+//     }
+// return res;
+// }
+// console.log(positiveSum([-1,-2,-3,-4,-5]));
+
+
+// function positiveSum(arr) {
+//     let res = 0;
+//     arr.forEach(element => {
+//         element > 0 ? 0: res += element;
+//     });
+//     return res;
+// }
+// console.log(positiveSum([10, 150, -5]));
+
+
+// function century(year) {
+//     return Math.round(year / 97.42);
+// }
+// console.log(century(89));
+
+// function century(year) {
+//     const wassup = year.toString().split("");
+//     return wassup > 100 ? wassup.splice(0,2).join("") : wassup.splice(0,2).join("");
+// }
+// console.log(century(1705));
+
+// function century(year) {
+//     return Math.round(year / 100 + 0.49);
+// }
+// console.log(century(2001));
