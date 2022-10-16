@@ -668,3 +668,44 @@
 // }
 // console.log(summation(1));
 
+// function getSum(a, b) {
+//     let res = 0;
+//     for (let i = 0; i <= 10; i++) {
+//         if(res == b) {
+//             return res;
+//         }else {
+//             res += a + i;
+//         }
+//     }
+//     return res;
+// }
+// console.log(getSum(-1, 0));
+
+// const getSum = (a, b) => {
+//     let sum = 0;
+//     if (a == b) {
+//         return a;
+//     } else {
+//         if (a == 0) {
+//             return b;
+//         } else if (b == 0) {
+//             return a;
+//         } else if (a < b) {
+//             for (let i = a; i < b; i++) {
+//                 sum += i + 1;
+//                 console.log(sum);
+//             }
+//         } else {
+//             for (let i = a; i > b; i--) {
+//                 sum += i + 1;
+//                 console.log(sum);
+//             }
+//             return sum;
+//         }
+//     }
+// };
+// console.log(getSum(1, 5));
+
+function validatePIN (pin) {
+    //return true or false
+  }
