@@ -706,7 +706,10 @@
 // };
 // console.log(getSum(1, 5));
 
-function validatePIN(pin) {
-    return pin.length == 4; // || = true
-}
-console.log(validatePIN("1234"));
+// function past(h, m, s) {
+//     h *= 3600000;
+//     m *= 60000;
+//     s *= 1000;
+//     return h + m + s;
+// }
+// console.log(past(0, 1, 1));
