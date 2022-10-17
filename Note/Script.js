@@ -713,3 +713,22 @@
 //     return h + m + s;
 // }
 // console.log(past(0, 1, 1));
+
+// function getMiddle(s) {
+//     return s.length % 2 ? s[s.length / 2] : s.substr(2);
+// }
+// console.log(getMiddle("testing"));
+
+// function getMiddle(s) {
+//     if (s.length % 2 == 0) {
+//         return s.substr(s.length / 2 - 1, 2);
+//     } else {
+//         return s.substr(s.length / 2, 1);
+//     }
+// }
+// console.log(getMiddle("test"));
+
+// const getmiddle = (s) => {
+//     return s.length % 2 ? s.substr(s.length / 2, 1) : s.substr(s.length / 2 - 1, 2);
+// };
+// console.log(getmiddle("test"));
