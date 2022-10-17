@@ -732,3 +732,18 @@
 //     return s.length % 2 ? s.substr(s.length / 2, 1) : s.substr(s.length / 2 - 1, 2);
 // };
 // console.log(getmiddle("test"));
+
+
+// function reverseWords(str) {
+//     const arr = [];
+//     str.split(" ").forEach(element => {
+//         arr.push(element.split("").reverse().join(""));
+//     });
+//     return arr.join(" ");
+// }
+// console.log(reverseWords('double space'));
+
+// const rev = (str) => {
+//     return str.split("").reverse().join("").split(" ").reverse().join(" ");
+// };
+// console.log(rev("hello my dear friend"));
