@@ -774,3 +774,16 @@
 //     return arr;
 // }
 // console.log(digitize(3214));
+
+
+
+// function findShort(s) {
+//     const arr = [];
+//     s += '';
+//     s.toLowerCase().split(' ').forEach(e => {
+//         arr.push(e.length);
+//     });
+//     return +arr.sort((a, b) => (a - b)).splice(0,1).join('');
+
+// }
+// console.log(findShort('I LOVE JS'));
