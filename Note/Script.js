@@ -761,3 +761,16 @@
 //     return arr.join(" ");
 // };
 // console.log(toJadenCase("i love js"));
+
+// function booleanToString(b){
+//     return b == true ? "true" : "false";
+// }
+// console.log(booleanToString(true));
+
+// function digitize(n) {
+//     const arr = [];
+//     n += '';
+//     n.split('').reverse().forEach(e => arr.push(+e));
+//     return arr;
+// }
+// console.log(digitize(3214));
