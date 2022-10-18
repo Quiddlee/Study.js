@@ -747,3 +747,17 @@
 //     return str.split("").reverse().join("").split(" ").reverse().join(" ");
 // };
 // console.log(rev("hello my dear friend"));
+
+// const arr1 = [1, 2, 3];
+// arr1.forEach(el => {arr2.push(el)});
+// const arr2 = arr1.map(el => el);
+// console.log(arr2);
+
+// const toJadenCase = (str) => {
+//     const arr = [];
+//     str.split(" ").forEach(e => {
+//         arr.push(e[0].toUpperCase() + e.split("").splice(1).join(""));
+//     });
+//     return arr.join(" ");
+// };
+// console.log(toJadenCase("i love js"));
