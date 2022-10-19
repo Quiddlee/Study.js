@@ -832,3 +832,8 @@
 //     return dna.replace(/[TU]/g, match => chars[match]);
 // }
 // console.log(dnaToRna('TTTT'));
+
+// function rowSumOddNumbers(n) {
+//     return n**3;
+// }
+// console.log(rowSumOddNumbers(42));
