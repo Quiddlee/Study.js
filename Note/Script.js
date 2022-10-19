@@ -823,3 +823,12 @@
 //     return s;
 // }
 // console.log(DNAStrand('AAAA'));
+
+// function dnaToRna(dna) {
+//     const chars = {
+//         T: "U",
+//         U: 'T'
+//     };
+//     return dna.replace(/[TU]/g, match => chars[match]);
+// }
+// console.log(dnaToRna('TTTT'));
