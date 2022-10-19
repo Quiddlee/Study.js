@@ -801,3 +801,17 @@
 //     return sum % 2 ? 'odd' : 'even';
 // }
 // console.log(oddOrEven([11, 10]));
+
+// function isIsogram(str) {
+//     if (str == '') {
+//         return true;
+//     }
+//     const string = str.toLowerCase().split('').sort().join('');
+//     for (let i = 0; i < str.length; i++) {
+//         if (string[i] == string[i + 1]) {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+// console.log(isIsogram('aba'));
