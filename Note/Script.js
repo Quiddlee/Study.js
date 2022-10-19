@@ -837,3 +837,30 @@
 //     return n**3;
 // }
 // console.log(rowSumOddNumbers(42));
+
+// function addBinary(a, b) {
+//     let sum = a + b;
+//     let resOfDivision = sum;
+//     let remainder = '';
+//     for (let i = 0; i < sum; i++) {
+//         resOfDivision = resOfDivision / 2;
+//         console.log(resOfDivision);
+//         if (Number.isInteger(resOfDivision)) {
+//             remainder += 0;
+//         } else {
+//             remainder += 1;
+//         }
+//         if (resOfDivision < 1 || 0) {
+//             break;
+//         }
+//     }
+//     return remainder.split('').reverse().join('');
+// }
+// console.log(addBinary(50, 50));
+
+
+// function bill (a, b) {
+//     let decimal = a + b;
+//     return (Number(decimal).toString(2));
+// }
+// console.log(bill(50, 50));
