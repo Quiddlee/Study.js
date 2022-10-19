@@ -815,3 +815,11 @@
 //     return true;
 // }
 // console.log(isIsogram('aba'));
+
+// function DNAStrand(dna) {
+//     const chars = {'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'};
+//     let s = dna;
+//     s = s.replace(/[ATGC]/g, m => chars[m]);
+//     return s;
+// }
+// console.log(DNAStrand('AAAA'));
