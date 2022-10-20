@@ -917,3 +917,27 @@
 //     return result;
 // }
 // console.log(removeSmallest(myArray));
+
+// const myArr = [1, 1, 0];
+
+// function countPositivesSumNegatives(input) {
+//     if (input == null || input.length == 0) return [];
+
+//     const result = [];
+//     const positiveNums = [];
+//     const negativeNums = [];
+
+//     input.forEach(element => {
+//         if (element > 0) {
+//             positiveNums.push(element);
+//         }
+
+//         if (element <= 0) {
+//             negativeNums.push(element);
+//         }
+//     });
+//     result.push(positiveNums.length);
+//     result.push(negativeNums.reduce((previous, second) => previous + second));
+//     return result;
+// }
+// console.log(countPositivesSumNegatives(myArr));
