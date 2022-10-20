@@ -896,3 +896,8 @@
 //     return array.sort((a, b) => a - b).splice(1, array.length - 2).reduce((a, b) => a + b, 0);
 // }
 // console.log(sumArray([  -6, -20, -1, -10, -12  ]));
+
+// function makeUpperCase(str) {
+//     return str.toUpperCase();
+// }
+// console.log(makeUpperCase('hello'));
