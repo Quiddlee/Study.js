@@ -887,3 +887,12 @@
 
 // }
 // console.log(basicOp('*', 4, 7));
+
+
+// function sumArray(array) {
+//     if (array == null || '') {
+//         return 0;
+//     }
+//     return array.sort((a, b) => a - b).splice(1, array.length - 2).reduce((a, b) => a + b, 0);
+// }
+// console.log(sumArray([  -6, -20, -1, -10, -12  ]));
