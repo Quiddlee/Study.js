@@ -901,3 +901,19 @@
 //     return str.toUpperCase();
 // }
 // console.log(makeUpperCase('hello'));
+
+// function numberToString(num) {
+//     return num + '';
+// }
+// console.log(numberToString(123));
+
+// const myArray = [5, 3, 2, 1, 4];
+
+// function removeSmallest(numbers) {
+//     let result = [];
+//     const smallestValue = numbers.indexOf(Math.min(...numbers));
+//     result.push(...numbers);
+//     result.splice(smallestValue, 1);
+//     return result;
+// }
+// console.log(removeSmallest(myArray));
