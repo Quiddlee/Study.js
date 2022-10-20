@@ -864,3 +864,26 @@
 //     return (Number(decimal).toString(2));
 // }
 // console.log(bill(50, 50));
+
+// let str = 'TTTTT';
+// const obj = {
+//     T: 'U'
+// };
+// console.log(str.replace(/[T]/g, match => obj[match]));
+
+// function basicOp(operation, value1, value2) {
+//     switch (operation) {
+//         case '+' :
+//             return value1 + value2;
+//         case '-' : 
+//             return value1 - value2;
+//         case '*' :
+//             return value1 * value2;
+//         case '/' :
+//             return value1 / value2;
+//         default :
+//             return "change your imput";
+//     }
+
+// }
+// console.log(basicOp('*', 4, 7));
