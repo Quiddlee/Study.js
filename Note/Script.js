@@ -941,3 +941,26 @@
 //     return result;
 // }
 // console.log(countPositivesSumNegatives(myArr));
+
+// const arr1 = [121, 144, 19, 161, 19, 144, 19, 11];
+// const arr2 = [11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19];
+// // const arr2 = [121, 14641, 20736, 361, 25921, 361, 20736, 361];
+
+// function comp(array1, array2) {
+//     if (array1 == null || array1.length == 0 || array2 == null || array2.length == 0) return false;
+
+//     const squaredArr = [];
+
+//     array1.forEach(element => {
+//         squaredArr.push(element * element);
+//     });
+
+//     for (let i = 0; i < array1.length; i++) {
+//         if (squaredArr.sort()[i] !== array2.sort()[i]) {
+//             return false;
+//         }
+//     }
+
+//     return true;
+// }
+// console.log(comp(arr1, arr2));
