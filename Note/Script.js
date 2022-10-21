@@ -979,3 +979,17 @@
 //     return -1;
 // }
 // console.log(digPow(92, 1));
+
+// function order(words) {
+//     const arr = [];
+//     let i = 1;
+//     if (words )
+//     words.split(' ').forEach(element => {
+//         if (element == i) {
+//             arr.push(element);
+//             i++;
+//         }
+//     });
+//     return arr;
+// }
+// console.log(order('is2 Thi1s T4est 3a'));
