@@ -964,3 +964,18 @@
 //     return true;
 // }
 // console.log(comp(arr1, arr2));
+
+// function digPow(n, p) {
+//     const arr = [];
+//     let i = p;
+//     n += '';
+//     n.split('').forEach(element => {
+//         arr.push(element ** i++);
+//     });
+//     const res = arr.reduce((a, b) => a + b);
+//     if (Number.isInteger(res / n)) {
+//         return res / n;
+//     }
+//     return -1;
+// }
+// console.log(digPow(92, 1));
