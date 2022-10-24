@@ -993,3 +993,22 @@
 //     return arr;
 // }
 // console.log(order('is2 Thi1s T4est 3a'));
+
+// function XO(str) {
+//     let x = 0;
+//     let o = 0;
+
+//     for (let i = 0; i < str.length; i++) {
+//         if (str.toLowerCase()[i] == "x") {
+//             x++;
+//         }
+
+//         if (str.toLowerCase()[i] == "o") {
+//             o++;
+//         }
+//     }
+
+//     return x == o;
+// }
+// console.log(XO("xxoo"));
+
