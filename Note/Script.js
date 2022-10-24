@@ -1016,3 +1016,8 @@
 //     return `Hello, ${name} how are you doing today?`;
 // }
 // console.log(greet("Bogdan"));
+
+// function friend(friends){
+//     return friends.filter(friend => friend.length == 4);
+// }
+// console.log(friend(["Ryan", "Kieran", "Jason", "Yous"]));
