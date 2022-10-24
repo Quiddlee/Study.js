@@ -1012,3 +1012,7 @@
 // }
 // console.log(XO("xxoo"));
 
+// function greet(name){
+//     return `Hello, ${name} how are you doing today?`;
+// }
+// console.log(greet("Bogdan"));
