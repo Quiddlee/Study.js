@@ -23,7 +23,7 @@
 // console.log(text.toUpperCase()); //012345
 // console.log(text.indexOf("s")); // wassup (s = 2)
 
-// const slice = "yo nigga wassup";
+// const slice = "slice wassup";
 // console.log(slice.slice(9, 16)); // slice - вырезать слово или букву и показать её
 // console.log(slice.slice(9)); // можно указать только где начинается слово, он вырежит его до конца предл.
 // console.log(slice.substring(9, 16)); // Вроде одно и тоже.  
@@ -193,7 +193,7 @@
 
 
 // const video = ["youtube", "twitch", "Eugene"];
-// const blogs = ["myBlog", "youtBlog", "ourBlog"]; //метод объеденения массивов "...спред" ёпта
+// const blogs = ["myBlog", "youtBlog", "ourBlog"]; //метод объеденения массивов "...спред" 
 // const myArr = [...video, ...blogs, "insta", "vscode"];
 // console.log(myArr);
 
@@ -1021,3 +1021,5 @@
 //     return friends.filter(friend => friend.length == 4);
 // }
 // console.log(friend(["Ryan", "Kieran", "Jason", "Yous"]));
+
+console.log("ЗДАРОВА");
