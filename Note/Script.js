@@ -183,7 +183,7 @@
 // console.log(clone);
 
 
-// const newArray = ["nigga", "mamba", "shrek"];
+// const newArray = ["word", "aaa", "shrek"];
 
 // const array = newArray.slice(); // метод слайс условно говоря копирует один массив в другой
 
