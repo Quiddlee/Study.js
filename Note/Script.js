@@ -1021,3 +1021,16 @@
 //     return friends.filter(friend => friend.length == 4);
 // }
 // console.log(friend(["Ryan", "Kieran", "Jason", "Yous"]));
+
+// function uniqueInOrder(iter) {
+//     let res = [];
+
+//     for (let i = 0; i < iter.length; i++) {
+//         if (iter[i] !== iter[i + 1]) {
+//             res.push(iter[i]);
+//         }
+//     }
+
+//     return res;
+// }
+// console.log(uniqueInOrder([1, 2, 2, 3, 3]));
