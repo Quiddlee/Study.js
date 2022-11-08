@@ -1034,3 +1034,11 @@
 //     return res;
 // }
 // console.log(uniqueInOrder([1, 2, 2, 3, 3]));
+
+function getCount(str) {
+    const res = str.match(/[aeiou]/gi, '');
+    if (res == null) return 0;
+
+    return res.length;
+}
+console.log(getCount("eeeebdd"));
