@@ -1035,10 +1035,45 @@
 // }
 // console.log(uniqueInOrder([1, 2, 2, 3, 3]));
 
-function getCount(str) {
-    const res = str.match(/[aeiou]/gi, '');
-    if (res == null) return 0;
+// function getCount(str) {
+//     const res = str.match(/[aeiou]/gi, '');
+//     if (res == null) return 0;
 
-    return res.length;
-}
-console.log(getCount("eeeebdd"));
+//     return res.length;
+// }
+// console.log(getCount("eeeebdd"));
+
+// function getGrade(s1, s2, s3) {
+//     let res = s1 + s2 + s3;
+//     res = Math.round(res / 3);
+
+//     console.log(res);
+//     if (res >= 100) {
+//         return 'A';
+//     }
+
+//     if (res > 90 || res > 80) {
+//         return 'B';
+//     }
+
+//     if (res > 80 || res >= 70) {
+//         return 'C';
+//     }
+
+//     if (res > 70 || res >= 60) {
+//         return 'D';
+//     }
+
+//     if (res < 60) {
+//         return 'F';
+//     }
+// }
+// console.log(getGrade(80,80,80));
+
+// function moveZeros(arr) {
+//     const zeros = arr.filter(e => e === 0);
+//     const nums = arr.filter(e => e !== 0);
+//     nums.push(...zeros);
+//     return nums;
+// }
+// console.log(moveZeros([9, 0, 9, 1, 2, 1, 1, 3, 1, 9, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0]));
