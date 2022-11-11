@@ -1077,3 +1077,40 @@
 //     return nums;
 // }
 // console.log(moveZeros([9, 0, 9, 1, 2, 1, 1, 3, 1, 9, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0]));
+
+function doneOrNot(board) {
+    let c = 0;
+    // board.forEach(e => {
+    //     i++;
+    //     if (e == e[i + 1]) {
+    //         return "Try again!";
+    //     }
+    // });
+    // return "Finished!";
+    // console.log(board);
+    // for (let i = 0; i < board.length; i++) {
+    //     if (board[i] == board[i + 1]) {
+    //         return 'try again';
+    //     }
+    // }
+    // return 'finished';
+    const res = board.join('');
+    for (let i = 0; i < board.length; i++) {
+        console.log(res[i]);
+        if (res[i] == 0) {
+            return "try again!";
+        }
+    }
+    return "finished";
+}
+console.log(doneOrNot([
+    [5, 3, 4, 6, 7, 8, 9, 1, 2],
+    [6, 7, 2, 1, 9, 0, 3, 4, 9],
+    [1, 0, 0, 3, 4, 2, 5, 6, 0],
+    [8, 5, 9, 7, 6, 1, 0, 2, 0],
+    [4, 2, 6, 8, 5, 3, 7, 9, 1],
+    [7, 1, 3, 9, 2, 4, 8, 5, 6],
+    [9, 0, 1, 5, 3, 7, 2, 1, 4],
+    [2, 8, 7, 4, 1, 9, 6, 3, 5],
+    [3, 0, 0, 4, 8, 1, 1, 7, 9]
+]));
