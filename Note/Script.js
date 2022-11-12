@@ -1094,14 +1094,19 @@ function doneOrNot(board) {
     //     }
     // }
     // return 'finished';
-    const res = board.join('');
-    for (let i = 0; i < board.length; i++) {
-        console.log(res[i]);
-        if (res[i] == 0) {
-            return "try again!";
+    for (let i = 0; i < board.length - 1; i++) {
+        for (let j = 0; j < 9; j++) {
+            console.log(board[j + 1][i + 1]);
+            if (board[j][i] == 0) {
+                return "Try again!";
+            }
+
+            if (board[j + 1][i] == board[i][j]) {
+                return "Try again!";
+            }
         }
     }
-    return "finished";
+    return "Finished!";
 }
 console.log(doneOrNot([
     [5, 3, 4, 6, 7, 8, 9, 1, 2],
