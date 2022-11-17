@@ -24,3 +24,13 @@ const movieDB = {
     ]
 };
 
+const interactiveList = document.querySelectorAll('.promo__interactive-item');
+document.querySelector('.promo__adv').remove();
+document.querySelector('.promo__genre').textContent = 'Драмма';
+document.querySelector('.promo__bg').style.background = 'url(img/bg.jpg)';
+document.querySelector('.promo__interactive-list');
+
+interactiveList.forEach((e, i) => {
+    e.textContent = movieDB.movies.sort()[i];
+    e.prepend(i + 1 + ' ');
+});
