@@ -88,3 +88,27 @@ link.addEventListener('click', (event) => {
     console.log(event.target);
 });
 
+
+
+//nodes & DOM elements
+
+
+// console.log(document.head);
+// console.log(document.documentElement);
+// console.log(document.body.firstChild);
+// console.log(document.body.firstElementChild);
+// console.log(document.body.lastChild);                                        // каждый элемент и нод имеет родителя
+
+// console.log(document.querySelector('#current').parentNode);                  // достаём ноды из DOM
+// console.log(document.querySelector('#current').parentElement);               // все элементы являются нодами, но не все ноды являются элементами
+
+
+// console.log(document.querySelector('[data-current="3"]').nextElementSibling);
+
+for (const node of document.body.childNodes) {        //цикл переберает все ноды и выводит только элементы
+    if (node.nodeName == '#text') {
+        continue;
+    }
+
+    console.log(node);
+}
