@@ -50,7 +50,11 @@ div.innerHTML = '<h1>Hello World</h1>';                      // обращени
 
 div.insertAdjacentHTML('afterend', '<h2>hello</h2>');
 
+
+
 //event listener
+
+
 
 const butns = document.querySelectorAll('button');
 const overlay = document.querySelector('.overlay');
@@ -73,7 +77,7 @@ const deleteElement = (e) => {                                      // можн�
 // overlay.addEventListener('click', deleteElement);
 
 butns.forEach(element => {                                             //добавление eventListener к нескльким элементам
-    element.addEventListener('click', deleteElement, {once: true});    //1 'название события', call back funct, object
+    element.addEventListener('click', deleteElement, {once: true});    //'название события', call back funct, object
 });
 
 const link = document.querySelector('a');
