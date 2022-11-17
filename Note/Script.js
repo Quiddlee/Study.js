@@ -1078,44 +1078,60 @@
 // }
 // console.log(moveZeros([9, 0, 9, 1, 2, 1, 1, 3, 1, 9, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0]));
 
-function doneOrNot(board) {
-    let c = 0;
-    // board.forEach(e => {
-    //     i++;
-    //     if (e == e[i + 1]) {
-    //         return "Try again!";
-    //     }
-    // });
-    // return "Finished!";
-    // console.log(board);
-    // for (let i = 0; i < board.length; i++) {
-    //     if (board[i] == board[i + 1]) {
-    //         return 'try again';
+// function checkForDuplicates(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i].length !== new Set(arr[i]).size) {
+//             return 'Try again!';
+//         }
+//     }
+
+//     const verticalArr = new Array(9);           
+//     for (let i = 0; i < 9; i++) {               
+//         verticalArr[i] = new Array(9);        
+//     }
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let k = 0; k < arr.length; k++) {
+//             verticalArr[i][k] = arr[k][i];
+//         }
+//     } 
+//     for (let i = 0; i < arr.length; i++) {
+//         if (verticalArr[i].length !== new Set(verticalArr[i]).size) {
+//             return 'Try again!';
+//         }
+//     }
+
+//     return 'Finished!';
+// }
+// console.log(checkForDuplicates([[5, 3, 4, 6, 7, 8, 9, 1, 2], 
+//                                 [6, 7, 2, 1, 9, 5, 3, 4, 8],
+//                                 [1, 9, 8, 3, 4, 2, 5, 6, 7],
+//                                 [8, 5, 9, 7, 6, 1, 4, 2, 3],
+//                                 [4, 2, 6, 8, 5, 3, 7, 9, 1],
+//                                 [7, 1, 3, 9, 2, 4, 8, 5, 6],
+//                                 [9, 6, 1, 5, 3, 7, 2, 8, 4],
+//                                 [2, 8, 7, 4, 1, 9, 6, 3, 5],
+//                                 [3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+
+
+// function solution(input, markers) {
+    // let i = -1;
+    // const res = input.split(' ');
+    // console.log(res);
+    // input.search(/[#!]/gi, '');
+    // for (let i = 0; i < input.length; i++) {
+    //     console.log(input[i]);
+    //     if (input[i] === '#' || '!') {
+    //         return input.slice(i);
     //     }
     // }
-    // return 'finished';
-    for (let i = 0; i < board.length - 1; i++) {
-        for (let j = 0; j < 9; j++) {
-            console.log(board[j + 1][i + 1]);
-            if (board[j][i] == 0) {
-                return "Try again!";
-            }
+    // console.log(input);
+    // res = input.slice(0, input.indexOf('#'));
+    // res = input.slice(input.indexOf('#'), input.indexOf('\n'));
+//     let res = input;
+//     res = res.split('');
+//     res.splice(res.indexOf(markers[0] || markers[1]), 13);
+//     res.splice(res.indexOf(markers[0] && markers[1]));
 
-            if (board[j + 1][i] == board[i][j]) {
-                return "Try again!";
-            }
-        }
-    }
-    return "Finished!";
-}
-console.log(doneOrNot([
-    [5, 3, 4, 6, 7, 8, 9, 1, 2],
-    [6, 7, 2, 1, 9, 0, 3, 4, 9],
-    [1, 0, 0, 3, 4, 2, 5, 6, 0],
-    [8, 5, 9, 7, 6, 1, 0, 2, 0],
-    [4, 2, 6, 8, 5, 3, 7, 9, 1],
-    [7, 1, 3, 9, 2, 4, 8, 5, 6],
-    [9, 0, 1, 5, 3, 7, 2, 1, 4],
-    [2, 8, 7, 4, 1, 9, 6, 3, 5],
-    [3, 0, 0, 4, 8, 1, 1, 7, 9]
-]));
+//     return res.join('').trim();
+// }
+// console.log(solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"]));
