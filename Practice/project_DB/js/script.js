@@ -23,12 +23,18 @@ const movieDB = {
         "Скотт Пилигрим против..."
     ]
 };
-
+const adv = document.querySelectorAll('.promo__adv img');
 const interactiveList = document.querySelectorAll('.promo__interactive-item');
-document.querySelector('.promo__adv').remove();
-document.querySelector('.promo__genre').textContent = 'Драмма';
-document.querySelector('.promo__bg').style.background = 'url(img/bg.jpg)';
-document.querySelector('.promo__interactive-list');
+const genre = document.querySelector('.promo__genre');
+const bg = document.querySelector('.promo__bg');
+
+genre.textContent = 'Драмма';
+
+bg.style.background = 'url(img/bg.jpg)';
+
+adv.forEach(e => {
+   e.remove(); 
+});
 
 interactiveList.forEach((e, i) => {
     e.textContent = movieDB.movies.sort()[i];
