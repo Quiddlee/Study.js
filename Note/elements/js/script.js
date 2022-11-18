@@ -238,3 +238,44 @@ function factorial(n) {
     }
 }
 console.log(factorial(2.3));
+
+
+// события на мобильных устройствах
+
+// 1. touchstart - касание на элеменет
+
+// 2. touchmove - касание - удерживание и перемещение пальца по элементу
+
+// 3. touchend - касание - срабатывает когда палец оторвался от элемента
+
+// 4. touchenter - когда ведём пальцем по экрану и когда наскальзываем на элемент
+
+// 5. touchleave - когда палец продожлий скользить за пределы элемента
+
+// 6. touchcancel - срабатывает когда точка соприкосновения больше не регистрируется на поверхности (выход за пределы браузера) 
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    const box = document.querySelector('.box');
+
+    box.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+
+        console.log('start');
+    });
+
+    box.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+
+        console.log('move');
+        console.log(e.touches);
+    });
+
+    box.addEventListener('touchend', (e) => {
+        e.preventDefault();
+
+        console.log('end');
+    });
+});
+
+//touches
