@@ -64,7 +64,7 @@ const overlay = document.querySelector('.overlay');
 // };
 
 // let i = 0;
-const deleteElement = (e) => { // можно создать декларируемую функцию
+const deleteElement = (e) => { // можно создать function expression
     console.log(e.currentTarget); // и использовать её в качетсве call back
     console.log(e.type);
     // i++;
