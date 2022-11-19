@@ -51,3 +51,59 @@
 // }
 
 // console.log(transferWaitors(restorantData));
+
+// Задача на рекурсию n!
+
+
+// function factorial (n) {
+//     if (n <= 0) {
+//         return 1;
+//     }
+
+//     if (!Number.isInteger(n) || n == '') {
+//         return 'Введите целое число';
+//     }
+
+//     if (n === 1) {
+//         return n;
+//     } else {
+//         return n * factorial(n - 1);
+//     }
+// }
+// console.log(factorial(5));
+
+
+// 1) Создайте функцию, которая принимает в себя целое число минут и возвращает время в нужном формате строки. 
+
+// fomula mins / 60 = mins * 12
+function getTimeFromMinutes(minutes) {
+    if (minutes < 0 || minutes !== parseInt(minutes)) {return 'Ошибка, проверьте данные';}
+    
+    let hours = 0;
+    let mins = 0;
+    let res;
+    
+    if (minutes <= 59) {
+        mins = minutes;
+    }
+    
+    if (minutes > 100 || minutes > 59) {
+        hours = minutes / 60;
+        mins = Math.round(minutes % 60); 
+    }
+
+    if (hours > 5 || hours === 0) {
+        res = 'часов';
+    }
+
+    if (hours == 1) {
+        res = 'час';
+    }
+
+    if (hours > 1) {
+        res = 'часа';
+    }
+
+    return `Это ${Math.floor(hours)} ${res} и ${mins} минут`;
+}
+console.log(getTimeFromMinutes(120));
