@@ -75,35 +75,50 @@
 
 // 1) Создайте функцию, которая принимает в себя целое число минут и возвращает время в нужном формате строки. 
 
-// fomula mins / 60 = mins * 12
-function getTimeFromMinutes(minutes) {
-    if (minutes < 0 || minutes !== parseInt(minutes)) {return 'Ошибка, проверьте данные';}
-    
-    let hours = 0;
-    let mins = 0;
-    let res;
-    
-    if (minutes <= 59) {
-        mins = minutes;
-    }
-    
-    if (minutes > 100 || minutes > 59) {
-        hours = minutes / 60;
-        mins = Math.round(minutes % 60); 
-    }
+// function getTimeFromMinutes(minutes) {
+//     if (minutes < 0 || minutes !== parseInt(minutes)) {return 'Ошибка, проверьте данные';}
 
-    if (hours > 5 || hours === 0) {
-        res = 'часов';
-    }
+//     let hours = 0;
+//     let mins = 0;
+//     let res;
 
-    if (hours == 1) {
-        res = 'час';
-    }
+//     if (minutes <= 59) {
+//         mins = minutes;
+//     }
 
-    if (hours > 1) {
-        res = 'часа';
-    }
+//     if (minutes > 100 || minutes > 59) {
+//         hours = minutes / 60;
+//         mins = Math.round(minutes % 60); 
+//     }
 
-    return `Это ${Math.floor(hours)} ${res} и ${mins} минут`;
-}
-console.log(getTimeFromMinutes(120));
+//     if (hours > 5 || hours === 0) {
+//         res = 'часов';
+//     }
+
+//     if (hours == 1) {
+//         res = 'час';
+//     }
+
+//     if (hours > 1) {
+//         res = 'часа';
+//     }
+
+//     return `Это ${Math.floor(hours)} ${res} и ${mins} минут`;
+// }
+// console.log(getTimeFromMinutes(120));
+
+
+//2) Напишите функцию, которая принимает в себя 4 числа и возвращает самое большее из них. Если один из аргументов не является числом или их меньше 4 - возвращается 0. Дробные числа разрешены.
+
+
+// function findMaxNumber(num1, num2, num3, num4) {
+//     const test = [num1, num2, num3, num4];
+//     for (let i = 0; i < test.length; i++) {
+//         if (typeof test[i] === 'string' || typeof test[i] === 'undefined') {
+//             return 0;
+//         }
+//     }
+
+//     return Math.max(num1, num2, num3, num4);
+// }
+// console.log(findMaxNumber(1, 5, 12, 11));
