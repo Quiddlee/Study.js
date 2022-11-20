@@ -289,3 +289,16 @@ box.closest('.wrapper') - ищет класс в своём родителе
 
 если не находит возвращает null
 */
+
+// const test = {
+//     name: 'John',
+//     surname: 'Miles'
+// };
+
+// const test2 = {
+//     name: 'John',
+//     surname: 'Miles'
+// };
+
+// console.log(Object.is(test, test2));
+// console.log(Object.getOwnPropertyDescriptor(test, 'Symbol("#id")'));
