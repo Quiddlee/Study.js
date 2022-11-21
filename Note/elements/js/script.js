@@ -264,8 +264,9 @@ window.addEventListener('DOMContentLoaded', () => {
 // Nulish operator
 
 //Оператор нулевого слияния - "??"
-// условно говоря это как оператор или ( || ), но если к нему попадает 0, false или NaN, то он его использует, тоесть не воспримет как false
-
+/* условно говоря это как оператор или ( || ), но если к нему попадает 0,
+false или NaN, то он его использует, тоесть не запинается на нём
+*/
 
 
 /*  ОЧЕНЬ ВАЖНО
@@ -273,7 +274,7 @@ window.addEventListener('DOMContentLoaded', () => {
 тоесть если в процессе выполения кода удалить элементы полученые с помощью этого метода,
 он не отследит их удаление, и список не обновится. Это свойство отслеживание изменений в DOM структуре
 называется - живые коллекции
-*/ 
+*/
 
 /*
 метод DOM .matches - ищет среди элементо указаный в скобочках класс
@@ -290,15 +291,20 @@ box.closest('.wrapper') - ищет класс в своём родителе
 если не находит возвращает null
 */
 
-// const test = {
-//     name: 'John',
-//     surname: 'Miles'
-// };
+const sym = Symbol('id');
+const test = {
+    name: 'John',
+    surname: 'Miles',
+};
+
+delete test.name;
+console.log(test);
 
 // const test2 = {
 //     name: 'John',
 //     surname: 'Miles'
 // };
 
-// console.log(Object.is(test, test2));
-// console.log(Object.getOwnPropertyDescriptor(test, 'Symbol("#id")'));
+// // console.log(Object.is(test, test2));
+// console.log(Object.getOwnPropertyDescriptor(test, id));
+

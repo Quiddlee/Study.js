@@ -1113,7 +1113,7 @@
 //                                 [3, 4, 5, 2, 8, 6, 1, 7, 9]]));
 
 
-// function solution(input, markers) {
+function solution(input, markers) {
     // let i = -1;
     // const res = input.split(' ');
     // console.log(res);
@@ -1127,11 +1127,11 @@
     // console.log(input);
     // res = input.slice(0, input.indexOf('#'));
     // res = input.slice(input.indexOf('#'), input.indexOf('\n'));
-//     let res = input;
-//     res = res.split('');
-//     res.splice(res.indexOf(markers[0] || markers[1]), 13);
-//     res.splice(res.indexOf(markers[0] && markers[1]));
+    let res = input;
+    res = res.split('');
+    res.splice(res.indexOf(markers[0] || markers[1]), 13);
+    res.splice(res.indexOf(markers[0] && markers[1]));
 
-//     return res.join('').trim();
-// }
-// console.log(solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"]));
+    return res.join('').trim();
+}
+console.log(solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"]));
