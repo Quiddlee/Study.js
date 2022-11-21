@@ -308,3 +308,45 @@ console.log(test);
 // // console.log(Object.is(test, test2));
 // console.log(Object.getOwnPropertyDescriptor(test, id));
 
+
+// метод делегирования и classList
+
+
+const btns = document.querySelectorAll('button');
+const wrapper = document.querySelector('.btn-block');
+
+// console.log(btns[0].classList.length);
+// console.log(btns[0].classList.item(1));
+// console.log(btns[0].classList.add('red', 'wussup'));
+// console.log(btns[0].classList.remove('blue'));
+// console.log(btns[0].classList.toggle('blue'));
+
+// if (btns[0].classList.contains('red')) {
+//     console.log('rqr');
+// }
+
+btns[0].addEventListener('click', () => {
+    // if (!btns[1].classList.contains('red')) {
+    //     btns[1].classList.add('red');
+    // } else {
+    //     btns[1].classList.remove('red');
+    // }
+    btns[1].classList.toggle('red');
+});
+
+
+// className - устаревший формат, возвращает строку всех классов
+// console.log(btns[0].className); 
+
+wrapper.addEventListener('click', (event) => {              //event содержит всю информаци об элементе, на котором создаётся событие
+    if (event.target && event.target.tagName == 'BUTTON') { //метод делегирования - применяет обработчик событий на все дочерние эллементы родителя 
+        console.log('hello');
+    }
+});
+event.target.matches('button.red'); //ещё один вариант метода event делегирования
+
+
+const btn = document.createElement('button');
+
+btn.classList.add('red');
+wrapper.append(btn);
