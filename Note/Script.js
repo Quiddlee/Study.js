@@ -1113,25 +1113,25 @@
 //                                 [3, 4, 5, 2, 8, 6, 1, 7, 9]]));
 
 
-function solution(input, markers) {
-    // let i = -1;
-    // const res = input.split(' ');
-    // console.log(res);
-    // input.search(/[#!]/gi, '');
-    // for (let i = 0; i < input.length; i++) {
-    //     console.log(input[i]);
-    //     if (input[i] === '#' || '!') {
-    //         return input.slice(i);
-    //     }
-    // }
-    // console.log(input);
-    // res = input.slice(0, input.indexOf('#'));
-    // res = input.slice(input.indexOf('#'), input.indexOf('\n'));
-    let res = input;
-    res = res.split('');
-    res.splice(res.indexOf(markers[0] || markers[1]), 13);
-    res.splice(res.indexOf(markers[0] && markers[1]));
+// function solution(input, markers) {
+//     let res = input;
+//     res = res.split('');
+//     res.splice(res.indexOf(markers[0]), res.indexOf(markers[0]) - 1);
+//     res.splice(res.indexOf(markers[1]), res.indexOf(markers[1]) - 1);
 
-    return res.join('').trim();
+//     return res.join('').trim();
+// }
+// console.log(solution("apples, plums % and bananas\npears\noranges !applesauce", ["%", "!"]));
+
+// //"Q\nu\ne"
+
+
+function domainName(url) {
+    let res;
+    const marks = ['/', '.'];
+
+    res = url.split('');
+    res = res.splice(res.indexOf(marks[0]), 8);
+    return res.join('');
 }
-console.log(solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"]));
+console.log(domainName("http://google.com"));

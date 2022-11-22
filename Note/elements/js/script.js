@@ -350,3 +350,59 @@ const btn = document.createElement('button');
 
 btn.classList.add('red');
 wrapper.append(btn);
+
+
+
+
+
+// setTimeot(), setInterval() && js animations
+const btn = document.querySelector('.btn');
+let timerId;
+let i = 0;
+
+function myAnimation() {
+    const elem = document.querySelector('.box');
+    let pos = 0;
+
+    const id = setInterval(frame, 0);
+    function frame() {
+        if (pos == 300) {
+            clearInterval(id);
+        } else {
+            pos++;
+            elem.style.top = `${pos}px`;
+            elem.style.left = `${pos}px`;
+        }
+    }
+}
+
+btn.addEventListener('click', myAnimation);
+
+
+// btn.addEventListener('click', () => {
+//     // const timerId = setTimeout(someFunc, 2000); //Если присвоить таймер в переменную, запишеться его уникальный идентификатор, это нужно для того, что бы например очищать таймаут:
+//     timerId = setInterval(someFunc, 500);
+// });
+
+
+ 
+// function someFunc () {
+//     if (i === 3) {
+//         clearInterval(timerId);                     //мы обращаемся к конкретному таймеру, и сбрасываем его
+//     }
+//     console.log('henlo');
+//     i++;
+// }
+
+
+
+/*
+рекурсивный вызов setTimeout() - условно говоря, он строго ждет пока функция выполнится,
+только потом срабатывает таймаут, нужен например, если функция ресурсоёмкая,
+и ей нужно время на выполнение
+*/
+
+// let id = setTimeout(function log () {
+//     console.log('hello');
+//     id = setTimeout(log, 500);
+// }, 500);
