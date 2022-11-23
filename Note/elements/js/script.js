@@ -353,8 +353,6 @@ wrapper.append(btn);
 
 
 
-
-
 // setTimeot(), setInterval() && js animations
 const btn = document.querySelector('.btn');
 let timerId;
@@ -406,3 +404,19 @@ btn.addEventListener('click', myAnimation);
 //     console.log('hello');
 //     id = setTimeout(log, 500);
 // }, 500);
+
+
+//WeakMap && WeakSet
+
+
+/*
+WeakMap - теже свойства, что и у Map, но отличие в том, что если в Map будет ссылка на объект,
+сборщик мусора его не удалит, в то время, как в WeakMap - удалит, при условии что ссылку будет содержать
+ТОЛЬКО WeakMap. Ещё отличия в том, что в качестве ключа у WeakMap может быть только объект,
+плюсом у WeakMap - есть только методы add, has, delete
+
+
+WeakSet - отличия от обычного set - в том, что WeakSet, может содержать в себе только объекты, примитивы содержать не может
+и аналогичная работа с памятью, и наличие методов как у weakmap, также WeakMap является неперебираемым
+*/
+
