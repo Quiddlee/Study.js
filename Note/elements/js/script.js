@@ -338,7 +338,7 @@ btns[0].addEventListener('click', () => {
 // className - устаревший формат, возвращает строку всех классов
 // console.log(btns[0].className); 
 
-wrapper.addEventListener('click', (event) => {              //event содержит всю информаци об элементе, на котором создаётся событие
+wrapper.addEventListener('click', (event) => { //event содержит всю информаци об элементе, на котором создаётся событие
     if (event.target && event.target.tagName == 'BUTTON') { //метод делегирования - применяет обработчик событий на все дочерние эллементы родителя 
         console.log('hello');
     }
@@ -363,6 +363,7 @@ function myAnimation() {
     let pos = 0;
 
     const id = setInterval(frame, 0);
+
     function frame() {
         if (pos == 300) {
             clearInterval(id);
@@ -383,7 +384,7 @@ btn.addEventListener('click', myAnimation);
 // });
 
 
- 
+
 // function someFunc () {
 //     if (i === 3) {
 //         clearInterval(timerId);                     //мы обращаемся к конкретному таймеру, и сбрасываем его
@@ -420,10 +421,18 @@ WeakSet - отличия от обычного set - в том, что WeakSet, 
 и аналогичная работа с памятью, и наличие методов как у weakmap, также WeakMap является неперебираемым
 */
 
-let messages = [
-    {text: 'Hello', from: 'John'},
-    {text: 'World', from: 'Alex'},
-    {text: '...', from: 'M'},
+let messages = [{
+        text: 'Hello',
+        from: 'John'
+    },
+    {
+        text: 'World',
+        from: 'Alex'
+    },
+    {
+        text: '...',
+        from: 'M'
+    },
 ];
 
 let readMessages = new WeakSet();
@@ -434,3 +443,41 @@ readMessages.add(messages[0]);
 readMessages.add(messages[0]);
 messages.shift();
 console.log(readMessages.has(messages[0]));
+
+//Date object
+
+const now = new Date(); // если передаем сюда год - то он должен быть всегда 4-х значным (2022) !(22)
+/*
+первая группа методов Date называется - получение компонентов даты.
+В основном начинаются на get...
+.getFullYear(), etc.
+*/
+// console.log(now.getFullYear());
+// console.log(now.getMonth());
+// console.log(now.getDate());                     //метод возвращает текущее число
+// console.log(now.getDay());                      //день недели по счету. Нумерация начинается с воскресенья, тоесть воскресенье - 0 день, 6 день недели - суббота
+// console.log(now.getHours());                      
+// console.log(now.getUTCHours());
+
+console.log(now.getTimezoneOffset());
+console.log(now.getTime());
+
+/*
+вторая группа методов Date - установка компонентов даты.
+все теже методы что и выше, только начинаются на set.
+.setDate(), etc
+*/
+console.log(now.setHours(18, 40, 12));   //можно утстанавливать не только часы, но и минуты и секунды    // если выводить дату в консоли вс кода, то она будет брать дату из UTC, в то время как браузер будет ориентироваться на локальную дату компьютера
+console.log(now); 
+
+// new Date.parse('2022-11-24');
+
+let start = new Date();                      //засекаем за сколько отработает цикл. Первая Date - начало отсчета
+
+for (let i = 0; i < 100000; i++) {
+    let some = i ** 3;                       //**  - возведение в степень
+}
+
+let end = new Date();                        // конец отсчета
+
+console.log(`цикл отработал за ${end - start} миллисекунд`); // тут вычитаем разницу
