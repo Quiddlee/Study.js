@@ -481,3 +481,35 @@ for (let i = 0; i < 100000; i++) {
 let end = new Date();                        // конец отсчета
 
 console.log(`цикл отработал за ${end - start} миллисекунд`); // тут вычитаем разницу
+
+
+
+//Параметры документа
+
+// const box = document.querySelector('.box');
+// const btn = document.querySelector('button');
+
+// const width = box.clientWidth;
+// const height = box.clientHeight;
+// const width = box.offsetWidth;
+// const height = box.offsetHeight;
+const width = box.scrollWidth;
+const height = box.scrollHeight;
+
+console.log(width, height);
+
+btn.addEventListener('click', () => {
+    // box.style.height = `${box.scrollHeight}px`;
+    console.log(Math.round(box.scrollTop));
+});
+
+console.log(box.getBoundingClientRect().top);
+
+const style = window.getComputedStyle(box); //этот метод read only, с помощью него можно получить стили псевдо-элементов, в js нельзя работаь с псевдо-элементами
+
+console.log(style.display);
+
+console.log(document.documentElement.clientWidth); //параметры относительно документа
+console.log(document.documentElement.scrollTop); //можно сделать стрелочку, которая скроллит вверх
+console.log(window.scrollBy); //скролл на какое-то колличество пикселей, от текущего положения
+console.log(window.scrollTo); //скролл на какое-то колличество пикселей, относительно всей страницы 
