@@ -420,3 +420,17 @@ WeakSet - отличия от обычного set - в том, что WeakSet, 
 и аналогичная работа с памятью, и наличие методов как у weakmap, также WeakMap является неперебираемым
 */
 
+let messages = [
+    {text: 'Hello', from: 'John'},
+    {text: 'World', from: 'Alex'},
+    {text: '...', from: 'M'},
+];
+
+let readMessages = new WeakSet();
+
+readMessages.add(messages[0]);
+// readMessages.add(messages[1]);
+
+readMessages.add(messages[0]);
+messages.shift();
+console.log(readMessages.has(messages[0]));
