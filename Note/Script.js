@@ -1126,12 +1126,60 @@
 // //"Q\nu\ne"
 
 
-function domainName(url) {
-    let res;
-    const marks = ['/', '.'];
+// function domainName(url) {
+    // const res = url;
+    // const marks = ['/', '.'];
+    // const secondDot = res.indexOf(marks[1]) + 1;
 
-    res = url.split('');
-    res = res.splice(res.indexOf(marks[0]), );
-    return res.join('');
-}
-console.log(domainName("http://google.com"));
+    // if (res.match('www')) {
+    //     return res.substring(res.indexOf(marks[1]), res.indexOf(marks[1], secondDot)).replace(/[/.]/g, '');
+    // }
+
+    // if (!res.match('//')) {
+    //     return res.substring(0, res.indexOf(marks[1])).replace(/[/.]/g, '');
+    // }
+
+    // return res.substring(res.indexOf(marks[0]), res.indexOf(marks[1])).replace(/[/.]/g, '');
+
+
+
+//     //Reference
+//     url = url.replace("https://", '');
+//     url = url.replace("http://", '');
+//     url = url.replace("www.", '');
+//     return url.split('.')[0];        //если в строке есть точка или запятая, мы можем раздеть их, такой записью
+// }
+// console.log(domainName("http://google.com"));
+
+
+// function expression(number, operation){
+// 	if(!operation) return number;
+// 	return operation(number);
+// }
+
+// function zero(a = 0) {return 0 + a;}
+// function one(a = 0) {return 1 + a;}
+// function two(a = 0) {return 2 + a;}
+// function three(a = 0) {return 3 + a;}
+// function four(a = 0) {return 4 + a;}
+// function five(a = 0) {return 5 + a;}
+// function six(a = 0) {return 6 + a;}
+// function seven(a = 0) {return expression(7, a);}
+// function eight(a = 0) {return 8 + a;}
+// function nine(a = 0) {return 9, a;}
+
+// function plus(b) {return + b;}
+// function minus(b) {return - b;}
+// function times(b) {
+//     return y => {
+//         return b * y;
+//     };
+// }
+// function dividedBy(b) {
+//     return y => {
+//         return b * y;
+//     };
+// }
+
+// console.log(seven(times(five())));
+

@@ -505,7 +505,16 @@ btn.addEventListener('click', () => {
 
 console.log(box.getBoundingClientRect().top);
 
-const style = window.getComputedStyle(box); //этот метод read only, с помощью него можно получить стили псевдо-элементов, в js нельзя работаь с псевдо-элементами
+/*
+window.getComputedStyle()
+
+Смотрим какие стили уже пременены к элементу, особенность заключается в том, что мы видим все значения
+в пикселях, даже если в css задано в процентах или других величинах.
+
+Этот метод read only, с помощью него можно получить стили псевдо-элементов,
+в js нельзя работаь с псевдо-элементами
+*/
+const style = window.getComputedStyle(box, before); //чтобы узнать стили псевдо-элементов, нужно записывать так
 
 console.log(style.display);
 
