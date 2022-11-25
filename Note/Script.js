@@ -1126,12 +1126,12 @@
 // //"Q\nu\ne"
 
 
-// function domainName(url) {
-//     let res;
-//     const marks = ['/', '.'];
+function domainName(url) {
+    let res;
+    const marks = ['/', '.'];
 
-//     res = url.split('');
-//     res = res.splice(res.indexOf(marks[0]), 8);
-//     return res.join('');
-// }
-// console.log(domainName("http://google.com"));
+    res = url.split('');
+    res = res.splice(res.indexOf(marks[0]), );
+    return res.join('');
+}
+console.log(domainName("http://google.com"));
