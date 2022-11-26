@@ -522,3 +522,24 @@ console.log(document.documentElement.clientWidth); //параметры отно
 console.log(document.documentElement.scrollTop); //можно сделать стрелочку, которая скроллит вверх
 console.log(window.scrollBy); //скролл на какое-то колличество пикселей, от текущего положения
 console.log(window.scrollTo); //скролл на какое-то колличество пикселей, относительно всей страницы 
+
+
+const box = document.querySelector('.box');
+
+/*
+contenteditable atribute
+позволяет пользователю изменять элемент, добавлять текст внутри него
+
+MutatuinObserver - наблюдает за изменениеями элементов
+ResizeObserver - наблюдает за изменениями размеров элементов
+*/
+
+let observer = new MutationObserver(mutationRecords => {
+    console.log(mutationRecords);
+});
+
+observer.observe(box, {
+    childList: true
+});
+
+observer.disconnect();
