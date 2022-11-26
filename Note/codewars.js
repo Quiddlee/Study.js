@@ -1127,19 +1127,19 @@
 
 
 // function domainName(url) {
-    // const res = url;
-    // const marks = ['/', '.'];
-    // const secondDot = res.indexOf(marks[1]) + 1;
+// const res = url;
+// const marks = ['/', '.'];
+// const secondDot = res.indexOf(marks[1]) + 1;
 
-    // if (res.match('www')) {
-    //     return res.substring(res.indexOf(marks[1]), res.indexOf(marks[1], secondDot)).replace(/[/.]/g, '');
-    // }
+// if (res.match('www')) {
+//     return res.substring(res.indexOf(marks[1]), res.indexOf(marks[1], secondDot)).replace(/[/.]/g, '');
+// }
 
-    // if (!res.match('//')) {
-    //     return res.substring(0, res.indexOf(marks[1])).replace(/[/.]/g, '');
-    // }
+// if (!res.match('//')) {
+//     return res.substring(0, res.indexOf(marks[1])).replace(/[/.]/g, '');
+// }
 
-    // return res.substring(res.indexOf(marks[0]), res.indexOf(marks[1])).replace(/[/.]/g, '');
+// return res.substring(res.indexOf(marks[0]), res.indexOf(marks[1])).replace(/[/.]/g, '');
 
 
 
@@ -1183,62 +1183,158 @@
 
 // console.log(seven(times(five())));
 
-function rot13(message) {
-    const alphabet = {
-        a: 'n',
-        b: 'o',
-        c: 'p',
-        d: 'q',
-        e: 'r',
-        f: 's',
-        g: 't',
-        h: 'u',
-        i: 'v',
-        j: 'w',
-        k: 'x',
-        l: 'y',
-        m: 'z',
-        n: 'a',
-        o: 'b',
-        p: 'c',
-        q: 'd',
-        r: 'e',
-        s: 'f',
-        t: 'g',
-        u: 'h',
-        v: 'i',
-        w: 'j',
-        x: 'k',
-        y: 'l',
-        z: 'm',
-        A: 'N',
-        B: 'O',
-        C: 'P',
-        D: 'Q',
-        E: 'R',
-        F: 'S',
-        G: 'T',
-        H: 'U',
-        I: 'V',
-        J: 'W',
-        K: 'X',
-        L: 'Y',
-        M: 'Z',
-        N: 'A',
-        O: 'B',
-        P: 'C',
-        Q: 'D',
-        R: 'E',
-        S: 'F',
-        T: 'G',
-        U: 'H',
-        V: 'I',
-        W: 'J',
-        X: 'K',
-        Y: 'L',
-        Z: 'M'
-    };
+// function rot13(message) {
+//     const alphabet = {
+//         a: 'n',
+//         b: 'o',
+//         c: 'p',
+//         d: 'q',
+//         e: 'r',
+//         f: 's',
+//         g: 't',
+//         h: 'u',
+//         i: 'v',
+//         j: 'w',
+//         k: 'x',
+//         l: 'y',
+//         m: 'z',
+//         n: 'a',
+//         o: 'b',
+//         p: 'c',
+//         q: 'd',
+//         r: 'e',
+//         s: 'f',
+//         t: 'g',
+//         u: 'h',
+//         v: 'i',
+//         w: 'j',
+//         x: 'k',
+//         y: 'l',
+//         z: 'm',
+//         A: 'N',
+//         B: 'O',
+//         C: 'P',
+//         D: 'Q',
+//         E: 'R',
+//         F: 'S',
+//         G: 'T',
+//         H: 'U',
+//         I: 'V',
+//         J: 'W',
+//         K: 'X',
+//         L: 'Y',
+//         M: 'Z',
+//         N: 'A',
+//         O: 'B',
+//         P: 'C',
+//         Q: 'D',
+//         R: 'E',
+//         S: 'F',
+//         T: 'G',
+//         U: 'H',
+//         V: 'I',
+//         W: 'J',
+//         X: 'K',
+//         Y: 'L',
+//         Z: 'M'
+//     };
 
-    return message.replace(/[abcdefghijklmnopqrstuvwxyz]/gi, match => alphabet[match]);
+//     return message.replace(/[abcdefghijklmnopqrstuvwxyz]/gi, match => alphabet[match]);
+// }
+// console.log(rot13("Test"));
+
+// function getSum(a, b) {
+//     let res = 0;
+
+//     if (a === b) {
+//         return a;
+//     }
+
+//     if (a > b) {
+//         for (let i = b; i <= a; i++) {
+//             res += i;
+//         }
+//     }
+
+//     if (a < b) {
+//         for (let i = a; i <= b; i++) {
+//             res += i;
+//         }
+//     }
+
+//     return res;
+// }
+// console.log(getSum(0, -1));
+
+// function validatePIN(pin) {
+//     if (pin.match('\n')) {
+//         return false;
+//     }
+
+//     if (pin.trim().length === 4) {
+//         if (!pin.match(/[a-z./<>+]/) && Number.isInteger(+pin) && pin >= 0) {
+//             return true;
+//         }
+//     }
+
+//     if (pin.trim().length === 6) {
+//         if (!pin.match(/[a-z./<>+]/) && Number.isInteger(+pin) && pin >= 0) {
+//             return true;
+//         }
+//     }
+
+//     return false;
+// }
+// console.log(validatePIN('1234'));
+
+// function toJadenCase(str) {
+//     const res = [];
+//     str.split(' ').forEach((element, iterator) => {
+//         res.push(`${element[0].toUpperCase()}${element.slice(1)}`);
+//     });
+
+//     return res.join(' ');
+// }
+// console.log(toJadenCase("How can mirrors be real if our eyes aren't real"));
+
+// function number (arr) {
+//     let res = 0;
+
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = 1; j < 2; j++) {
+//             res += arr[i][j - 1];
+//             res -= arr[i][j];  
+//         }
+//     } 
+
+//     return res;   
+// }
+// console.log(number([[10,0],[3,5],[5,8]]));
+
+// function order(words) {
+//     const arr = words.split(' ');
+//     const res = [];
+//     let count = 0;
+
+//     arr.forEach(element => {
+//         count = element.match(/[12345678910]/g);
+//         res[count - 1] = element;
+//     });
+
+//     return res.join(' ');
+// }
+// console.log(order("is2 Thi1s T4est 3a"));
+
+function zeros(n) {
+    // return Math.floor((n / 5) + (n / 25) + (n / 125) + (n / 625));
+    let howMany = n;
+    let res = 0;
+    howMany += '';
+
+    for (let i = 1; i <= howMany.length + 1; i++) {
+        res += n / 5 ** i;
+    }
+
+    return Math.floor(res);
 }
-console.log(rot13("Test"));
+console.log(zeros(100000));
