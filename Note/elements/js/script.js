@@ -572,3 +572,88 @@ alex.hello();
 
 console.log(bogdan);
 console.log(alex);
+
+
+
+//Контекст вызова this
+
+
+function showThis(a, b) {   //независимо где находится функция, контекст вызова this у неё будет одинаковый
+    console.log(this);
+    function sum() {
+        console.log(this);
+        return a + b;
+    }
+    
+    console.log(sum());
+}
+showThis(4, 5);
+
+const obj = {
+    a: 20,
+    b: 15,
+    sum: function() {
+        function shout() {
+            console.log(this);
+        }
+        shout();
+    }
+};
+obj.sum();
+
+function User(name, id) {
+    this.name = name;       //при создании объекта, вместо this. подставляется наш новый объект {bogdan.name, bogdan.id, etc} 
+    this.id = id;
+    this.human = true;
+}
+let bogdan = new User('Bogdan', 18);
+
+function sayName(surname) {
+    console.log(this);
+    console.log(this.name + surname);
+}
+
+const user = {
+    name:'John'
+};
+
+sayName.call(user, 'Smith');     //по сути обе функции делают одно и тоже, различия только в синтаксисе
+sayName.apply(user, ['Smith']);  //в этом примере мы НЕ создавали новую функцию, а установили ей контекст  
+
+function count(num) {
+    return this * num; // 2 передаётся вместо this
+}
+
+const double = count.bind(2); // мы создали новую функцию, с жестко привязаным контекстом 2
+console.log(double(3));
+console.log(double(13)); // аргумент попадает на место num функции выше
+
+/*
+1) обычная функция: this = window, но если стоит 'use strict' -ss undefined
+2) Контекст у методов объекта - сам объект 
+3) this в конструкторах и классах - это новый экземпляр объекта
+4) Ручная привязка this: call, apply, bind
+*/
+
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', function() { //если колл бэк функция - классическая, НЕ стрелочная - то this будет ссылаться на сам элемент, на котором навешено событие
+    // console.log(this);
+    this.style.backgroundColor = 'red';    //по сути работает как event target, но с учетом условия выше 
+});
+
+const obj = {
+    num: 5,
+    sayNumber: function() {         //опят таки, метод внутри объекта - всегда ссылается на сам объект (thiss)
+        const say = () => {
+            console.log(this.num);      // *** Важная особенность стрелочной функции - она ВСЕГДА ссылается на своего родителя
+        };
+
+        say();
+    }
+};
+
+obj.sayNumber();
+
+const double = a => a * 2;  //есть фозможность сократить стрелочную функцию до такого варианта,
+console.log(double(4));     //при условии, что она содержит всего 1 параметр и условие помещается на одной строке
