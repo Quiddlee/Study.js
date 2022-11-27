@@ -1325,16 +1325,26 @@
 // }
 // console.log(order("is2 Thi1s T4est 3a"));
 
-function zeros(n) {
-    // return Math.floor((n / 5) + (n / 25) + (n / 125) + (n / 625));
-    let howMany = n;
-    let res = 0;
-    howMany += '';
+// function zeros(n) {
+//     let res = 0;
 
-    for (let i = 1; i <= howMany.length + 1; i++) {
-        res += n / 5 ** i;
-    }
+//     for (let i = 5; Math.floor(n / i) >= 1; i *= 5) {  
+//         res += Math.floor(n / i);
+//     }
+ 
+//     return res;
+// }
+// console.log(zeros(1000));
 
-    return Math.floor(res);
+function dirReduc(arr) {
+    const res = arr;
+
+    res.forEach((element, iterator) => {
+        if (element.match(/[o]/) === res[iterator].match(/[o]/) ) {
+            res.splice(iterator);
+        }
+    });
+
+    return res;
 }
-console.log(zeros(100000));
+console.log(dirReduc(["NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST"]));
