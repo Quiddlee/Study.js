@@ -657,3 +657,50 @@ obj.sayNumber();
 
 const double = a => a * 2;  //есть фозможность сократить стрелочную функцию до такого варианта,
 console.log(double(4));     //при условии, что она содержит всего 1 параметр и условие помещается на одной строке
+
+
+// Классы ES6
+// Классы - это красивая обёртка функций конструкторов или синтаксический сахар
+
+
+class Rectangle {   //при создании классов используется PascalCase
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+    }
+
+    calcArea() {
+        return this.height * this.width;
+    }
+}
+
+const square = new Rectangle(10, 10);   //создаём новые объекты на основе нашего класса, но с другими свойствами
+const long = new Rectangle(20, 100);
+
+
+console.log(long.calcArea());
+console.log(square.calcArea());
+
+/*
+Принципы ООП
+
+1. Концепция - шаблон, по которому будут создаваться новые объекты, экземпляры - созданы на основе нашей концепции
+2. Наследование - способность нашего объекта или класса базироваться на другом объекте или классе
+*/
+
+class ColoredRectangleWithText extends Rectangle {          //extends - наследование свойств одного класса другим  
+    constructor(height, width, text, bgcolor) {             //*** ВАЖНО: super() - ВСЕГДА идёт первой строчкой 
+        super(height, width);                               //super() - вызывает супер конструктор родителя, тоесть вызывает те свойства, которые были у родителя
+        this.text = text;
+        this.bgcolor = bgcolor;
+    }
+
+    showMyProps() {
+        console.log(`Текст: ${this.text}, цвет: ${this.bgcolor}`);
+    }
+} 
+
+const div = new ColoredRectangleWithText(25, 10, 'Hello World!', 'red');
+
+div.showMyProps();
+console.log(div.calcArea());
