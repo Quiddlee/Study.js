@@ -629,7 +629,7 @@ console.log(double(3));
 console.log(double(13)); // аргумент попадает на место num функции выше
 
 /*
-1) обычная функция: this = window, но если стоит 'use strict' -ss undefined
+1) обычная функция: this = window, но если стоит 'use strict' - undefined
 2) Контекст у методов объекта - сам объект 
 3) this в конструкторах и классах - это новый экземпляр объекта
 4) Ручная привязка this: call, apply, bind
@@ -704,3 +704,27 @@ const div = new ColoredRectangleWithText(25, 10, 'Hello World!', 'red');
 
 div.showMyProps();
 console.log(div.calcArea());
+
+
+
+//возможные варианты перебора объектов
+
+const myObj = {
+    id: 2,
+    human: true,
+    name: 'John'
+};
+
+Object.keys(myObj).forEach(key => { //Object.values || .keys - возвращает массив, который мы можем перебрать с помощью метода forEach
+    // console.log(key);
+});
+
+Object.values(myObj).forEach(val => { //к тому же мы можем в скобочки помещать объекты не в переменной, а просто {a: 12, b: 21, etc}, например такой объект может вернуть функция   
+    // console.log(val);
+});
+
+for (const key of Object.keys(myObj)) {  //Мы можем указать const для переменной, потому что с каждой итерацией, будет создаваться новая переменная
+    console.log(key);       //for in - перебирает ключи, for of - перебирает значения ключей
+}
+
+/*for of частично не работает на объектах, но может работать в случае выше*/
