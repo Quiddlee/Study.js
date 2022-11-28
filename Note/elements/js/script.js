@@ -728,3 +728,17 @@ for (const key of Object.keys(myObj)) {  //Мы можем указать const 
 }
 
 /*for of частично не работает на объектах, но может работать в случае выше*/
+
+//Rest Оператор
+
+const log = function(a, b, ...rest) {   //rest оператор, используется если мы не знаем точное кол-во парметров в функции
+    console.log(a, b, rest);
+};
+log('basic', 'rest', 'operator', 'usage');
+
+function calcOrDouble(number, basis = 2) {  //новый метод
+    // basis = basis || 2;                  старый метод присваивания аргументу деффолтное значение
+    console.log(number * basis);
+}
+
+calcOrDouble(3, 0);
