@@ -1336,15 +1336,23 @@
 // }
 // console.log(zeros(1000));
 
-function dirReduc(arr) {
-    const res = arr;
+// function dirReduc(arr) {
+//     const res = arr;
 
-    res.forEach((element, iterator) => {
-        if (element.match(/[o]/) === res[iterator].match(/[o]/) ) {
-            res.splice(iterator);
-        }
-    });
+//     for (let i = 1; i < arr.length; i++) {
+//         if (arr[i - 1] ==) {
 
-    return res;
-}
-console.log(dirReduc(["NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST"]));
+//         }
+//     }
+
+//     return res;
+// }
+// console.log(dirReduc(["NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST"]));
+
+Array.prototype.sameStructureAs = function (other) {
+    // Return 'true' if and only if 'other' has the same
+    // nesting structure as 'this'.
+
+    // Note: You are given a function isArray(o) that returns
+    // whether its argument is an array.
+};
