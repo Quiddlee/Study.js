@@ -1331,7 +1331,7 @@
 //     for (let i = 5; Math.floor(n / i) >= 1; i *= 5) {  
 //         res += Math.floor(n / i);
 //     }
- 
+
 //     return res;
 // }
 // console.log(zeros(1000));
@@ -1349,10 +1349,35 @@
 // }
 // console.log(dirReduc(["NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST"]));
 
-Array.prototype.sameStructureAs = function (other) {
-    // Return 'true' if and only if 'other' has the same
-    // nesting structure as 'this'.
+function sameStructureAs(dis, other) {
+    function arrScan(arr, length = 0) {
+        if (arr.length === length) return true;
+        
+        console.log(arr[length]);
+        
+        if (Array.isArray(arr[length])) {
+            arrScan(arr[length]);
+        }
 
-    // Note: You are given a function isArray(o) that returns
-    // whether its argument is an array.
-};
+        return arrScan(arr, length + 1);
+    }
+
+    return arrScan(dis);
+}
+console.log(sameStructureAs([1, [1, 1]], [1, [1, [1]]]));
+
+
+// const points = [[1, 2], 3, [4, 3], [10, 50], [98, 100]];
+
+// function recursion(array, length = 0) {
+//     if (array.length === length) return true;
+
+//     if (Array.isArray(array[length])) {
+//         recursion(array[length]);
+//     }
+//     console.log(array[length]);
+
+//     recursion(array, length + 1);
+// }
+
+// recursion(points);
