@@ -1350,19 +1350,37 @@
 // console.log(dirReduc(["NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST"]));
 
 function sameStructureAs(dis, other) {
+    let str = [];
+    let mark = '|';
+    let res;
+
     function arrScan(arr, length = 0) {
-        if (arr.length === length) return true;
-        
-        console.log(arr[length]);
-        
+        if (arr.length === length) return 0;
+
+        str.push(arr[length]);
+
         if (Array.isArray(arr[length])) {
             arrScan(arr[length]);
         }
 
         return arrScan(arr, length + 1);
     }
+    arrScan(dis);
+    str.push(mark);
+    arrScan(other);
 
-    return arrScan(dis);
+    setTimeout(() => {
+        console.log(str);
+        for (let i = 0; i <= dis.length + 1; i++) {
+            console.log(str[i]);
+            console.log(str[i + str.indexOf(mark) + 1]);
+            if (typeof (str[i]) !== typeof (str[i + str.indexOf(mark) + 1])) {
+                return false;
+            } 
+        }
+    }, 0);
+    
+    return res;
 }
 console.log(sameStructureAs([1, [1, 1]], [1, [1, [1]]]));
 
