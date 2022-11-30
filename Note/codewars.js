@@ -1349,37 +1349,37 @@
 // }
 // console.log(dirReduc(["NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST"]));
 
-function sameStructureAs(dis, other) {
-    if (!Array.isArray(dis) && !Array.isArray(other)) return false;
+// function sameStructureAs(dis, other) {
+//     if (!Array.isArray(dis) && !Array.isArray(other)) return false;
 
-    const str = [];
-    let mark = '|';
+//     const str = [];
+//     let mark = '|';
     
-    function arrScan(arr, length = 0) {
-        if (arr.length === length) return 0;
+//     function arrScan(arr, length = 0) {
+//         if (arr.length === length) return 0;
 
-        str.push(arr[length]);
+//         str.push(arr[length]);
 
-        if (Array.isArray(arr[length])) {
-            arrScan(arr[length]);
-        }
+//         if (Array.isArray(arr[length])) {
+//             arrScan(arr[length]);
+//         }
 
-        return arrScan(arr, length + 1);
-    }
+//         return arrScan(arr, length + 1);
+//     }
     
-    arrScan(dis);
-    str.push(mark);
-    arrScan(other);
+//     arrScan(dis);
+//     str.push(mark);
+//     arrScan(other);
 
-    console.log(str);
-    for (let i = 0; i < Math.floor(str.length / 2); i++) {
-        if (typeof (str[i]) !== 'string' && typeof (str[i + str.indexOf(mark) + 1]) !== 'string') {
-            if (typeof (str[i]) !== typeof (str[i + str.indexOf(mark) + 1]) || str[i].length !== str[i + str.indexOf(mark) + 1].length) {
-                return false;
-            }
-        }
-    }
+//     console.log(str);
+//     for (let i = 0; i < Math.floor(str.length / 2); i++) {
+//         if (typeof (str[i]) !== 'string' && typeof (str[i + str.indexOf(mark) + 1]) !== 'string') {
+//             if (typeof (str[i]) !== typeof (str[i + str.indexOf(mark) + 1]) || str[i].length !== str[i + str.indexOf(mark) + 1].length) {
+//                 return false;
+//             }
+//         }
+//     }
 
-    return true;
-}
-console.log(sameStructureAs([1,'[',']'],['[',']',1]));
+//     return true;
+// }
+// console.log(sameStructureAs([1,'[',']'],['[',']',1]));
