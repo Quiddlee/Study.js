@@ -1350,10 +1350,11 @@
 // console.log(dirReduc(["NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST"]));
 
 function sameStructureAs(dis, other) {
-    let str = [];
-    let mark = '|';
-    let res;
+    if (!Array.isArray(dis) && !Array.isArray(other)) return false;
 
+    const str = [];
+    let mark = '|';
+    
     function arrScan(arr, length = 0) {
         if (arr.length === length) return 0;
 
@@ -1365,37 +1366,20 @@ function sameStructureAs(dis, other) {
 
         return arrScan(arr, length + 1);
     }
+    
     arrScan(dis);
     str.push(mark);
     arrScan(other);
 
-    setTimeout(() => {
-        console.log(str);
-        for (let i = 0; i <= dis.length + 1; i++) {
-            console.log(str[i]);
-            console.log(str[i + str.indexOf(mark) + 1]);
-            if (typeof (str[i]) !== typeof (str[i + str.indexOf(mark) + 1])) {
+    console.log(str);
+    for (let i = 0; i < Math.floor(str.length / 2); i++) {
+        if (typeof (str[i]) !== 'string' && typeof (str[i + str.indexOf(mark) + 1]) !== 'string') {
+            if (typeof (str[i]) !== typeof (str[i + str.indexOf(mark) + 1]) || str[i].length !== str[i + str.indexOf(mark) + 1].length) {
                 return false;
-            } 
+            }
         }
-    }, 0);
-    
-    return res;
+    }
+
+    return true;
 }
-console.log(sameStructureAs([1, [1, 1]], [1, [1, [1]]]));
-
-
-// const points = [[1, 2], 3, [4, 3], [10, 50], [98, 100]];
-
-// function recursion(array, length = 0) {
-//     if (array.length === length) return true;
-
-//     if (Array.isArray(array[length])) {
-//         recursion(array[length]);
-//     }
-//     console.log(array[length]);
-
-//     recursion(array, length + 1);
-// }
-
-// recursion(points);
+console.log(sameStructureAs([1,'[',']'],['[',']',1]));
