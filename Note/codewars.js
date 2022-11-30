@@ -1354,7 +1354,7 @@
 
 //     const str = [];
 //     let mark = '|';
-    
+
 //     function arrScan(arr, length = 0) {
 //         if (arr.length === length) return 0;
 
@@ -1366,7 +1366,7 @@
 
 //         return arrScan(arr, length + 1);
 //     }
-    
+
 //     arrScan(dis);
 //     str.push(mark);
 //     arrScan(other);
@@ -1383,3 +1383,21 @@
 //     return true;
 // }
 // console.log(sameStructureAs([1,'[',']'],['[',']',1]));
+
+function parseInt(string) {
+    const nums = {one: '1', two: '2', three: '3', four: '4', five: '5', six: '6', seven: '7', eight: '8', nine: '9', ten: '10', eleven: '11', twelve: '12', thirteen: '13', fourteen: '14', fifteen: '15', sixteen: '16', seventeen: '17', eighteen: '18', nineteen: '19', twenty: '20'};
+
+    let res = '';
+    const input = string.split(' ');
+
+    Object.keys(nums).forEach((e, i) => {
+        if (e === input[i]) {
+            Object.values(nums).forEach(e => {
+                return res += e[i];
+            });
+        }
+    });
+
+    return res;
+}
+console.log(parseInt('one two three'));
