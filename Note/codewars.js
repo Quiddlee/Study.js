@@ -1384,25 +1384,53 @@
 // }
 // console.log(sameStructureAs([1,'[',']'],['[',']',1]));
 
-function parseInt(string) {
-    // const nums = {one: '1', two: '2', three: '3', four: '4', five: '5', six: '6', seven: '7', eight: '8', nine: '9', ten: '10', eleven: '11', twelve: '12', thirteen: '13', fourteen: '14', fifteen: '15', sixteen: '16', seventeen: '17', eighteen: '18', nineteen: '19', twenty: '20'};
-    const digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fiveteen', 'sixteen', 'seventeen', 'eightteen', 'nineteen', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety', 'hundred'];
-    const digitsNums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-    const input = string;
-    let res = '';
-    // console.log(input);
-    
-    for (let i = 0; i < input.length; i++) {
-        // if (input.match(/\b[\s-\hundred+]+\b/gi)) {
-        //     res += digitsNums[digits.indexOf(input[0])] + '00';
-        //     // res += digitsNums[digits.indexOf(input[i])];
-        // } else {
-        //     // res += digitsNums[digits.indexOf(input[i])];
-        // }
+// function parseInt(string) {
+//     // const nums = {one: '1', two: '2', three: '3', four: '4', five: '5', six: '6', seven: '7', eight: '8', nine: '9', ten: '10', eleven: '11', twelve: '12', thirteen: '13', fourteen: '14', fifteen: '15', sixteen: '16', seventeen: '17', eighteen: '18', nineteen: '19', twenty: '20'};
+//     const digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fiveteen', 'sixteen', 'seventeen', 'eightteen', 'nineteen', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety', 'hundred'];
+//     const digitsNums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+//     const input = string.replace(/[-]/gi, ' ').split(' ');
+//     const findThis = /\b[\s\hundred+]+\b/gi; 
+//     let res = '';
+//     console.log(input);
 
-        
+//     for (let i = 0; i < input.length; i++) {
+//         // if (input.match(/\b[\s-\hundred+]+\b/gi)) {
+//         //     res += digitsNums[digits.indexOf(input[0])] + '00';
+//         //     // res += digitsNums[digits.indexOf(input[i])];
+//         // } else {
+//         //     // res += digitsNums[digits.indexOf(input[i])];
+//         // }
+
+//         if (input.includes(findThis)) {
+//             // res += digitsNums[digits.indexOf(input.match(findThis).join('').trim())];
+//             console.log(input[i].indexOf(findThis));
+//             break;
+//         }
+//     }
+
+//     return res;
+// }
+// console.log(parseInt('two hundred forty-six'));
+
+function snail(array) {
+    const res = [];
+
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array[i].length; j++) {
+            res.push(array[i][j]);
+
+            res.push(array[i][j]);
+        }
     }
 
     return res;
 }
-console.log(parseInt('two hundred forty-six'));
+console.log(snail([
+    [1, 2, 3, 4, 5],
+    [6, 7, 8, 9, 10],
+    [11, 12, 13, 14, 15],
+    [16, 17, 18, 19, 20],
+    [21, 22, 23, 24, 25]
+]));
+
+//[1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]
