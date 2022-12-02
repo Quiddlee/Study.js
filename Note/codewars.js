@@ -1415,11 +1415,34 @@
 function snail(array) {
     const res = [];
 
+    // for (let i = 0; i < array.length; i++) {
+    //     for (let j = 0; j < array[i].length; j++) {
+    //         res.push(array[i][j]);
+    //     }
+        
+    //     for (let j = 0; j < array[i].length; j++) {
+    //         res.push(array[j][i + array[j].length - 2]);
+    //     }
+
+    //     for (let j = array[i].length; j > 0; j--) {
+    //         // res.push(array[i][j]);
+    //     }
+
+    //     break;
+    // }
+
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[i].length; j++) {
-            res.push(array[i][j]);
+            res.push(array[i].splice(i));
+            break;
+        }
+        break;
+    }
 
-            res.push(array[i][j]);
+    for (let i = 0; i < 2; i++) {
+        for (let j = 0; j < array[i].length; j++) {
+            res.push(array[i].splice(i - 1));
+            break;
         }
     }
 
