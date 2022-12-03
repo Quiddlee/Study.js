@@ -1414,44 +1414,70 @@
 
 function snail(array) {
     const res = [];
-
-    // for (let i = 0; i < array.length; i++) {
-    //     for (let j = 0; j < array[i].length; j++) {
-    //         res.push(array[i][j]);
-    //     }
+    const fnlRes = [];
+    let result;
+    function snl(array, count = 0) {
+        if (array.length === 1) {
+            array.forEach(e => {
+                res.push(e);
+            });
+            return res;
+        }
         
-    //     for (let j = 0; j < array[i].length; j++) {
-    //         res.push(array[j][i + array[j].length - 2]);
-    //     }
-
-    //     for (let j = array[i].length; j > 0; j--) {
-    //         // res.push(array[i][j]);
-    //     }
-
-    //     break;
-    // }
-
-    for (let i = 0; i < array.length; i++) {
-        for (let j = 0; j < array[i].length; j++) {
-            res.push(array[i].splice(i));
-            break;
+        if (count === 2) {
+            return res;
         }
-        break;
+    
+    
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                res.push(array[i].splice(j, 1));
+                break;
+            }
+        }
+        
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                res.push(array[i].splice(array[i].length - 1));
+                break;
+            }
+        }
+    
+        for (let i = array.length - 1; i > array.length - 2; i--) {
+            for (let j = array[i].length; j > 0; j--) {
+                res.push(array[i].splice(j - 1));
+            }
+        }
+    
+        for (let i = array.length - 1; i > array.length - 2; i--) {
+            for (let j = array[i].length; j > 0; j--) {
+                res.push(array[i].splice(j - 1));
+            }
+        }
+        
+        for (let i = array.length - 1; i > 0; i--) {
+            for (let j = 0; j < array[i].length; j++) {
+                res.push(array[i].splice(array[j], 1));
+                break;
+            }
+        }
+        // console.log(array.filter(e => e.length));
+    
+        return snl(array.filter(e => e.length), count + 1);
     }
 
-    for (let i = 0; i < 2; i++) {
-        for (let j = 0; j < array[i].length; j++) {
-            res.push(array[i].splice(i - 1));
-            break;
-        }
-    }
+    result = snl(array);
 
-    return res;
+    result.forEach((e) => {
+        fnlRes.push(e.join(' '));
+    });
+
+    return fnlRes;
 }
 console.log(snail([
     [1, 2, 3, 4, 5],
     [6, 7, 8, 9, 10],
-    [11, 12, 13, 14, 15],
+    [11, 12, 13, 14, 15, 11],
     [16, 17, 18, 19, 20],
     [21, 22, 23, 24, 25]
 ]));
