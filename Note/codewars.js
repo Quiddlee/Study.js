@@ -1412,98 +1412,123 @@
 // }
 // console.log(parseInt('two hundred forty-six'));
 
-function snail(array) {
-    const res = [];
-    const subFnlRes = [];
-    const fnlRes = [];
-    let result;
+// function snail(array) {
+//     const res = [];
+//     const subFnlRes = [];
+//     const fnlRes = [];
+//     let result;
 
-    function snl(array, count = 0) {
-        if (array.length === 1) {
-            array.forEach(e => {
-                res.push(e);
-            });
-            return res;
-        }
+//     function snl(array, count = 0) {
+//         if (array.length === 1) {
+//             array.forEach(e => {
+//                 res.push(e);
+//             });
+//             return res;
+//         }
         
-        if (count === 2) {
-            return res;
-        }
+//         if (count === 2) {
+//             return res;
+//         }
 
-        for (let i = 0; i < array.length; i++) {
-            let length = array[i].length;
-            for (let j = 0; j <= length; j++) {
-                res.push(array[i].splice(i, 1));
-            }
-            break;
-        }
+//         for (let i = 0; i < array.length; i++) {
+//             let length = array[i].length;
+//             for (let j = 0; j <= length; j++) {
+//                 res.push(array[i].splice(i, 1));
+//             }
+//             break;
+//         }
 
-        if (array.length === 0) {
-            return res;
-        }
+//         if (array.length === 0) {
+//             return res;
+//         }
 
-        for (let i = 0; i < array.length; i++) {
-            for (let j = 0; j < array[i].length; j++) {
-                res.push(array[i].splice(array[i].length - 1));
-                break;
-            }
-        }
+//         for (let i = 0; i < array.length; i++) {
+//             for (let j = 0; j < array[i].length; j++) {
+//                 res.push(array[i].splice(array[i].length - 1));
+//                 break;
+//             }
+//         }
 
-        if (array.length === 0) {
-            return res;
-        }
+//         if (array.length === 0) {
+//             return res;
+//         }
 
-        for (let i = array.length - 1; i > array.length - 2; i--) {
-            for (let j = array[i].length; j > 0; j--) {
-                res.push(array[i].splice(j - 1));
-            }
-        }
+//         for (let i = array.length - 1; i > array.length - 2; i--) {
+//             for (let j = array[i].length; j > 0; j--) {
+//                 res.push(array[i].splice(j - 1));
+//             }
+//         }
 
-        if (array.length === 0) {
-            return res;
-        }
+//         if (array.length === 0) {
+//             return res;
+//         }
 
-        for (let i = array.length - 1; i > array.length - 2; i--) {
-            for (let j = array[i].length; j > 0; j--) {
-                res.push(array[i].splice(j - 1));
-            }
-        }
+//         for (let i = array.length - 1; i > array.length - 2; i--) {
+//             for (let j = array[i].length; j > 0; j--) {
+//                 res.push(array[i].splice(j - 1));
+//             }
+//         }
 
-        if (array.length === 0) {
-            return res;
-        }
+//         if (array.length === 0) {
+//             return res;
+//         }
 
-        for (let i = array.length - 1; i > 0; i--) {
-            for (let j = 0; j < array[i].length; j++) {
-                res.push(array[i].splice(array[j], 1));
-                break;
-            }
-        }
+//         for (let i = array.length - 1; i > 0; i--) {
+//             for (let j = 0; j < array[i].length; j++) {
+//                 res.push(array[i].splice(array[j], 1));
+//                 break;
+//             }
+//         }
 
-        return snl(array.filter(e => e.length), count + array.length);
-    }
+//         return snl(array.filter(e => e.length), count + array.length);
+//     }
 
-    result = snl(array);
+//     result = snl(array);
 
-    result.forEach((e) => {
-        subFnlRes.push(e.join(' '));
-    });
+//     result.forEach((e) => {
+//         subFnlRes.push(e.join(' '));
+//     });
 
-    subFnlRes.forEach((e, i) => {
-        if (e !== '') {
-            fnlRes.push(+e);
-        }
-    });
+//     subFnlRes.forEach((e) => {
+//         if (e !== '') {
+//             fnlRes.push(+e);
+//         }
+//     });
 
-    return fnlRes;
-}
-console.log(snail([
-    [1, 2, 3, 4, 5, 6],
-    [20, 21, 22, 23, 24, 7],
-    [19, 32, 33, 34, 25, 8],
-    [18, 31, 36, 35, 26, 9],
-    [17, 30, 29, 28, 27, 10],
-    [16, 15, 14, 13, 12, 11]
-]));
+//     return fnlRes;
+// }
+// console.log(snail([
+//     [1, 2, 3, 4, 5, 6],
+//     [20, 21, 22, 23, 24, 7],
+//     [19, 32, 33, 34, 25, 8],
+//     [18, 31, 36, 35, 26, 9],
+//     [17, 30, 29, 28, 27, 10],
+//     [16, 15, 14, 13, 12, 11]
+// ]));
 
 //[1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]
+
+function isInteresting(number, awesomePhrases) {
+    const init = number - awesomePhrases[0]; 
+    const num = number.toString();
+    let count = 0;
+
+    if (init === 0) {
+        return 2;
+    }
+
+    if (init === -1 || init === -2 || init === 1 || init === 2) {
+        return 1;
+    }
+
+    for (let i = 1; i < num.length; i++) {
+        if (num[i - 1] === num[i]) {
+            count++;
+        }
+    }
+
+    console.log(count);
+
+    return 0;
+}
+console.log(isInteresting(11209, [1337, 256]));
