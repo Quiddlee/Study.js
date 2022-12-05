@@ -1525,8 +1525,25 @@ function isInteresting(number, awesomePhrases) {
         if (num[i - 1] === num[i]) {
             count++;
         }
+
+        
+        if (num[i - 1] === num[i]) {
+            count++;
+        }
+
+        for (const item of num) {
+            if (item === num[i]) {
+                count++;
+            } 
+
+            if (item != num[i]) {
+                item + 1 === num[i] ? count++ : null;
+                item + 2 === num[i] ? count++ : null;
+            }
+        }
     }
 
+    
     console.log(count);
 
     return 0;
