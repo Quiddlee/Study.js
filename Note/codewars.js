@@ -1582,9 +1582,9 @@ function treeByLevels (rootNode) {
         if (typeof(rootNode) === 'object') {
             Object.keys(rootNode).forEach(key => {
                 // console.log(key);
-                if (key === 'value' && !res.includes(key)) {
+                if (key === 'value') {
                     res.push(rootNode[key]);
-                    return res;
+                    return;
                 }
 
                 if (typeof(rootNode[key]) === 'object' && rootNode[key] !== null) {  //typeof(null) === 'object'  
