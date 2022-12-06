@@ -1508,44 +1508,124 @@
 
 //[1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]
 
-function isInteresting(number, awesomePhrases) {
-    const init = number - awesomePhrases[0]; 
-    const num = number.toString();
-    let count = 0;
+// function isInteresting(number, awesomePhrases) {
+//     const init = number - awesomePhrases[0]; 
+//     const num = number.toString();
+//     let count = 0;
 
-    if (init === 0) {
-        return 2;
-    }
+//     if (init === 0) {
+//         return 2;
+//     }
 
-    if (init === -1 || init === -2 || init === 1 || init === 2) {
-        return 1;
-    }
+//     if (init === -1 || init === -2 || init === 1 || init === 2) {
+//         return 1;
+//     }
 
-    for (let i = 1; i < num.length; i++) {
-        if (num[i - 1] === num[i]) {
-            count++;
-        }
+//     for (let i = 1; i < num.length; i++) {
+//         if (num[i - 1] === num[i]) {
+//             count++;
+//         }
 
         
-        if (num[i - 1] === num[i]) {
-            count++;
+//         if (num[i - 1] === num[i]) {
+//             count++;
+//         }
+
+//         for (const item of num) {
+//             if (item === num[i]) {
+//                 count++;
+//             }
+
+//             if (item != num[i]) {
+//                 item + 1 === num[i] ? count++ : null;
+//                 item + 2 === num[i] ? count++ : null;
+//             }
+//         }
+//     }
+
+//     console.log(count);
+
+//     return 0;
+// }
+// console.log(isInteresting(11209, [1337, 256]));
+
+
+class Node { 
+    constructor(value, left = null, right = null) {
+        this.value = value;
+      this.left  = left;
+      this.right = right;
+    }
+}
+
+const treeOne =
+new Node(2,
+        new Node(8,
+            new Node(1),
+            new Node(3)
+            ),
+            new Node(9,
+                new Node(4),
+          new Node(5)
+          )
+          );
+          
+const res = [];
+
+function treeByLevels (rootNode) {
+
+    function recursion (length = 0) {
+        if (rootNode.length === length) return res;
+
+        if (typeof(rootNode) === 'object') {
+            Object.keys(rootNode).forEach(key => {
+                if (key === 'value') {
+                    res.push(rootNode[key]);
+                }
+            });
         }
 
-        for (const item of num) {
-            if (item === num[i]) {
-                count++;
-            } 
+        if (typeof(rootNode) !== 'object') {
 
-            if (item != num[i]) {
-                item + 1 === num[i] ? count++ : null;
-                item + 2 === num[i] ? count++ : null;
-            }
         }
     }
-
     
-    console.log(count);
-
-    return 0;
+    return recursion();
 }
-console.log(isInteresting(11209, [1337, 256]));
+console.log(treeByLevels(treeOne));
+
+
+function arrScan(arr, length = 0) {
+    if (arr.length === length) return 0;
+
+    str.push(arr[length]);
+
+    if (Array.isArray(arr[length])) {
+        arrScan(arr[length]);
+    }
+
+    return arrScan(arr, length + 1);
+}
+
+
+function getTotalProgressByRecursion(data) {
+    if (Array.isArray(data)) {
+        let total = 0;
+
+        for (let i = 0; i < data.length; i++) {
+            total += data[i].progress;
+        }
+
+        return [total, data.length];
+    } else {
+        let total = [0, 0];
+
+        for (const subData of Object.values(data)) {
+            const subDataArr = getTotalProgressByRecursion(subData);
+            total[0] += subDataArr[0];
+            total[1] += subDataArr[1];
+        }
+
+        return total;
+    }
+}
