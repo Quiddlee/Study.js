@@ -1570,27 +1570,34 @@ new Node(2,
           )
           );
           
-const res = [];
-
+          
 function treeByLevels (rootNode) {
-
-    function recursion (length = 0) {
-        if (rootNode.length === length) return res;
+    const res = [];
+    
+    function recursion (rootNode) {
+        if (typeof(rootNode) !== 'object') {
+            console.log('wassup');
+        }
 
         if (typeof(rootNode) === 'object') {
             Object.keys(rootNode).forEach(key => {
-                if (key === 'value') {
+                // console.log(key);
+                if (key === 'value' && !res.includes(key)) {
                     res.push(rootNode[key]);
+                    return res;
+                }
+
+                if (typeof(rootNode[key]) === 'object' && rootNode[key] !== null) {  //typeof(null) === 'object'  
+                    // console.log(rootNode[key]);
+                    recursion(rootNode[key]);
                 }
             });
         }
 
-        if (typeof(rootNode) !== 'object') {
-
-        }
+        return res;
     }
-    
-    return recursion();
+
+    return recursion(rootNode);
 }
 console.log(treeByLevels(treeOne));
 
