@@ -1553,8 +1553,8 @@
 class Node { 
     constructor(value, left = null, right = null) {
         this.value = value;
-      this.left  = left;
-      this.right = right;
+        this.left  = left;
+        this.right = right;
     }
 }
 
@@ -1563,76 +1563,121 @@ new Node(2,
         new Node(8,
             new Node(1),
             new Node(3)
-            ),
-            new Node(9,
-                new Node(4),
-          new Node(5)
-          )
-          );
+        ),
+        new Node(9,
+            new Node(4),
+            new Node(5)
+        )
+);
           
           
 function treeByLevels (rootNode) {
     const res = [];
+    // res.push(rootNode);
     
-    function recursion (rootNode) {
-        if (typeof(rootNode) !== 'object') {
-            console.log('wassup');
+    // function recursion (rootNode, length = 0) { 
+    //     if (length === 2) {
+    //         return res;
+    //     }
+
+    //     if (typeof(rootNode) === 'object') {
+    //         Object.keys(rootNode).forEach(key => {
+    //             // console.log(key);
+    //             if (rootNode[key] === 'value') {
+    //                 res.push(rootNode[key]);
+    //             }
+
+    //             if (typeof(rootNode[key]) === 'object' && rootNode[key] !== null) {  //typeof(null) === 'object'  
+    //                 // console.log(rootNode[key]);
+    //                 recursion(rootNode[key]);
+    //             }
+    //         });
+    //     }
+
+    //     return res;
+    // }
+
+    // return recursion(rootNode);
+
+    // console.log(res);
+    // while (res.length > 0) {
+    //     let currentNode = res[0];
+    //     console.log(currentNode.value);
+
+    //     if (currentNode.left !== null) {
+    //         res.push(rootNode[currentNode.left]);
+    //     }
+
+    //     if (currentNode.right !== null) {
+    //         res.push(rootNode[currentNode.right]);
+    //     }
+
+    //     res.shift();
+    // }
+    function rec(rootNode, count = 0) {
+        if (count === 2) {
+            return res;
         }
 
-        if (typeof(rootNode) === 'object') {
-            Object.keys(rootNode).forEach(key => {
-                // console.log(key);
-                if (key === 'value') {
-                    res.push(rootNode[key]);
-                    return;
-                }
+        // Object.keys(rootNode).forEach(key => {
+        while (rec.length < 3) {
+            console.log(rootNode.left);
+            if (rootNode.left !== null) {
+                res.push(rootNode.left.value);
+            }
+    
+            if (rootNode.right !== null) {
+                res.push(rootNode.right.value);
+                // rec(rootNode[key], count + 1);
+            }
+    
+            console.log(res);
 
-                if (typeof(rootNode[key]) === 'object' && rootNode[key] !== null) {  //typeof(null) === 'object'  
-                    // console.log(rootNode[key]);
-                    recursion(rootNode[key]);
-                }
-            });
-        }
+            if (rootNode[rootNode] !== null) {
+                rec(rootNode[rootNode]);
+            }
+
+        }  
+        // });
 
         return res;
     }
 
-    return recursion(rootNode);
+    return rec(rootNode);
 }
 console.log(treeByLevels(treeOne));
 
 
-function arrScan(arr, length = 0) {
-    if (arr.length === length) return 0;
+// function arrScan(arr, length = 0) {
+//     if (arr.length === length) return 0;
 
-    str.push(arr[length]);
+//     str.push(arr[length]);
 
-    if (Array.isArray(arr[length])) {
-        arrScan(arr[length]);
-    }
+//     if (Array.isArray(arr[length])) {
+//         arrScan(arr[length]);
+//     }
 
-    return arrScan(arr, length + 1);
-}
+//     return arrScan(arr, length + 1);
+// }
 
+// function getTotalProgressByRecursion(data) {
+//     if (Array.isArray(data)) {
+//         let total = 0;
 
-function getTotalProgressByRecursion(data) {
-    if (Array.isArray(data)) {
-        let total = 0;
+//         for (let i = 0; i < data.length; i++) {
+//             total += data[i].progress;
+//         }
 
-        for (let i = 0; i < data.length; i++) {
-            total += data[i].progress;
-        }
+//         return [total, data.length];
+//     } else {
+//         let total = [0, 0];
 
-        return [total, data.length];
-    } else {
-        let total = [0, 0];
+//         for (const subData of Object.values(data)) {
+//             const subDataArr = getTotalProgressByRecursion(subData);
+//             total[0] += subDataArr[0];
+//             total[1] += subDataArr[1];
+//         }
 
-        for (const subData of Object.values(data)) {
-            const subDataArr = getTotalProgressByRecursion(subData);
-            total[0] += subDataArr[0];
-            total[1] += subDataArr[1];
-        }
-
-        return total;
-    }
-}
+//         return total;
+//     }
+// }
