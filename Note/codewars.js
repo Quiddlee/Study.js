@@ -1572,7 +1572,7 @@ new Node(2,
           
           
 function treeByLevels (rootNode) {
-    const res = [];
+    const res = [rootNode.value];
     // res.push(rootNode);
     
     // function recursion (rootNode, length = 0) { 
@@ -1619,31 +1619,26 @@ function treeByLevels (rootNode) {
             return res;
         }
 
-        // Object.keys(rootNode).forEach(key => {
-        while (rec.length < 3) {
-            console.log(rootNode.left);
+        Object.keys(rootNode).forEach(key => {
             if (rootNode.left !== null) {
                 res.push(rootNode.left.value);
             }
     
             if (rootNode.right !== null) {
                 res.push(rootNode.right.value);
-                // rec(rootNode[key], count + 1);
             }
     
-            console.log(res);
-
-            if (rootNode[rootNode] !== null) {
-                rec(rootNode[rootNode]);
+            if (rootNode[key] !== null) {
+                rec(rootNode[key]);
             }
-
-        }  
-        // });
+        });
 
         return res;
     }
 
-    return rec(rootNode);
+    const sort = new Set(rec(rootNode));
+    
+    return Array.from(sort);
 }
 console.log(treeByLevels(treeOne));
 
