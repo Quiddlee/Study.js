@@ -1584,33 +1584,56 @@ const treeTwo =
                 )
             )
 );
-          
+
+const treeThree =
+        new Node(31,
+            new Node(7,
+                null,
+                new Node(18,
+                    new Node(5),
+                    new Node(6)
+                )
+            ),
+            new Node(44,
+                null,
+                new Node(42,
+                    null,
+                    new Node(5)
+                )
+            )
+);
+    
+                                    //binary tree breadth first search
+
 function treeByLevels (rootNode) {
-    if (rootNode === null) return []; 
+    if (rootNode === null) {return [];}
 
-    const res = [rootNode.value];
+    const queue = [rootNode];
+    const res = [];
 
-    function rec(rootNode) {
-        if (rootNode.left !== null) {
-            res.push(rootNode.left.value);
+    function nodeTravel() {
+        const currentNode = queue[0];
+
+        res.push(currentNode.value);
+
+        if (currentNode.left !== null) {
+            queue.push(currentNode.left);
         }
 
-        if (rootNode.right !== null) {
-            res.push(rootNode.right.value);
+        if (currentNode.right !== null) {
+            queue.push(currentNode.right);
         }
 
-        if (rootNode.left !== null) {
-            rec(rootNode.left);
-        }
+        queue.shift();
 
-        if (rootNode.right !== null) {
-            rec(rootNode.right);
+        if (queue.length !== 0) {
+            nodeTravel();
         }
-
+        
         return res;
     }
 
-    return rec(rootNode);
+    return nodeTravel(rootNode);
 }
-console.log(treeByLevels(treeOne));
+console.log(treeByLevels(treeTwo));
 
