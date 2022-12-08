@@ -1550,90 +1550,104 @@
 // console.log(isInteresting(11209, [1337, 256]));
 
 
-class Node { 
-    constructor(value, left = null, right = null) {
-        this.value = value;
-        this.left  = left;
-        this.right = right;
-    }
-}
+// class Node { 
+//     constructor(value, left = null, right = null) {
+//         this.value = value;
+//         this.left  = left;
+//         this.right = right;
+//     }
+// }
 
-const treeOne =
-        new Node(2,
-            new Node(8,
-                new Node(1),
-                new Node(3)
-            ),
-            new Node(9,
-                new Node(4),
-                new Node(5)
-            )
-);
+// const treeOne =
+//         new Node(2,
+//             new Node(8,
+//                 new Node(1),
+//                 new Node(3)
+//             ),
+//             new Node(9,
+//                 new Node(4),
+//                 new Node(5)
+//             )
+// );
 
-const treeTwo =
-        new Node(1,
-            new Node(8,
-                null,
-                new Node(3)
-            ),
-            new Node(4,
-                null,
-                new Node(5,
-                    null,
-                    new Node(7)
-                )
-            )
-);
+// const treeTwo =
+//         new Node(1,
+//             new Node(8,
+//                 null,
+//                 new Node(3)
+//             ),
+//             new Node(4,
+//                 null,
+//                 new Node(5,
+//                     null,
+//                     new Node(7)
+//                 )
+//             )
+// );
 
-const treeThree =
-        new Node(31,
-            new Node(7,
-                null,
-                new Node(18,
-                    new Node(5),
-                    new Node(6)
-                )
-            ),
-            new Node(44,
-                null,
-                new Node(42,
-                    null,
-                    new Node(5)
-                )
-            )
-);
+// const treeThree =
+//         new Node(31,
+//             new Node(7,
+//                 null,
+//                 new Node(18,
+//                     new Node(5),
+//                     new Node(6)
+//                 )
+//             ),
+//             new Node(44,
+//                 null,
+//                 new Node(42,
+//                     null,
+//                     new Node(5)
+//                 )
+//             )
+// );
     
-                                    //binary tree breadth first search
+//                                     //binary tree breadth first search
 
-function treeByLevels (rootNode) {
-    if (rootNode === null) {return [];}
+// function treeByLevels (rootNode) {
+//     if (rootNode === null) {return [];}
 
-    const queue = [rootNode];
-    const res = [];
+//     const queue = [rootNode];
+//     const res = [];
 
-    function nodeTravel() {
-        const currentNode = queue[0];
+//     function nodeTravel() {
+//         const currentNode = queue[0];
 
-        res.push(currentNode.value);
+//         res.push(currentNode.value);
 
-        if (currentNode.left !== null) {
-            queue.push(currentNode.left);
-        }
+//         if (currentNode.left !== null) {
+//             queue.push(currentNode.left);
+//         }
 
-        if (currentNode.right !== null) {
-            queue.push(currentNode.right);
-        }
+//         if (currentNode.right !== null) {
+//             queue.push(currentNode.right);
+//         }
 
-        queue.shift();
+//         queue.shift();
 
-        if (queue.length !== 0) {
-            nodeTravel();
-        }
+//         if (queue.length !== 0) {
+//             nodeTravel();
+//         }
         
-        return res;
+//         return res;
+//     }
+
+//     return nodeTravel(rootNode);
+// }
+// console.log(treeByLevels(treeTwo));
+
+function longestSlideDown (pyramid) {
+    let res = 0;
+    
+    for (let i = 1; i < pyramid.length; i++) {
+        console.log(pyramid[i].splice(pyramid.indexOf(Math.max(...pyramid[i - 1])), 2));
+        // res += Math.max(...pyramid[i]);
     }
-
-    return nodeTravel(rootNode);
+        
+    return res;
 }
-console.log(treeByLevels(treeTwo));
-
+console.log(longestSlideDown([  [3],
+                                [7, 4],
+                                [2, 4, 6],
+                                [8, 5, 9, 3]    ]));
