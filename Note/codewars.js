@@ -1078,41 +1078,80 @@
 // }
 // console.log(moveZeros([9, 0, 9, 1, 2, 1, 1, 3, 1, 9, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0]));
 
-// function checkForDuplicates(arr) {
-//     for (let i = 0; i < arr.length; i++) {
-//         if (arr[i].length !== new Set(arr[i]).size) {
-//             return 'Try again!';
-//         }
-//     }
+function checkForDuplicates(arr) {
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i].length !== new Set(arr[i]).size) {
+    //         return 'Try again!';
+    //     }
+    // }
 
-//     const verticalArr = new Array(9);           
-//     for (let i = 0; i < 9; i++) {               
-//         verticalArr[i] = new Array(9);        
-//     }
-//     for (let i = 0; i < arr.length; i++) {
-//         for (let k = 0; k < arr.length; k++) {
-//             verticalArr[i][k] = arr[k][i];
-//         }
-//     } 
-//     for (let i = 0; i < arr.length; i++) {
-//         if (verticalArr[i].length !== new Set(verticalArr[i]).size) {
-//             return 'Try again!';
-//         }
-//     }
+    // const verticalArr = new Array(9);           
+    // for (let i = 0; i < 9; i++) {               
+    //     verticalArr[i] = new Array(9);        
+    // }
+    // for (let i = 0; i < arr.length; i++) {
+    //     for (let k = 0; k < arr.length; k++) {
+    //         verticalArr[i][k] = arr[k][i];
+    //     }
+    // } 
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (verticalArr[i].length !== new Set(verticalArr[i]).size) {
+    //         return 'Try again!';
+    //     }
+    // }
 
-//     return 'Finished!';
-// }
-// console.log(checkForDuplicates([[5, 3, 4, 6, 7, 8, 9, 1, 2], 
-//                                 [6, 7, 2, 1, 9, 5, 3, 4, 8],
-//                                 [1, 9, 8, 3, 4, 2, 5, 6, 7],
-//                                 [8, 5, 9, 7, 6, 1, 4, 2, 3],
-//                                 [4, 2, 6, 8, 5, 3, 7, 9, 1],
-//                                 [7, 1, 3, 9, 2, 4, 8, 5, 6],
-//                                 [9, 6, 1, 5, 3, 7, 2, 8, 4],
-//                                 [2, 8, 7, 4, 1, 9, 6, 3, 5],
-//                                 [3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+    // return 'Finished!';
+    
+    // const check = new Array(9);
+    // const regions = new Array(9);
 
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i].length !== new Set(arr[i]).size) {
+    //         return 'Try again!'; 
+    //     }
 
+    // }
+
+    // for (let i = 0; i < arr.length; i++) {
+    //     check[i] = new Array(9);
+    //     for (let j = 0; j < arr.length; j++) {
+    //         check[i][j] = arr[j][i];
+    //     }
+    // }
+    
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (check[i].length !== new Set(check[i]).size) {
+    //         return 'Try again';
+    //     }
+    // }
+    
+    // for (let i = 0; i < arr.length; i++) {
+    //     regions[i] = new Array(9);
+    //     for (let j = 0; j < 3; j++) {
+    //         // regions[i][j] = arr[i][j];
+    //         regions[i].push(arr[i][j]);
+    //     }
+    // }
+
+    // console.log(regions);
+
+    for (let i = 0; i < arr.length; i++) {
+        
+    }
+    
+    return 'Finished!';
+}
+console.log(checkForDuplicates([[5, 3, 4, 6, 7, 8, 9, 1, 2], 
+                                [6, 7, 2, 1, 9, 5, 3, 4, 8],
+                                [1, 9, 8, 3, 4, 2, 5, 6, 7],
+                                [8, 5, 9, 7, 6, 1, 4, 2, 3],
+                                [4, 2, 6, 8, 5, 3, 7, 9, 1],
+                                [7, 1, 3, 9, 2, 4, 8, 5, 6],
+                                [9, 6, 1, 5, 3, 7, 2, 8, 4],
+                                [2, 8, 7, 4, 1, 9, 6, 3, 5],
+                                [3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+                                
+                                
 // function solution(input, markers) {
 //     let res = input;
 //     res = res.split('');
@@ -1637,17 +1676,17 @@
 // }
 // console.log(treeByLevels(treeTwo));
 
-function longestSlideDown (pyramid) {
-    let res = 0;
+// function longestSlideDown (pyramid) {
+//     let res = 0;
     
-    for (let i = 1; i < pyramid.length; i++) {
-        console.log(pyramid[i].splice(pyramid.indexOf(Math.max(...pyramid[i - 1])), 2));
-        // res += Math.max(...pyramid[i]);
-    }
+//     for (let i = 1; i < pyramid.length; i++) {
+//         console.log(pyramid[i].splice(pyramid.indexOf(Math.max(...pyramid[i - 1])), 2));
+//         // res += Math.max(...pyramid[i]);
+//     }
         
-    return res;
-}
-console.log(longestSlideDown([  [3],
-                                [7, 4],
-                                [2, 4, 6],
-                                [8, 5, 9, 3]    ]));
+//     return res;
+// }
+// console.log(longestSlideDown([  [3],
+//                                 [7, 4],
+//                                 [2, 4, 6],
+//                                 [8, 5, 9, 3]    ]));
