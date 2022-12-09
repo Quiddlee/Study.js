@@ -1205,20 +1205,51 @@
 // function eight(a = 0) {return 8 + a;}
 // function nine(a = 0) {return 9, a;}
 
-// function plus(b) {return + b;}
-// function minus(b) {return - b;}
-// function times(b) {
-//     return y => {
-//         return b * y;
-//     };
-// }
-// function dividedBy(b) {
-//     return y => {
-//         return b * y;
-//     };
-// }
+function plus(b) {return + b;}
+function minus(b) {return - b;}
+function times(b) {
+    return y => {
+        return b * y;
+    };
+}
+function dividedBy(b) {
+    return y => {
+        return b * y;
+    };
+}
 
 // console.log(seven(times(five())));
+
+function expression(number, operation){
+    if(!operation) return number;
+    return operation(number);
+}
+    
+function zero(a) {return expression(0, a);}
+function one(a) {return expression(1, a);}
+function two(a) {return expression(2, a);}
+function three(a) {return expression(3, a);}
+function four(a) {return expression(4, a);}
+function five(a) {return expression(5, a);}
+function six(a) {return expression(6, a);}
+function seven(a) {return expression(7, a);}
+function eight(a) {return expression(8, a);}
+function nine(a) {return expression(9, a);}
+
+function plus(b) {
+    return y => y + b; 
+}
+function minus(b) {
+    return y => y - b;
+}
+function times(b) {
+    return y => y * b;
+}
+function dividedBy(b) {
+    return y => y / b;
+}
+
+console.log(seven(plus(five())));
 
 // function rot13(message) {
 //     const alphabet = {
