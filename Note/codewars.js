@@ -1150,15 +1150,18 @@
 //                                 [3, 4, 5, 2, 8, 6, 1, 7, 9]]));
                                 
                                 
-function solution(input, markers) {
-    let res = input.split('');
-    
-    res.splice(res.indexOf(markers[0]), res.indexOf(markers[0]) - 1).join('').trim();
-    res.splice(res.indexOf(markers[1]), res.indexOf(markers[1]) - 1);
+// function solution(input, markers) {
+//     let res = input.split('');
+//     const firstMarker = markers[0];
+//     const secondMarker = markers[1];
+//     const whenToStop = res.join('').search(/\n/) - res.indexOf(firstMarker) + 1;
 
-    return res.join('').trim();
-}
-console.log(solution("apples, plums % and bananas\npears\noranges !applesauce", ["%", "!"]));
+//     res.splice(res.indexOf(firstMarker) - 1, whenToStop);
+//     res.splice(res.indexOf(secondMarker));
+
+//     return res.join('').trim();
+// }
+// console.log(solution("Q @b\nu\ne -e f g", ["@", "-"]));
 
 //"Q\nu\ne"
 
