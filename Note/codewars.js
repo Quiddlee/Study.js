@@ -1406,39 +1406,36 @@
 // }
 // console.log(zeros(1000));
 
-function dirReduc(arr, length = 0) {
-    if (length === arr.length) {
-        return arr;
-    }
+// function dirReduc(arr, length = 0) {
+//     if (length === arr.length) {
+//         return arr;
+//     }
 
-    const matches = {
-        'SOUTH': 'NORTH',
-        'NORTH': 'SOUTH',
-        'WEST': 'EAST',
-        'EAST': 'WEST'
-    };
+//     const matches = {
+//         'SOUTH': 'NORTH',
+//         'NORTH': 'SOUTH',
+//         'WEST': 'EAST',
+//         'EAST': 'WEST'
+//     };
     
-    const check = arr[length];
-    let foundIt; 
+//     const check = arr[length];
+//     let foundIt; 
 
-    for (const item in matches) {
-        if (check === item) {
-            foundIt = matches[item];
-        }
-    }
+//     for (const item in matches) {
+//         if (check === item) {
+//             foundIt = matches[item];
+//         }
+//     }
 
-    // console.log(length);
-    if (arr[length + 1] === foundIt) {
-        console.log(arr.indexOf(arr[length]));
-        console.log(foundIt);
-        console.log(arr.splice(arr.indexOf(foundIt) - 1, 2));
+//     if (arr[length + 1] === foundIt) {
+//         arr.splice(length, 2);
 
-        return dirReduc(arr, length = 0);
-    }
+//         return dirReduc(arr);
+//     }
 
-    return dirReduc(arr, length + 1);
-}
-console.log(dirReduc(["EAST","NORTH","WEST","EAST","EAST","SOUTH","NORTH","WEST"]));
+//     return dirReduc(arr, length + 1);
+// }
+// console.log(dirReduc(["WEST","EAST","SOUTH","NORTH","NORTH","NORTH","NORTH","EAST","WEST","SOUTH","NORTH"]));
 
 // ["WEST","EAST","SOUTH","NORTH","NORTH","NORTH","NORTH","EAST","WEST","SOUTH","NORTH"]
 
