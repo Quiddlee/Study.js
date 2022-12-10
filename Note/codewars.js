@@ -1150,17 +1150,17 @@
 //                                 [3, 4, 5, 2, 8, 6, 1, 7, 9]]));
                                 
                                 
-// function solution(input, markers) {
-//     let res = input;
-//     res = res.split('');
-//     res.splice(res.indexOf(markers[0]), res.indexOf(markers[0]) - 1);
-//     res.splice(res.indexOf(markers[1]), res.indexOf(markers[1]) - 1);
+function solution(input, markers) {
+    let res = input.split('');
+    
+    res.splice(res.indexOf(markers[0]), res.indexOf(markers[0]) - 1).join('').trim();
+    res.splice(res.indexOf(markers[1]), res.indexOf(markers[1]) - 1);
 
-//     return res.join('').trim();
-// }
-// console.log(solution("apples, plums % and bananas\npears\noranges !applesauce", ["%", "!"]));
+    return res.join('').trim();
+}
+console.log(solution("apples, plums % and bananas\npears\noranges !applesauce", ["%", "!"]));
 
-// //"Q\nu\ne"
+//"Q\nu\ne"
 
 
 // function domainName(url) {
@@ -1205,51 +1205,51 @@
 // function eight(a = 0) {return 8 + a;}
 // function nine(a = 0) {return 9, a;}
 
-function plus(b) {return + b;}
-function minus(b) {return - b;}
-function times(b) {
-    return y => {
-        return b * y;
-    };
-}
-function dividedBy(b) {
-    return y => {
-        return b * y;
-    };
-}
+// function plus(b) {return + b;}
+// function minus(b) {return - b;}
+// function times(b) {
+//     return y => {
+//         return b * y;
+//     };
+// }
+// function dividedBy(b) {
+//     return y => {
+//         return b * y;
+//     };
+// }
 
-// console.log(seven(times(five())));
+// // console.log(seven(times(five())));
 
-function expression(number, operation){
-    if(!operation) return number;
-    return operation(number);
-}
+// function expression(number, operation){
+//     if(!operation) return number;
+//     return operation(number);
+// }
     
-function zero(a) {return expression(0, a);}
-function one(a) {return expression(1, a);}
-function two(a) {return expression(2, a);}
-function three(a) {return expression(3, a);}
-function four(a) {return expression(4, a);}
-function five(a) {return expression(5, a);}
-function six(a) {return expression(6, a);}
-function seven(a) {return expression(7, a);}
-function eight(a) {return expression(8, a);}
-function nine(a) {return expression(9, a);}
+// function zero(a) {return expression(0, a);}
+// function one(a) {return expression(1, a);}
+// function two(a) {return expression(2, a);}
+// function three(a) {return expression(3, a);}
+// function four(a) {return expression(4, a);}
+// function five(a) {return expression(5, a);}
+// function six(a) {return expression(6, a);}
+// function seven(a) {return expression(7, a);}
+// function eight(a) {return expression(8, a);}
+// function nine(a) {return expression(9, a);}
 
-function plus(b) {
-    return y => y + b; 
-}
-function minus(b) {
-    return y => y - b;
-}
-function times(b) {
-    return y => y * b;
-}
-function dividedBy(b) {
-    return y => y / b;
-}
+// function plus(b) {
+//     return y => y + b; 
+// }
+// function minus(b) {
+//     return y => y - b;
+// }
+// function times(b) {
+//     return y => y * b;
+// }
+// function dividedBy(b) {
+//     return y => y / b;
+// }
 
-console.log(seven(plus(five())));
+// console.log(seven(plus(five())));
 
 // function rot13(message) {
 //     const alphabet = {
