@@ -1083,14 +1083,14 @@
 //     const regions = [];
 //     let columns = 0;
 //     let rows = 0;
-    
+
 //     for (let i = 0; i < arr.length; i++) {
 //         if (arr[i].length !== new Set(arr[i]).size) {
 //             return 'Try again!'; 
 //         }
-        
+
 //     }
-    
+
 //     for (let i = 0; i < arr.length; i++) {
 //         check[i] = new Array(9);
 //         regions[i] = new Array(0);
@@ -1110,18 +1110,18 @@
 //             columns = 0;
 //             rows = 3;
 //         }
-        
+
 //         if (k === 6) {
 //             columns = 0;
 //             rows = 6;
 //         }
-        
+
 //         for (let i = columns; i < columns + 3; i++) {
 //             for (let j = rows; j < rows + 3; j++) {
 //                 regions[k].push(arr[i][j]);
 //             }
 //         }
-        
+
 //         columns += 3;
 //     }
 
@@ -1132,12 +1132,12 @@
 //     }
 
 //     return 'Finished!';
-    
-    // for (let i = 0; i < arr.length; i++) {
-    //     res += arr[i].reduce((a, b) => a + b, 0);
-    // }
-    
-    // return res === 405 ? 'Finished!' : 'Try again!'; 
+
+// for (let i = 0; i < arr.length; i++) {
+//     res += arr[i].reduce((a, b) => a + b, 0);
+// }
+
+// return res === 405 ? 'Finished!' : 'Try again!'; 
 // }
 // console.log(checkForDuplicates([[5, 3, 9, 6, 7, 8, 4, 1, 2], 
 //                                 [6, 7, 2, 1, 9, 5, 3, 4, 8],
@@ -1148,8 +1148,8 @@
 //                                 [9, 6, 1, 5, 3, 7, 2, 8, 4],
 //                                 [2, 8, 7, 4, 1, 9, 6, 3, 5],
 //                                 [3, 4, 5, 2, 8, 6, 1, 7, 9]]));
-                                
-                                
+
+
 // function solution(input, markers) {
 //     let res = input.split('');
 //     const firstMarker = markers[0];
@@ -1164,7 +1164,6 @@
 // console.log(solution("Q @b\nu\ne -e f g", ["@", "-"]));
 
 //"Q\nu\ne"
-
 
 // function domainName(url) {
 // const res = url;
@@ -1227,7 +1226,7 @@
 //     if(!operation) return number;
 //     return operation(number);
 // }
-    
+
 // function zero(a) {return expression(0, a);}
 // function one(a) {return expression(1, a);}
 // function two(a) {return expression(2, a);}
@@ -1407,18 +1406,41 @@
 // }
 // console.log(zeros(1000));
 
-// function dirReduc(arr) {
-//     const res = arr;
+function dirReduc(arr, length = 0) {
+    if (length === arr.length) {
+        return arr;
+    }
 
-//     for (let i = 1; i < arr.length; i++) {
-//         if (arr[i - 1] ==) {
+    const matches = {
+        'SOUTH': 'NORTH',
+        'NORTH': 'SOUTH',
+        'WEST': 'EAST',
+        'EAST': 'WEST'
+    };
+    
+    const check = arr[length];
+    let foundIt; 
 
-//         }
-//     }
+    for (const item in matches) {
+        if (check === item) {
+            foundIt = matches[item];
+        }
+    }
 
-//     return res;
-// }
-// console.log(dirReduc(["NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST"]));
+    // console.log(length);
+    if (arr[length + 1] === foundIt) {
+        console.log(arr.indexOf(arr[length]));
+        console.log(foundIt);
+        console.log(arr.splice(arr.indexOf(foundIt) - 1, 2));
+
+        return dirReduc(arr, length = 0);
+    }
+
+    return dirReduc(arr, length + 1);
+}
+console.log(dirReduc(["EAST","NORTH","WEST","EAST","EAST","SOUTH","NORTH","WEST"]));
+
+// ["WEST","EAST","SOUTH","NORTH","NORTH","NORTH","NORTH","EAST","WEST","SOUTH","NORTH"]
 
 // function sameStructureAs(dis, other) {
 //     if (!Array.isArray(dis) && !Array.isArray(other)) return false;
@@ -1496,7 +1518,7 @@
 //             });
 //             return res;
 //         }
-        
+
 //         if (count === 2) {
 //             return res;
 //         }
@@ -1597,7 +1619,7 @@
 //             count++;
 //         }
 
-        
+
 //         if (num[i - 1] === num[i]) {
 //             count++;
 //         }
@@ -1673,7 +1695,7 @@
 //                 )
 //             )
 // );
-    
+
 //                                     //binary tree breadth first search
 
 // function treeByLevels (rootNode) {
@@ -1700,7 +1722,7 @@
 //         if (queue.length !== 0) {
 //             nodeTravel();
 //         }
-        
+
 //         return res;
 //     }
 
@@ -1710,12 +1732,12 @@
 
 // function longestSlideDown (pyramid) {
 //     let res = 0;
-    
+
 //     for (let i = 1; i < pyramid.length; i++) {
 //         console.log(pyramid[i].splice(pyramid.indexOf(Math.max(...pyramid[i - 1])), 2));
 //         // res += Math.max(...pyramid[i]);
 //     }
-        
+
 //     return res;
 // }
 // console.log(longestSlideDown([  [3],
