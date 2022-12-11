@@ -1417,7 +1417,7 @@
 //         'WEST': 'EAST',
 //         'EAST': 'WEST'
 //     };
-    
+
 //     const check = arr[length];
 //     let foundIt; 
 
@@ -1785,7 +1785,7 @@
 //         return true;
 //     };
 //     isRepeat = repeatCheck(arr);
-    
+
 
 //     for (let i = 0; i < sudokuSize; i++) {
 //         check[i] = new Array(sudokuSize);
@@ -1802,7 +1802,7 @@
 //         return repeatCheck(check);
 //     }
 
-    
+
 //     for (let k = 0; k < sudokuSize; k++) {
 //         let slice;
 //         let secondSlice;
@@ -1812,7 +1812,7 @@
 //             slice = Math.ceil(sudokuSize / 3.5);
 //             secondSlice = Math.ceil(sudokuSize / 2);
 //         }
-        
+
 
 //         if (arr.length >= 9) {
 //             slice = Math.ceil(sudokuSize / 3.5);
@@ -1841,7 +1841,7 @@
 //     }
 //     isRepeat = repeatCheck(regions);
 
-    
+
 //     return isRepeat;
 // };
 // console.log(Sudoku([
@@ -1999,12 +1999,24 @@
 
 function solution(list) {
     let res = '';
+    let count = 1;
+    const check = [];
+
+    for (let i = 2; i < list.length; i++) {
+        for (let j = 1; j < list.length; j++) {
+            if (list[i - 2] + 1 === list[j]) {
+                check.push(list[j]);
+            }
+        }
+    }
+
+    console.log(check);
 
 
     for (let i = 2; i < list.length; i++) {
         if (list[i - 2] + 1 === list[i - 1] && list[i - 1] + 1 === list[i]) {
             res += `${list[i - 2]}-${list[i]},`;
-            list.splice(list[i - 2], list[i]);
+            list.splice(list.indexOf(list[i - 2]), list.indexOf(list[i - 1]));
         } else {
             res += `${list[i - 2]},`;
         }
