@@ -1474,43 +1474,43 @@
 // }
 // console.log(sameStructureAs([1,'[',']'],['[',']',1]));
 
-function parseInt(string) {
-    // const nums = {one: '1', two: '2', three: '3', four: '4', five: '5', six: '6', seven: '7', eight: '8', nine: '9', ten: '10', eleven: '11', twelve: '12', thirteen: '13', fourteen: '14', fifteen: '15', sixteen: '16', seventeen: '17', eighteen: '18', nineteen: '19', twenty: '20'};
-    const digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fiveteen', 'sixteen', 'seventeen', 'eightteen', 'nineteen', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety', 'hundred'];
-    const digitsNums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-    const input = string.replace(/[-]/gi, ' ').split(' ');
-    const findThis = /[hundred]/gi; 
-    let res = '';
-    console.log(input.includes(findThis));
+// function parseInt(string) {
+//     // const nums = {one: '1', two: '2', three: '3', four: '4', five: '5', six: '6', seven: '7', eight: '8', nine: '9', ten: '10', eleven: '11', twelve: '12', thirteen: '13', fourteen: '14', fifteen: '15', sixteen: '16', seventeen: '17', eighteen: '18', nineteen: '19', twenty: '20'};
+//     const digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fiveteen', 'sixteen', 'seventeen', 'eightteen', 'nineteen', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety', 'hundred'];
+//     const digitsNums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+//     const input = string.replace(/[-]/gi, ' ').split(' ');
+//     const findThis = /[hundred]/gi; 
+//     let res = '';
+//     console.log(input.includes(findThis));
 
-    for (let i = 0; i < input.length; i++) {
-        // if (input.match(/\b[\s-\hundred+]+\b/gi)) {
-        //     res += digitsNums[digits.indexOf(input[0])] + '00';
-        //     // res += digitsNums[digits.indexOf(input[i])];
-        // } else {
-        //     // res += digitsNums[digits.indexOf(input[i])];
-        // }
-        let num = '';
-        for(let j = 0; j < input.length; j++) {
-            num += digitsNums[digits.indexOf(input[i])];
-        }
+//     for (let i = 0; i < input.length; i++) {
+//         // if (input.match(/\b[\s-\hundred+]+\b/gi)) {
+//         //     res += digitsNums[digits.indexOf(input[0])] + '00';
+//         //     // res += digitsNums[digits.indexOf(input[i])];
+//         // } else {
+//         //     // res += digitsNums[digits.indexOf(input[i])];
+//         // }
+//         let num = '';
+//         for(let j = 0; j < input.length; j++) {
+//             num += digitsNums[digits.indexOf(input[i])];
+//         }
 
-        if (input[i].match(findThis)) {
-            input.splice(i, 1);
+//         if (input[i].match(findThis)) {
+//             input.splice(i, 1);
 
-            res += num;
-        }
+//             res += num;
+//         }
 
-        if (input.join('').match(findThis)) {
-            console.log(i);
-            // res += digitsNums[digits.indexOf(input.match(findThis).join('').trim())];
-            // break;
-        }
-    }
+//         if (input.join('').match(findThis)) {
+//             console.log(i);
+//             // res += digitsNums[digits.indexOf(input.match(findThis).join('').trim())];
+//             // break;
+//         }
+//     }
 
-    return res;
-}
-console.log(parseInt('two hundred forty-six'));
+//     return res;
+// }
+// console.log(parseInt('two hundred forty-six'));
 
 // function snail(array) {
 //     const res = [];
@@ -1751,3 +1751,14 @@ console.log(parseInt('two hundred forty-six'));
 //                                 [7, 4],
 //                                 [2, 4, 6],
 //                                 [8, 5, 9, 3]    ]));
+
+// function add(a, b) { 
+//     // if (a || b > 2**53 - 1) {
+//     //     const firstNum = BigInt(a);
+//     //     const secondNum = BigInt(b);
+
+//     //     return (firstNum + secondNum).toString(); 
+//     // }
+//     return (Number(a) + Number(b)).toString();
+// }
+// console.log(add('63829983432984289347293874', '90938498237058927340892374089'));
