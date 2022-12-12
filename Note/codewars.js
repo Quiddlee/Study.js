@@ -1999,38 +1999,22 @@
 
 function solution(list) {
     if (list.length === 0) {return list;}
-
-    
-    const check = [];
-    let count = 0;
     let res = '';
-
-
-    // for (let i = 1; i < list.length; i++) {
-    //     if (list[i] - list[i - 1] === 1) {
-    //         check.push(list[i - 1], list[i]);
-    //     }
-    // }
-
-
-    // const array = Array.from(new Set(check));
-    // console.log(array);
 
 
     for (let i = 1; i < list.length; i++) {
         if (list[i] - list[i - 1] === 1) {
-            res += `${list[i - 1]}-${list[i]},`;
-
-            
-            list.splice(list.indexOf(list[i - 1]), list.indexOf(list[i - 1]));
+            continue;
         } else {
-
-            res += `${list[i - 1]},`;
+            res += `${list[i - 1]}-`;
         }
+
+        res += `${list[i]},`;
     }
+
 
     return res;
 }
-console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]));
+console.log(solution([-6, -8, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]));
 
 // "-6,-3-1,3-5,7-11,14,15,17-20"   
