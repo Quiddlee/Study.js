@@ -1998,27 +1998,34 @@
 // ]));
 
 function solution(list) {
-    let res = '';
-    let count = 1;
+    if (list.length === 0) {return list;}
+
+    
     const check = [];
-
-    for (let i = 2; i < list.length; i++) {
-        for (let j = 1; j < list.length; j++) {
-            if (list[i - 2] + 1 === list[j]) {
-                check.push(list[j]);
-            }
-        }
-    }
-
-    console.log(check);
+    let count = 0;
+    let res = '';
 
 
-    for (let i = 2; i < list.length; i++) {
-        if (list[i - 2] + 1 === list[i - 1] && list[i - 1] + 1 === list[i]) {
-            res += `${list[i - 2]}-${list[i]},`;
-            list.splice(list.indexOf(list[i - 2]), list.indexOf(list[i - 1]));
+    // for (let i = 1; i < list.length; i++) {
+    //     if (list[i] - list[i - 1] === 1) {
+    //         check.push(list[i - 1], list[i]);
+    //     }
+    // }
+
+
+    // const array = Array.from(new Set(check));
+    // console.log(array);
+
+
+    for (let i = 1; i < list.length; i++) {
+        if (list[i] - list[i - 1] === 1) {
+            res += `${list[i - 1]}-${list[i]},`;
+
+            
+            list.splice(list.indexOf(list[i - 1]), list.indexOf(list[i - 1]));
         } else {
-            res += `${list[i - 2]},`;
+
+            res += `${list[i - 1]},`;
         }
     }
 
