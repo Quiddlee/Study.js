@@ -770,3 +770,59 @@ clone.name = 'Bogdan';   //первоначальный объект в случ
 console.log(person);
 console.log(clone);
 console.log(clone.parents.mom);
+
+
+
+
+//                                      AJAX | работа с сервером
+
+//AJAX = Asynchronous JavaScript And XML
+
+//В кратце технология AJAX позволяет реализовывать веб приложения, в которых на действие пользователя,
+//страница не будет перезагружаться  
+
+const inputRub = document.querySelector('#rub');
+const inputUsd = document.querySelector('#usd');
+
+inputRub.addEventListener('input', () => {//событие input - срабатывает, когда пользователь что-то вводит в форму, когда с change - нужно нажать enter  
+    const request = new XMLHttpRequest(); // XMLHttpRequest - встроеный объект в браузер, используется для взаимодействия с сервером
+
+    //                                   request.open(method, url, async, login, pass); async стоит по деффолту - true
+    //                                   метод open - собирает настройки, которые помогут в будущем сделать запрос
+
+    request.open('GET', 'js/current.json'); // методы всегда записываются в верхнем регистре, путь пишем из файла html
+    request.setRequestHeader('Content-type', 'application/json; charset=utf-8'); // Заголовки помогают серверу понять, что за тип данных мы ему передаём. 
+    request.send(); //Метод send - отправка запроса на сервер                    // выше - заголовок, который нужен для передачи JSON файлов на сервер
+
+
+    // Свойства объекта XMLHttpRequest:
+
+    // status - показывает нам статус нашего запроса. Например - 404, 0, 200, 403, etc.
+    // statusText - это текстовое описание ответа от сервера. Например - Ok, not found, etc.
+    // response - ответ от сервера, тоесть здесь будет находиться ответ, который нам задал backend разработчик
+    // readyState - содержит текущее состояние нашего запроса
+
+
+    // События, объекта XMLHttpRequest:
+
+    request.addEventListener('readystatechange', () => { // событие отслеживает статус готовности нашего запроса в данный текущий момент. Оно следит за свойстом readyState
+    //     if (request.status !== 200) {inputUsd.value = 'что-то пошло не так';} // никогда не оставлять пользователя в неведении, всегда оповещать его об ошибках
+
+        
+    //     if (request.readyState === 4 && request.status === 200) {
+    //         console.log(request.response);
+    //         const data = JSON.parse(request.response);
+    //         inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
+    //     }
+    });
+    
+    request.addEventListener('load', () => { // load - срабатывает всего один раз, но это не значит, что запрос сработал успешно
+        if (request.status !== 200) {inputUsd.value = 'что-то пошло не так';} 
+
+        
+        if (request.status === 200) {
+            const data = JSON.parse(request.response);
+            inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
+        }
+    });    
+}); 
