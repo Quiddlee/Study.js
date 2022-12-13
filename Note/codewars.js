@@ -1998,29 +1998,64 @@
 // ]));
 
 function solution(list) {
-    if (list.length === 0) {return '';}
-    let res = '';
+    // if (list.length === 0) {return '';}
+    // let res = list.toString();
+    // let check = '';
 
 
     // for (let i = 1; i < list.length; i++) {
-    //     if (list[i] - list[i - 1] === 1 && list[i + 1] - list[i] === 1) {
-    //         res += '-';
-    //         continue;
+    //     const firstElement = list[i - 1];
+    //     const secondElement = list[i];
+
+
+    //     // if (secondElement - firstElement === 1) {
+    //     //     list.splice(i - 1, 1);
+    //     // }
+
+
+    //     if (list[i] - list[i - 1] !== 1 && list[i] - list[i + 1] !== 1) {
+    //         check += `${list.splice(i - 1, 1)}-`;
     //     }
         
-    //     res += `${list[i]},`;
+    //     console.log(check);
+    //     // check += `${list[i]},`;
     // }
 
-    for (let i = 1; i < list.length; i++) {
-        res += `${list[i]},`;
-        while(list[i] - list[i - 1] === 1) {
-            i++;
-            
+    let result=[]
+
+    for(let i=0;i<list.length;i++){
+        //write first value in range to result
+        result.push(list[i].toString());
+        //if this is the last entry, we are done 
+        if(i === list.length - 1){
+            break
+        }
+        //initialize variables
+        let e1 = list[i]
+        let e2 = list[i+1]
+        let isRange = false
+        //run thorugh array while we get consecutive numbers
+        while(e2 - e1 === 1 && list[i + 2] - e2 === 1 && i < list.length - 1){
+            //modify the OUTER LOOP index variable.
+            //This means when we return to the beginning of hte for loop,
+            // we will be at the beginning of the next range
+            i++ 
+            e1 = list[i]
+            e2 = list[i+1]
+            isRange = true
+        }
+        //if there were any consecutive numbers
+        if(isRange){
+            //rewrite the last entry in result as a range
+            result[result.length - 1] += "-" + list[i + 1].toString();
         }
     }
 
+    
+    return result.toString();
 
-    return res;
+
+    return check;
 }
 console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]));
 
