@@ -912,3 +912,14 @@ Promise.race([test(1000), test(2000)]).then(() => { // метод дословн
 // если по простому, то это набор данных и возожностей, которое нам предоставляет какое-то готовое решение
 
 // то, что мы уже встречали - DOM API или Google maps API
+
+
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({name: 'Alex'}),
+    headers: {
+        'Content-type': 'application/json'
+    }
+})                                                      // из этой конструкции возвращается промис, поэтому мы обрабатываем при помощи цепочки then
+.then(response => response.json())
+.then(json => console.log(json));   
