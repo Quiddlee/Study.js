@@ -922,4 +922,26 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
     }
 })                                                      // из этой конструкции возвращается промис, поэтому мы обрабатываем при помощи цепочки then
 .then(response => response.json())
-.then(json => console.log(json));   
+.then(json => console.log(json));  
+
+
+//                          методы перебора массивов
+
+// метод foreach - не возвращает новый массив, он не возвращает вообще ничего
+
+
+// filter
+
+// фильтрует массив по указаному сценарию
+
+const names = [90, 64, 340, 'Frank', 1, 25, 231, 'John', 'Lisa'];
+
+
+const filteredNames = names.filter((a, b) => a - b);
+
+const sum = filteredNames.reduce((a, b) => a + b);
+console.log(sum);
+
+//                                         деструктуризаци массива
+const [myName, number, wassup] = names; // есть возможность задавать сколько угодно переменным значения в одной строке из массива или из файла
+console.log(myName, number, wassup);    
