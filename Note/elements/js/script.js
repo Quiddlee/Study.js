@@ -930,18 +930,72 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
 // метод foreach - не возвращает новый массив, он не возвращает вообще ничего
 
 
-// filter
+
+//                      filter
 
 // фильтрует массив по указаному сценарию
 
-const names = [90, 64, 340, 'Frank', 1, 25, 231, 'John', 'Lisa'];
+// const names = ['Ivan', 'Ann', 'Ksenia', 'Voldemart'];
+
+// const shortNames = names.filter(function (name) {
+//     return name.length < 5;
+// });
+
+// console.log(shortNames);
 
 
-const filteredNames = names.filter((a, b) => a - b);
+
+//                      map
+
+// возвращает значения, можно перезаписать массив с нужными изменениями
+
+const answers = ['IvAn', 'AnnA', 'Hello'];
+
+const res = answers.map(item => item.toLowerCase());
+
+console.log(res);
+
+
+// every/some
+
+
+// some - если хотя-бы один элемент подходит по условию, метод вернёт true, если нет то false
+
+// every - если все элементы внутри массива, подходят под условие, только в таком случае, наш метод вернет true, в обратном случае - false 
+
+const some = [4, 'qwq', 'sweswe'];
+
+console.log(some.some(item => typeof(item) === 'number'));
+
+console.log(some.every(item => typeof(item) === 'number'));
+
+
+// reduce 
+
+// служит для того, чтобы соединят массив в одно целое, имеет ещё один параметр, в который можно поместить начальное значение
+
+const arr = ['apple', 'pear', 'plum'];
+const secRes = arr.reduce((sum, current) => `${sum}, ${current}`, 3);
+
+console.log(secRes);
+
+const object = {
+    ivan: 'person',
+    ann: 'person',
+    dog: 'animal',
+    cat: 'animal'
+};
+//                                              когда мы делаем цепочку из методов - это называется chaining 
+const newArr = Object.entries(object).filter(item => item[1] === 'person').map(item => item[0]); //Object.entries - делает из объектов матрицу
+
+console.log(newArr);
+
+
+
 
 const sum = filteredNames.reduce((a, b) => a + b);
 console.log(sum);
 
 //                                         деструктуризаци массива
 const [myName, number, wassup] = names; // есть возможность задавать сколько угодно переменным значения в одной строке из массива или из файла
-console.log(myName, number, wassup);    
+console.log(myName, number, wassup);
