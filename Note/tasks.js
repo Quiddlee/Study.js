@@ -148,3 +148,84 @@
 //     return res;
 // }
 // console.log(fib(4));
+
+
+// const films = [
+//     {
+//         name: 'Titanic',
+//         rating: 9
+//     },
+//     {
+//         name: 'Die hard 5',
+//         rating: 5
+//     },
+//     {
+//         name: 'Matrix',
+//         rating: 8
+//     },
+//     {
+//         name: 'Some bad film',
+//         rating: 4
+//     }
+// ];
+
+// function showGoodFilms(arr) {
+//     return arr.filter(e => e.rating >= 8);
+// }
+// console.log(showGoodFilms(films));
+
+
+// function showListOfFilms(arr) {
+//     return arr.reduce((sum, current) => `${typeof(sum) === 'object' ? sum.name : sum}, ${current.name}`);
+// }
+// console.log(showListOfFilms(films));    
+
+
+// function setFilmsIds(arr) {
+//     const sortedArray = arr;
+//     arr.map((e, i) => sortedArray[i].id = i);
+
+//     return sortedArray;
+// }
+// // console.log(setFilmsIds(films));
+
+
+// const tranformedArray = setFilmsIds(films);
+
+// function checkFilms(arr) {
+//     return arr.every(e => e.hasOwnProperty('id'));
+// }
+// console.log(checkFilms(tranformedArray));
+
+
+const funds = [
+    {amount: -1400},
+    {amount: 2400},
+    {amount: -1000},
+    {amount: 500},
+    {amount: 10400},
+    {amount: -11400}
+];
+
+const getPositiveIncomeAmount = (data) => {
+    const filter = data.filter(e => e.amount > 0);
+
+
+    return filter.reduce((sum, curr) => {
+        if (typeof(sum) === 'object') return sum.amount + curr.amount;
+        if (typeof(sum) !== 'object') return sum + curr.amount;
+    });
+};
+
+const getTotalIncomeAmount = (data) => {
+    if (data.some(e => e.amount < 0)) {
+        return data.reduce((sum, curr) => {
+            if (typeof(sum) === 'object') return sum.amount + curr.amount;
+            if (typeof(sum) !== 'object') return sum + curr.amount;
+        });
+    }
+
+
+    if (data.every(e => e.amount > 0)) return getPositiveIncomeAmount(funds);
+};
+console.log(getTotalIncomeAmount(funds));

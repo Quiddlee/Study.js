@@ -980,7 +980,7 @@ const secRes = arr.reduce((sum, current) => `${sum}, ${current}`, 3);
 console.log(secRes);
 
 const object = {
-    ivan: 'person',
+    ivan: 'person', 
     ann: 'person',
     dog: 'animal',
     cat: 'animal'
