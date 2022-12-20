@@ -2061,7 +2061,57 @@
 
 // // "-6,-3-1,3-5,7-11,14,15,17-20"  
 
-// function getGeneration(cells, generations){
-    
+// function getGeneration(cells, generations) {
+//     const res = [];
+//     let deadCells = 0;
+//     let liveCells = 0;
+//
+//     for (let i = 0; i < cells.length; i++) {
+//         for (let j = 0; j < cells[i].length; j++) {
+//             if (cells[i][j + 1] === 1) liveCells++;
+//             else deadCells++;
+//
+//
+//             if (cells[i + 1][j] === 1) liveCells++;
+//             else deadCells++;
+//         }
+//     }
+//
+//
+//     return 0;
 // }
-// console.log(getGeneration());
+// console.log(getGeneration([
+//                                 [1,0,0],
+//                                 [0,1,1],
+//                                 [1,1,0]
+// ]));
+
+
+
+let abc, key;
+abc = "abcdefghijklmnopqrstuvwxyz";
+key = "password";
+const c = new VigenereCipher(key, abc);
+
+function VigenereCipher(key, abc) {
+    this.encode = function (str) {
+        return abc;
+    };
+    this.decode = function (str) {
+        //...
+    };
+}
+console.log(c.encode('codewars'));
+
+
+// c o  d e w  a r  s
+// 3 15 4 5 23 1 18 19
+//         +
+// p  a s  s  w  o  r
+// 16 1 19 19 23 15 18
+
+// 19 16 23 24 24 33 37
+// 19 16 23 24 24 7  11
+// spwxxgk
+
+console.log(37 % 26);
