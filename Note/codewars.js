@@ -2090,28 +2090,91 @@
 
 let abc, key;
 abc = "abcdefghijklmnopqrstuvwxyz";
-key = "password";
+key = "pizza";
 const c = new VigenereCipher(key, abc);
 
 function VigenereCipher(key, abc) {
+    const modulus = abc.length;
+    let keyWord = '';
+    abc = abc.split('');
+    abc.push('!', ' ', '`');
+    console.log(abc);
+
+
     this.encode = function (str) {
-        return abc;
+        if (str.toUpperCase() === str) return str;
+        const keyMap = [];
+        const strMap = [];
+        const result = [];
+        let encoded = '';
+
+
+        let i = 0;
+        while (keyWord.length < str.length) {
+            if (i === key.length) i = 0;
+            keyWord += key[i];
+            i++;
+        }
+
+
+        for (let i = 0; i < str.length; i++) {
+            strMap.push(abc.indexOf(str[i]));
+            keyMap.push(abc.indexOf(keyWord[i]));
+
+
+            result.push((strMap[i] + keyMap[i]) % modulus);
+            encoded += abc[result[i]];
+        }
+        return encoded;
     };
+
+
     this.decode = function (str) {
-        //...
+        if (str.toUpperCase() === str) return str;
+        const keyMap = [];
+        const strMap = [];
+        const result = [];
+        let decoded = '';
+
+
+        let i = 0;
+        while (keyWord.length < str.length) {
+            if (i === key.length) i = 0;
+            keyWord += key[i];
+            i++;
+        }
+
+        console.log(str.indexOf(''));
+        for (let i = 0; i < str.length; i++) {
+            strMap.push(abc.indexOf(str[i]));
+            keyMap.push(abc.indexOf(keyWord[i]));
+
+
+            result.push((strMap[i] - keyMap[i]) % modulus);
+            if (result[i] < 0) {
+                while(result[i] < 0) result[i] += modulus;
+            }
+
+
+            decoded += abc[result[i]];
+        }
+        console.log(str);
+        return decoded;
     };
 }
-console.log(c.encode('codewars'));
+// console.log(c.encode("i love peenuts"));
+console.log(c.decode("xhknvthodeccsr"));
 
 
-// c o  d e w  a r  s
+// c  o d e w  a  r  s
 // 3 15 4 5 23 1 18 19
 //         +
-// p  a s  s  w  o  r
+// p  a  s  s  w  o  r
 // 16 1 19 19 23 15 18
+
+// console.log(19 % 26);
 
 // 19 16 23 24 24 33 37
 // 19 16 23 24 24 7  11
 // spwxxgk
 
-console.log(37 % 26);
