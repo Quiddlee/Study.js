@@ -999,3 +999,56 @@ console.log(sum);
 //                                         деструктуризаци массива
 const [myName, number, wassup] = names; // есть возможность задавать сколько угодно переменным значения в одной строке из массива или из файла
 console.log(myName, number, wassup);
+
+
+
+//                                   local storage
+
+
+// localStorage - это глобальный объект
+
+
+// localStorage.setItem('number', 5); // глобальный объект localStorage. метод setItem - 1 - ключ, 2 - значение
+//
+// localStorage.removeItem('number'); // removeItem - можем удалить данные, в скобочках передаём ключ
+//
+// localStorage.clear(); // clear - очищает хранилище
+//
+// console.log(localStorage.getItem('number')); // getItem - получить записанные данные
+
+const checkbox = document.querySelector('#checkbox');
+const form = document.querySelector('form');
+const change = document.querySelector('#color');
+
+
+if (localStorage.getItem('isChecked')) checkbox.checked = true;
+if (localStorage.getItem('bg') === 'changed') form.style.backgroundColor = 'red';
+
+
+checkbox.addEventListener('change', () => {
+    localStorage.setItem('isChecked', true);
+});
+
+
+change.addEventListener('click', () => {
+    if (localStorage.getItem('bg') === 'changed') {
+        localStorage.removeItem('bg');
+        form.style.backgroundColor = '#fff';
+    } else {
+        localStorage.setItem('bg', 'changed');
+        form.style.backgroundColor = 'red';
+    }
+
+});
+
+
+const person = {
+    name: 'Alex',
+    age: 25
+};
+
+
+// const serilizedPerson = JSON.stringify(person);
+localStorage.setItem('alex', person); // если мы хотим поместить объект, мы должны сначала его перевести в строку с помощью JSON
+                                      // иначе он запишется как [object Object]
+console.log(localStorage.getItem('alex'));
