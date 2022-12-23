@@ -2088,112 +2088,96 @@
 
 
 
-let abc, key;
-abc = "アイウエオァィゥェォカキクケコサシスセソタチツッテトナニヌネノハヒフヘホマミムメモヤャユュヨョラリルレロワヲンー";
-key = "カタカナ";
-const c = new VigenereCipher(key, abc);
-
-
-function VigenereCipher(key, abc) {
-    const specialSymbolsId = [];
-    const modulus = abc.length;
-    abc = abc.split('');
-    abc.push('!', ' ', "'", '1', '2', '3', '4', '5', '6', '7', '8', '9', '0');
-    for (let i = 0; i <= 12; i++) specialSymbolsId.push(modulus + i);
-
-
-    this.encode = function (str) {
-        if (!abc.includes(str[1])) return str;
-        const keyMap = [];
-        const strMap = [];
-        const result = [];
-        let keyWord = '';
-        let encoded = '';
-        let i = 0;
-
-
-        while (keyWord.length < str.length) {
-            if (i === key.length) i = 0;
-
-
-            keyWord += key[i];
-            i++;
-        }
-
-
-        for (let i = 0; i < str.length; i++) {
-            keyMap.push(abc.indexOf(keyWord[i]));
-            strMap.push(abc.indexOf(str[i]));
-
-
-            for (let j = 0; j < specialSymbolsId.length; j++) {
-                if (strMap[i] === specialSymbolsId[j]) {
-                    result.push((strMap[i]));
-                    break;
-                }
-
-
-                if (j === specialSymbolsId.length - 1) {
-                    result.push((strMap[i] + keyMap[i]) % modulus);
-                }
-            }
-
-
-            encoded += abc[result[i]];
-        }
-
-
-        return encoded;
-    };
-
-
-    this.decode = function (str) {
-        if (!abc.includes(str[1])) return str;
-        const keyMap = [];
-        const strMap = [];
-        const result = [];
-        let keyWord = '';
-        let decoded = '';
-        let i = 0;
-
-
-        while (keyWord.length < str.length) {
-            if (i === key.length) i = 0;
-
-
-            keyWord += key[i];
-            i++;
-        }
-
-
-        for (let i = 0; i < str.length; i++) {
-            keyMap.push(abc.indexOf(keyWord[i]));
-            strMap.push(abc.indexOf(str[i]));
-
-
-            for (let j = 0; j < specialSymbolsId.length; j++) {
-                if (strMap[i] === specialSymbolsId[j]) {
-                    result.push((strMap[i]));
-                    break;
-                }
-
-
-                if (j === specialSymbolsId.length - 1) {
-                    result.push((strMap[i] - keyMap[i]) % modulus);
-                    if (result[i] < 0) while(result[i] < 0) result[i] += modulus;
-                }
-            }
-
-
-            decoded += abc[result[i]];
-        }
-
-
-        return decoded;
-    };
-}
-console.log(c.encode("ドモアリガトゴザイマス"));
-console.log(c.decode("ドモアリガトゴザイマス"));
+// let abc, key;
+// abc = "アイウエオァィゥェォカキクケコサシスセソタチツッテトナニヌネノハヒフヘホマミムメモヤャユュヨョラリルレロワヲンー";
+// key = "カタカナ";
+// const c = new VigenereCipher(key, abc);
+//
+//
+// function createKeyWord(str, key)  {
+//     let i = 0;
+//     let keyWord = '';
+//
+//
+//     while (keyWord.length < str.length) {
+//         if (i === key.length) i = 0;
+//         keyWord += key[i];
+//         i++;
+//     }
+//
+//
+//     return keyWord;
+// }
+//
+//
+// function VigenereCipher(key, abc) {
+//     const modulus = abc.length;
+//
+//
+//     this.encode = function (str) {
+//         if (abc.match(str.replace(/\d/, ''))) return str;
+//         const keyMap = [];
+//         const strMap = [];
+//         const result = [];
+//         let encoded = '';
+//         let keyWord = createKeyWord(str, key);
+//
+//
+//         for (let i = 0; i < str.length; i++) {
+//             keyMap.push(abc.indexOf(keyWord[i]));
+//
+//
+//             if (abc.indexOf(str[i]) === -1) strMap.push(str[i]);
+//             else strMap.push(abc.indexOf(str[i]));
+//
+//
+//             if (typeof(strMap[i]) === "number") result.push((strMap[i] + keyMap[i]) % modulus);
+//             else result.push(strMap[i]);
+//
+//
+//             if (typeof(result[i]) === "number") encoded += abc[result[i]];
+//             else encoded += result[i];
+//         }
+//
+//
+//         return encoded;
+//     };
+//
+//
+//     this.decode = function (str) {
+//         if (abc.match(str.replace(/\d/, ''))) return str;
+//         const keyMap = [];
+//         const strMap = [];
+//         const result = [];
+//         let decoded = '';
+//         let keyWord = createKeyWord(str, key);
+//
+//
+//         for (let i = 0; i < str.length; i++) {
+//             keyMap.push(abc.indexOf(keyWord[i]));
+//
+//
+//             if (abc.indexOf(str[i]) === -1) strMap.push(str[i]);
+//             else strMap.push(abc.indexOf(str[i]));
+//
+//
+//             if (typeof(strMap[i]) === "number") {
+//                 result.push((strMap[i] - keyMap[i]) % modulus);
+//                 if (result[i] < 0) while(result[i] < 0) result[i] += modulus;
+//             }
+//             else result.push((strMap[i]));
+//
+//
+//             if (typeof(result[i]) === "number") decoded += abc[result[i]];
+//             else decoded += result[i];
+//         }
+//
+//
+//         return decoded;
+//     };
+// }
+// console.log(c.encode("ドモアリガトゴザイマス"));
+// console.log(c.decode("xt'k o vwixl qzswej!"));
 
 
 // c  o d e w  a  r  s
