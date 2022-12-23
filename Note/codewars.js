@@ -2089,81 +2089,111 @@
 
 
 let abc, key;
-abc = "abcdefghijklmnopqrstuvwxyz";
-key = "pizza";
+abc = "アイウエオァィゥェォカキクケコサシスセソタチツッテトナニヌネノハヒフヘホマミムメモヤャユュヨョラリルレロワヲンー";
+key = "カタカナ";
 const c = new VigenereCipher(key, abc);
 
+
 function VigenereCipher(key, abc) {
+    const specialSymbolsId = [];
     const modulus = abc.length;
-    let keyWord = '';
     abc = abc.split('');
-    abc.push('!', ' ', '`');
-    console.log(abc);
+    abc.push('!', ' ', "'", '1', '2', '3', '4', '5', '6', '7', '8', '9', '0');
+    for (let i = 0; i <= 12; i++) specialSymbolsId.push(modulus + i);
 
 
     this.encode = function (str) {
-        if (str.toUpperCase() === str) return str;
+        if (!abc.includes(str[1])) return str;
         const keyMap = [];
         const strMap = [];
         const result = [];
+        let keyWord = '';
         let encoded = '';
-
-
         let i = 0;
+
+
         while (keyWord.length < str.length) {
             if (i === key.length) i = 0;
+
+
             keyWord += key[i];
             i++;
         }
 
 
         for (let i = 0; i < str.length; i++) {
-            strMap.push(abc.indexOf(str[i]));
             keyMap.push(abc.indexOf(keyWord[i]));
+            strMap.push(abc.indexOf(str[i]));
 
 
-            result.push((strMap[i] + keyMap[i]) % modulus);
+            for (let j = 0; j < specialSymbolsId.length; j++) {
+                if (strMap[i] === specialSymbolsId[j]) {
+                    result.push((strMap[i]));
+                    break;
+                }
+
+
+                if (j === specialSymbolsId.length - 1) {
+                    result.push((strMap[i] + keyMap[i]) % modulus);
+                }
+            }
+
+
             encoded += abc[result[i]];
         }
+
+
         return encoded;
     };
 
 
     this.decode = function (str) {
-        if (str.toUpperCase() === str) return str;
+        if (!abc.includes(str[1])) return str;
         const keyMap = [];
         const strMap = [];
         const result = [];
+        let keyWord = '';
         let decoded = '';
-
-
         let i = 0;
+
+
         while (keyWord.length < str.length) {
             if (i === key.length) i = 0;
+
+
             keyWord += key[i];
             i++;
         }
 
-        console.log(str.indexOf(''));
+
         for (let i = 0; i < str.length; i++) {
-            strMap.push(abc.indexOf(str[i]));
             keyMap.push(abc.indexOf(keyWord[i]));
+            strMap.push(abc.indexOf(str[i]));
 
 
-            result.push((strMap[i] - keyMap[i]) % modulus);
-            if (result[i] < 0) {
-                while(result[i] < 0) result[i] += modulus;
+            for (let j = 0; j < specialSymbolsId.length; j++) {
+                if (strMap[i] === specialSymbolsId[j]) {
+                    result.push((strMap[i]));
+                    break;
+                }
+
+
+                if (j === specialSymbolsId.length - 1) {
+                    result.push((strMap[i] - keyMap[i]) % modulus);
+                    if (result[i] < 0) while(result[i] < 0) result[i] += modulus;
+                }
             }
 
 
             decoded += abc[result[i]];
         }
-        console.log(str);
+
+
         return decoded;
     };
 }
-// console.log(c.encode("i love peenuts"));
-console.log(c.decode("xhknvthodeccsr"));
+console.log(c.encode("ドモアリガトゴザイマス"));
+console.log(c.decode("ドモアリガトゴザイマス"));
 
 
 // c  o d e w  a  r  s
