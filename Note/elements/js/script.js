@@ -1096,3 +1096,33 @@ console.log(str.match(/\D/ig));  // ищем все символы, которы
 // обратные классы, начинаются с большой буквы, их также нужно экранировать - /\D/
 // \D - означает, что мы ищем не числа
 // \W - означает, что мы ищем не буквы
+
+
+//                                                  get/set
+
+
+const person = {
+    name: 'Alex',
+    age: 25,
+
+    get userAge() {         // геттер - используется для чтения свойств объекта
+        return this.age;
+    },
+
+    set userAge(num) {      //сеттер - используется для записи свойств объекта
+        this.age = num;
+    },
+
+    get personParams() {    //удобно для соединения параметров объекта в одну логику, например для вычислений
+        return `${this.name} age ${this.age}`;
+    },
+
+    sayHello() {
+        return `wassup ${this.name}`
+    },
+};
+
+console.log(person.age = 30);
+console.log(person.userAge);
+console.log(person.personParams);   // ещё одно отличие от методов объекта, в том, что когда мы вызываем метод -
+console.log(person.sayHello());     // ставим скобочки, в случе с геттерами и сеттерами не ставим
