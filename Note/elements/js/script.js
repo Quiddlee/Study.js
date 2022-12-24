@@ -1230,3 +1230,34 @@ console.log(ivan.showMessage);
 
 ivan.saySomething = 'sdwdasdasd';
 console.log(ivan.showMessage);
+
+
+//                                                          modules
+
+// хорошо построенные модули должны быть самодостаточными и независимыми,
+// то-есть их можно удалять или менять без последствий влияния на другой функционал
+
+
+const app = '123';
+
+const number = 1;
+
+(function() {    // анонимная самовызывающаяся функция, устаревший способ применения модулей
+    let number = 2;
+    console.log(number);
+    console.log(number + 3);
+}());
+
+console.log(number);
+
+const user = (function(){
+    const privat = function() {
+        console.log('I am private!');
+    };
+
+    return {
+        sayHello: privat
+    };
+}());
+
+user.sayHello();
