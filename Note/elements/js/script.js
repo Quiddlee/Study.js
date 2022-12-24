@@ -1126,3 +1126,107 @@ console.log(person.age = 30);
 console.log(person.userAge);
 console.log(person.personParams);   // ещё одно отличие от методов объекта, в том, что когда мы вызываем метод -
 console.log(person.sayHello());     // ставим скобочки, в случе с геттерами и сеттерами не ставим
+
+
+//                                              encapsulation
+
+// инкапсуляция - это когда мы убираем возможность мутировать свойства объекта, то-есть создаём приватные свойства
+// в javascript присутствует имитация инкапсуляции, но недавно был добавлен новый синтаксис - #private fields
+
+
+function User(name, age) {
+    this.name = name;
+    let userAge = age;      // объявляя переменную внутри объекта, мы не имеем к ней доступа из вне вообще
+
+    this.say = () => {
+        console.log(`Имя пользователя: ${this.name}, возраст ${userAge}`);
+    };
+
+    this.getAge = () => {
+        return userAge;
+    };
+
+    this.setAge = (age) => {
+        if (typeof(age) === 'number' && age > 0 && age < 110) userAge = age
+        else console.log('Недопустимое значение');
+    };
+}
+
+const bogdan = new User('Bogdan', 18);
+console.log(bogdan.name);
+// console.log(bogdan.userAge); // переменную нельзя вызвать
+console.log(bogdan.getAge());
+
+// bogdan.userAge = 30;    // переменной нельзя менять свойства
+bogdan.setAge(30);
+bogdan.setAge(300);
+console.log(bogdan.getAge());
+bogdan.name = 'Alex';
+
+bogdan.say();
+
+
+
+class User {
+    constructor(name, age) {
+        this.name = name;
+        this._age = age;    // в классах инкапсуляция записывается таким синтаксисом (это не является синтаксисом языка,
+    }                       // а согласованный синтаксис между программистами)
+
+    #surname = 'Scherbina';     // можно создавать свойства без конструктора, если они не будут меняться в будущем
+                                // новый синтаксис для создания приватных свойств, нужно поставить перед свойством - #
+
+    say = () => { // стрелочная функция всегда ссылается на своего родителя
+        console.log(`Имя пользователя: ${this.name} ${this.#surname}, возраст ${this._age}`);
+    };
+
+    get age() {
+        return this._age;
+    }
+
+    set age(age) {
+        if (typeof(age) === 'number' && age > 0 && age < 110) this._age = age;
+        else console.log('Недопустимое значение');
+    }
+}
+
+const bogdan = new User('Bogdan', 18);
+console.log(bogdan.surname); // приватное свойство, из вне к нему доступа нет
+bogdan.say();
+
+
+class UserMessage {
+    constructor(name, message = 'user has no messages') {
+        this.name = name;
+        this.message = message
+    }
+
+    #moderator = 'Alex';
+
+    get showMessage() {
+        return `${this.message} by ${this.userName} (moderated by ${this.whosMod})`;
+    }
+
+    get whosMod() {
+        return this.#moderator; // можем взаимодействовать с приватным полем только внутри класса
+    }
+
+    get userName() {
+        return this.name;
+    }
+
+    set saySomething(message) {
+        return this.message = message;
+    }
+}
+
+const ivan = new UserMessage('Ivan', 'wassup');
+
+console.log(ivan.whosMod);
+console.log(ivan.moderator);
+
+console.log(ivan.userName);
+console.log(ivan.showMessage);
+
+ivan.saySomething = 'sdwdasdasd';
+console.log(ivan.showMessage);
