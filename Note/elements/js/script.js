@@ -1261,3 +1261,32 @@ const user = (function(){
 }());
 
 user.sayHello();
+
+
+//                                              export ES6
+
+
+export let one = 1;
+
+
+let two = 2;        // можно экспортировать двумя способами:
+export {two};       // 1
+
+// export default - экспорт по умолчанию, может быть только один такой
+export default function sayHi() {   // 2
+    console.log('Hello');
+}
+
+
+
+import {one, two} from './main';
+import {one as first} from './main';  // с помощью 'as' - мы можем переименовывать приходящие переменные
+import * as data from './main';  // * импортировать всё что было передано
+import sayHi from "./main";
+
+console.log(first);
+console.log(`${data.one} and ${data.two}`);
+
+data.sayHi();
+
+sayHi();
