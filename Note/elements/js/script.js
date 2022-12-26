@@ -1290,3 +1290,24 @@ console.log(`${data.one} and ${data.two}`);
 data.sayHi();
 
 sayHi();
+
+
+//                                      try catch construction
+
+// конструкция try catch используется для создания многостраничных скриптов
+
+
+try {
+    console.log('Normalid');
+    console.log(lakad);
+    console.log('result');
+} catch(error) {            // выполняется в случае если мы словили ошибку
+    console.log(error.name);
+    console.log(error.message);
+    console.log(error.stack);
+} finally {                 // выполняется при любом раскладе
+    console.log('nice');
+}
+
+
+console.log('Still normal');       // поток кода не останавливается при ошибке
