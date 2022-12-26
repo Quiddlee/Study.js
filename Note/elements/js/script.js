@@ -1311,3 +1311,42 @@ try {
 
 
 console.log('Still normal');       // поток кода не останавливается при ошибке
+
+
+const data = [
+    {
+        id: 'box',
+        tag: 'div'
+    },
+    {
+        id: 'ewew',
+        tag: 'nav'
+    },
+    {
+        id: 'circle',
+        tag: ''
+    }
+];
+
+
+try {
+    data.forEach((blockObj, iter) => {
+        const block = document.createElement(blockObj.tag);
+
+
+        if (!blockObj.id) throw new SyntaxError(`В данных под номером ${iter + 1} нет id`);
+
+
+        block.setAttribute('id', blockObj.id);
+        document.body.append(block);
+    });
+} catch (error) {                                                   // ошибка приходит в аргумент catch
+    if (error.name === 'SyntaxError') console.log(error.message);   // наша ошибка, которую мы предвидели
+    else throw error;                         // возможная непредвиденная критическая ошибка - выбрасываем её к нам выше
+    // console.error(error.name);
+    // console.log(error.stack);
+}
+
+
+// const err = new SyntaxError('weqwewq');
+// console.log(err.name, err.message, err.stack);
