@@ -1350,3 +1350,42 @@ try {
 
 // const err = new SyntaxError('weqwewq');
 // console.log(err.name, err.message, err.stack);
+
+
+
+//                                              function*
+
+
+// function* generator() {   // функция генератор - при каждом вызове будет возвращать новые значения
+//     yield 'S';
+//     yield 'C';
+//     yield 'R';
+//     yield 'I';
+//     yield 'P';
+//     yield 'T';
+// }
+//
+//
+// const str = generator();
+//
+// console.log(str.next().value);
+
+
+function* count(n) {
+    for (let i = 0; i < n; i++) {
+        yield i;
+    }
+}
+
+for (const k of count(7)) {      // можно перебирать такую функцию с помощью for of цикла, она сработает максимальное
+    console.log(k);                 // количество раз
+}
+
+// const counter = count(7);
+//
+// console.log(counter.next().value);
+// console.log(counter.next().value);
+// console.log(counter.next().value);
+
+
+
