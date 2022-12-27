@@ -198,34 +198,56 @@
 // console.log(checkFilms(tranformedArray));
 
 
-const funds = [
-    {amount: -1400},
-    {amount: 2400},
-    {amount: -1000},
-    {amount: 500},
-    {amount: 10400},
-    {amount: -11400}
-];
+// const funds = [
+//     {amount: -1400},
+//     {amount: 2400},
+//     {amount: -1000},
+//     {amount: 500},
+//     {amount: 10400},
+//     {amount: -11400}
+// ];
+//
+// const getPositiveIncomeAmount = (data) => {
+//     const filter = data.filter(e => e.amount > 0);
+//
+//
+//     return filter.reduce((sum, curr) => {
+//         if (typeof(sum) === 'object') return sum.amount + curr.amount;
+//         if (typeof(sum) !== 'object') return sum + curr.amount;
+//     });
+// };
+//
+// const getTotalIncomeAmount = (data) => {
+//     if (data.some(e => e.amount < 0)) {
+//         return data.reduce((sum, curr) => {
+//             if (typeof(sum) === 'object') return sum.amount + curr.amount;
+//             if (typeof(sum) !== 'object') return sum + curr.amount;
+//         });
+//     }
+//
+//
+//     if (data.every(e => e.amount > 0)) return getPositiveIncomeAmount(funds);
+// };
+// console.log(getTotalIncomeAmount(funds));
 
-const getPositiveIncomeAmount = (data) => {
-    const filter = data.filter(e => e.amount > 0);
+// const multiply20 = (price) => price * 20;
+// const divide100 = (price) => price / 100;
+// const normalizePrice = (price) => price.toFixed(2);
+// const compose = (...functions) => (x) => {
+//     return functions.reduceRight((previousValue, currentValue) => currentValue(previousValue), x);
+// };
+//
+//
+// // const discount = compose(normalizePrice, divide100, multiply20)(200);
+// // console.log(discount);
 
 
-    return filter.reduce((sum, curr) => {
-        if (typeof(sum) === 'object') return sum.amount + curr.amount;
-        if (typeof(sum) !== 'object') return sum + curr.amount;
+const add1 = function(a){return a + 1}
+const addAll3 = function(a,b,c){return a + b + c}
+const composeWithArgs = (...args) => (...nums) => {
+    return args.reduceRight((previousValue, currentValue) => {
+        console.log(previousValue, currentValue, nums);
+         return currentValue(previousValue)
     });
 };
-
-const getTotalIncomeAmount = (data) => {
-    if (data.some(e => e.amount < 0)) {
-        return data.reduce((sum, curr) => {
-            if (typeof(sum) === 'object') return sum.amount + curr.amount;
-            if (typeof(sum) !== 'object') return sum + curr.amount;
-        });
-    }
-
-
-    if (data.every(e => e.amount > 0)) return getPositiveIncomeAmount(funds);
-};
-console.log(getTotalIncomeAmount(funds));
+console.log(composeWithArgs(add1,addAll3)(1,2,3))
