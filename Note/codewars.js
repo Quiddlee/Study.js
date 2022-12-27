@@ -1749,16 +1749,58 @@
 //                                 [2, 4, 6],
 //                                 [8, 5, 9, 3]    ]));
 
-// function add(a, b) { 
-//     // if (a || b > 2**53 - 1) {
-//     //     const firstNum = BigInt(a);
-//     //     const secondNum = BigInt(b);
+function add(a, b) {
+    let firstNum;
+    let secondNum;
+    let reminder = 0;
+    let sum = [];
 
-//     //     return (firstNum + secondNum).toString(); 
-//     // }
-//     return (Number(a) + Number(b)).toString();
-// }
-// console.log(add('63829983432984289347293874', '90938498237058927340892374089'));
+
+    if (+a >= +b) {
+        firstNum = a;
+        secondNum = b
+    }
+
+
+    if (+b > +a) {
+        firstNum = b;
+        secondNum = a;
+    }
+
+    const firstNumLength = firstNum.length;
+    const secondNumLength = secondNum.length;
+
+
+    for (let i = 1; i <= firstNumLength + 1; i++) {
+        if (secondNumLength - i >= 0) {
+            reminder = (+firstNum[firstNumLength - i] + +secondNum[secondNumLength - i] + reminder).toString();
+        }
+
+
+        if (secondNumLength - i < 0 && firstNumLength - i >= 0) {
+            reminder = (+firstNum[firstNumLength - i] + reminder).toString();
+        }
+
+
+
+        if (reminder < 10 && reminder !== 0) {
+            sum.unshift(reminder);
+            reminder = 0;
+        }
+
+
+        if (reminder >= 10) {
+            sum.unshift(reminder[1]);
+            reminder = +reminder[0];
+        }
+    }
+
+
+    return sum.join('');
+}
+console.log(add('63829983432984289347293874', '90938498237058927340892374089'));
+// 91002328220491911630239667963
+
 
 // const Sudoku = (arr) => {
 //     if (arr.length === 1 && arr[0][0] !== 1) return false;
