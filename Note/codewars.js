@@ -1605,46 +1605,40 @@
 
 //[1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]
 
-// function isInteresting(number, awesomePhrases) {
-//     const init = number - awesomePhrases[0]; 
-//     const num = number.toString();
-//     let count = 0;
-
-//     if (init === 0) {
-//         return 2;
-//     }
-
-//     if (init === -1 || init === -2 || init === 1 || init === 2) {
-//         return 1;
-//     }
-
-//     for (let i = 1; i < num.length; i++) {
-//         if (num[i - 1] === num[i]) {
-//             count++;
-//         }
+function isInteresting(number, awesomePhrases) {
+    const init = number - awesomePhrases[0];
+    const num = number.toString();
+    let count = 0;
 
 
-//         if (num[i - 1] === num[i]) {
-//             count++;
-//         }
+    if (init === 0) return 2;
+    if (init === -1 || init === -2 || init === 1 || init === 2) return 1;
 
-//         for (const item of num) {
-//             if (item === num[i]) {
-//                 count++;
-//             }
 
-//             if (item != num[i]) {
-//                 item + 1 === num[i] ? count++ : null;
-//                 item + 2 === num[i] ? count++ : null;
-//             }
-//         }
-//     }
+    for (let i = 1; i < num.length; i++) {
+        if (count >= 2) return count = 2;
+        if (num[i - 1] === num[i]) count++;
+        if (num[i - 1] === num[i]) count++;
 
-//     console.log(count);
 
-//     return 0;
-// }
-// console.log(isInteresting(11209, [1337, 256]));
+        for (const item of num) {
+            if (item === num[i]) count++;
+
+
+            if (item !== num[i]) {
+                item + 1 === num[i] ? count++ : null;
+                item + 2 === num[i] ? count++ : null;
+            }
+        }
+    }
+
+
+    console.log(count);
+
+
+    return count;
+}
+console.log(isInteresting(11209, [1337, 256]));
 
 
 // class Node { 
@@ -1749,56 +1743,56 @@
 //                                 [2, 4, 6],
 //                                 [8, 5, 9, 3]    ]));
 
-function add(a, b) {
-    let firstNum;
-    let secondNum;
-    let reminder = 0;
-    let sum = [];
-
-
-    if (+a >= +b) {
-        firstNum = a;
-        secondNum = b
-    }
-
-
-    if (+b > +a) {
-        firstNum = b;
-        secondNum = a;
-    }
-
-    const firstNumLength = firstNum.length;
-    const secondNumLength = secondNum.length;
-
-
-    for (let i = 1; i <= firstNumLength + 1; i++) {
-        if (secondNumLength - i >= 0) {
-            reminder = (+firstNum[firstNumLength - i] + +secondNum[secondNumLength - i] + reminder).toString();
-        }
-
-
-        if (secondNumLength - i < 0 && firstNumLength - i >= 0) {
-            reminder = (+firstNum[firstNumLength - i] + reminder).toString();
-        }
-
-
-
-        if (reminder < 10 && reminder !== 0) {
-            sum.unshift(reminder);
-            reminder = 0;
-        }
-
-
-        if (reminder >= 10) {
-            sum.unshift(reminder[1]);
-            reminder = +reminder[0];
-        }
-    }
-
-
-    return sum.join('');
-}
-console.log(add('63829983432984289347293874', '90938498237058927340892374089'));
+// function add(a, b) {
+//     let firstNum;
+//     let secondNum;
+//     let reminder = 0;
+//     let sum = [];
+//
+//
+//     if (+a >= +b) {
+//         firstNum = a;
+//         secondNum = b
+//     }
+//
+//
+//     if (+b > +a) {
+//         firstNum = b;
+//         secondNum = a;
+//     }
+//
+//     const firstNumLength = firstNum.length;
+//     const secondNumLength = secondNum.length;
+//
+//
+//     for (let i = 1; i <= firstNumLength + 1; i++) {
+//         if (secondNumLength - i >= 0) {
+//             reminder = (+firstNum[firstNumLength - i] + +secondNum[secondNumLength - i] + reminder).toString();
+//         }
+//
+//
+//         if (secondNumLength - i < 0 && firstNumLength - i >= 0) {
+//             reminder = (+firstNum[firstNumLength - i] + reminder).toString();
+//         }
+//
+//
+//
+//         if (reminder < 10 && reminder !== 0) {
+//             sum.unshift(reminder);
+//             reminder = 0;
+//         }
+//
+//
+//         if (reminder >= 10) {
+//             sum.unshift(reminder[1]);
+//             reminder = +reminder[0];
+//         }
+//     }
+//
+//
+//     return sum.join('');
+// }
+// console.log(add('63829983432984289347293874', '90938498237058927340892374089'));
 // 91002328220491911630239667963
 
 
