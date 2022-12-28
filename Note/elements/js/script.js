@@ -1446,3 +1446,63 @@ images[1].addEventListener('mouseover', () => {
 images[1].addEventListener('mouseout', () => {
     macbookAnimation.pause();
 });
+
+
+//                                                  Event loop
+
+// 1. Call Stack - текущий вызов, может быть заблокирован тяжелой задачей, которая может остановить работу всего кода
+// 2. Web Apis - сюда помещаются задачи в фоновом режиме, например: таймауты или обработчики событий
+// 3. Callback Queue - очередь вызовов, все действия на странице выполняются по очереди
+
+// тяжелые задачи блокируют call stack, чтобы избежать этого, нужно дробить тяжелые задачи на много маленьких
+
+// console.log(1);
+//
+//
+// setTimeout(() => {
+//     console.log('timeout');
+// }, 2000);
+//
+//
+// setTimeout(() => {
+//     console.log('timeout_4000');
+// }, 4000);
+//
+//
+// console.log(2);
+//
+//
+// setTimeout(() => {   // из-за того что это асинхронная функция, она проходит через web Api,
+//     console.log(1);         // поэтому даже с 0мс, она выполнится после синхронного кода
+// }, 0);       // js по умолчанию ставит 4мс, когда видит 0 в таких функциях для совместимости с разными браузерами
+//
+//
+// console.log(2);
+
+//                                          micro/macro tasks
+
+// макро задачи - все обычные задачи: обработчики, таймауты, etc
+// микро задачи - формируются внутри then, catch, finally. Либо при помощи оператора await
+
+// движок js'a работает таким образом, что когда выполняется ОДНА макро задача, затем выполняются ВСЕ микро задачи
+
+// () => {}
+// microtasks: then/catch/finally/await
+// render
+// () => {}
+// microtasks: then/catch/finally/await
+// render
+// () => {}
+
+
+setTimeout(() => console.log('timeout'));
+
+Promise.resolve()
+    .then(() => console.log('promise'));
+
+queueMicrotask(() => console.log('wow'));   // существует функция, которая может поместить нашу задачу
+// в очередь микро задача
+Promise.resolve()
+    .then(() => console.log('promise'));
+
+console.log('code');
