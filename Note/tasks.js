@@ -242,12 +242,23 @@
 // // console.log(discount);
 
 
-const add1 = function(a){return a + 1}
-const addAll3 = function(a,b,c){return a + b + c}
-const composeWithArgs = (...args) => (...nums) => {
-    return args.reduceRight((previousValue, currentValue) => {
-        console.log(previousValue, currentValue, nums);
-         return currentValue(previousValue)
-    });
-};
-console.log(composeWithArgs(add1,addAll3)(1,2,3))
+const add1 = function(a) {
+    console.log(a);
+    return a + 1
+}
+
+
+const addAll3 = function(a, b, c) {
+    console.log(a, b, c);
+    return a + b + c
+}
+
+
+// const composeWithArgs = (...args) => (...nums) => {
+//     return args.reduceRight((previousValue, currentValue) => {
+//         currentValue(previousValue);
+//     }, nums);
+// };
+// console.log(composeWithArgs(add1, addAll3)(1, 2, 3))
+
+const composeWithArgs = (...fns) => fns.reduceRight((f, g) => (...args) => g(f(...args)));
