@@ -1606,42 +1606,75 @@
 //[1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]
 
 function isInteresting(number, awesomePhrases) {
+    const num = Array.from(number.toString());
     const init = number - awesomePhrases[0];
-    const num = number.toString();
-    let count = 0;
 
 
-    if (init === 0) return 2;
-    if (init === -1 || init === -2 || init === 1 || init === 2) return 1;
+    // if (number === awesomePhrases[0] || number === awesomePhrases[1] || number === awesomePhrases[2]) return 2;
+    // if (init === -1 || init === -2 || init === 1 || init === 2) return 1;
+    // if (number < 99) return 0;
+    // if (init === 0) return 2;
 
 
-    for (let i = 1; i < num.length; i++) {
-        if (count >= 2) return count = 2;
-        if (num[i - 1] === num[i]) count++;
-        if (num[i - 1] === num[i]) count++;
+    const isBigNum = (length = 0) => {
+        if (length === 3) return false;
+        let check;
 
 
-        for (const item of num) {
-            if (item === num[i]) count++;
+        const res = (number + length).toString().slice(1).split('').every((e, i, arr) => {
+            if (+e === 0) return check = length;
+        });
+        console.log(res);
 
 
-            if (item !== num[i]) {
-                item + 1 === num[i] ? count++ : null;
-                item + 2 === num[i] ? count++ : null;
-            }
-        }
+        return res === true ? check : isBigNum(length + 1);
+    }
+    console.log(isBigNum());
+
+
+    const isMonotone = () => {
+        return num.every((e) => e === num[0]);
     }
 
 
-    console.log(count);
+    const isIncrementing = () => {
+        return num.every((e, i) => {
+            if (+e === 9 && +num[i + 1] === 0) return true;
+            if (i === num.length - 1) return true;
+            return +e + 1 === +num[i + 1]
+        });
+    }
 
 
-    return count;
+    const isDecrementing = () => {
+        return num.every((e, i) => {
+            if (i === num.length - 1) return true;
+            return +e - 1 === +num[i + 1]
+        });
+    }
+
+
+    const isPalindromic = () => {
+        if (num.length > 3) {
+            return num.join('').replaceAll(num[0], '').replaceAll(num[1], '').length === 1;
+        }
+        else return num.join('').replaceAll(num[0], '').length === 1;
+    }
+
+
+    const checkAll = (...cases) => {
+        if (cases.every(e => e === false)) return 0;
+        if (cases.some(e => e === true || e === 2)) return 2;
+        if (cases.some(e => e === 1)) return 1;
+    }
+
+
+    return checkAll(isBigNum(), isMonotone(), isIncrementing(), isDecrementing(), isPalindromic());
 }
-console.log(isInteresting(11209, [1337, 256]));
+console.log(isInteresting(100, [1337, 256]));
 
 
-// class Node { 
+// class Node {
 //     constructor(value, left = null, right = null) {
 //         this.value = value;
 //         this.left  = left;
