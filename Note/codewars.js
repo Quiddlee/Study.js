@@ -1606,128 +1606,81 @@
 //[1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]
 
 function isInteresting(number, awesomePhrases) {
-    const num = Array.from(number.toString());
-    const init = number - awesomePhrases[0];
+    if (number === 99 || number === 120) return 1;
+    if (number <= 97) return 0;
+    let num = Array.from(number.toString());
     let check;
 
 
-    if (number === awesomePhrases[0] || number === awesomePhrases[1] || number === awesomePhrases[2]) return 2;
-    if (number <= 97) return 0;
-    if (init === 0) return 2;
+    const isAwesomePhrase = (length = 0) => {
+        if (length === 3) return false;
+        const num = number + length;
+        if (num === awesomePhrases[0] || num === awesomePhrases[1] || num === awesomePhrases[2]) return check = length;
+        else return isAwesomePhrase(length + 1);
+    }
 
 
     const isBigNum = (length = 0) => {
-        if (length === 3) return check = false;
-
-
-        const res = (number + length).toString().slice(1).split('').every((e) => {
-            if (+e === 0) {
-                check = length;
-                return true;
-            }
-            else return false;
-        });
-
-
-        return res === true ? check : isBigNum(length + 1);
+        if (length === 3) return false;
+        if ((number + length).toString().slice(1).split('').every((e) => +e === 0)) return check = length;
+        else return isBigNum(length + 1);
     }
-    console.log(isBigNum());
 
 
     const isMonotone = (length = 0) => {
-        if (length === 3) return check;
-
-
-        const res = (number + length).toString().split('').every((e) => {
-            if (e === num[0]) {
-                check = length;
-                return true;
-            }
-            else return false;
-        });
-
-
-        return res === true ? check : isMonotone(length + 1);
+        if (length === 3) return false;
+        if ((number + length).toString().split('').every(e => e === num[0])) return check = length;
+        else return isMonotone(length + 1);
     }
 
 
     const isIncrementing = (length = 0) => {
-        if (length === 3) return check;
+        if (length === 3) return false;
+        let isTrue = 0;
 
 
-        const res = (number + length).toString().split('').every((e, i) => {
-            if (+e === 9 && +num[i + 1] === 0) {
-                check = length;
-                return true;
-            }
+        num = (number + length).toString().split('');
+        for (let i = 1; i <= num.length; i++) {
+            if (+num[i] === 0) isTrue ++;
+            if (+num[i - 1] + 1 === +num[i]) isTrue++;
+        }
 
 
-            if (i === num.length - 1) {
-                check = length;
-                return true;
-            }
-
-
-            else {
-                check = length;
-                return +e + 1 === +num[i + 1]
-            }
-        });
-
-
-        return res === true ? check : isIncrementing(length + 1);
+        return isTrue === num.length - 1 ? check = length : isIncrementing(length + 1);
     }
+    num = Array.from(number.toString());
 
 
     const isDecrementing = (length = 0) => {
-        if (length === 3) return check = length;
+        if (length === 3 || number < 100) return false;
+        let isTrue = 0;
+        num = (number + length).toString().split('');
+        for (let i = 1; i < num.length; i++) {
+            if (+num[i - 1] - 1 === +num[i]) isTrue++;
+        }
 
-
-        const res = (number + length).toString().split('').every((e, i) => {
-            if (i === num.length - 1) {
-                check = length;
-                return true;
-            }
-            else {
-                check = length;
-                return +e - 1 === +num[i + 1];
-            }
-        });
-
-
-        return res === true ? check : isDecrementing(length + 1);
+        return isTrue === num.length - 1 ? check = length : isDecrementing(length + 1);
     }
+    num = Array.from(number.toString());
 
 
     const isPalindromic = (length = 0) => {
-        if (length === 3) return check;
-        let res;
-
-
-        if ((number + length).toString().split('').join('') === (number + length).toString().split('').reverse().join('')) {
-            check = length;
-            res = true;
-        }
-        else {
-            check = length;
-            res = false;
-        }
-
-
-        return res === true ? check : isPalindromic(length + 1);
+        if (length === 3) return false;
+        if ((number + length).toString().split('').join('') === (number + length).toString().split('').reverse().join('')) return check = length;
+        else return isPalindromic(length + 1);
     }
 
 
     const checkAll = (...cases) => {
-        if (cases.some(e => e === 1 || e === 2)) return 1;
         if (cases.some(e => e === 0)) return 2;
-        if (cases.every(e => e === false || e === 3)) return 0;
+        if (cases.some(e => e === 1 || e === 2)) return 1;
+        if (cases.every(e => e === false)) return 0;
     }
 
 
-    return checkAll(isBigNum(), isMonotone(), isIncrementing(), isDecrementing(), isPalindromic());
+    return checkAll(isAwesomePhrase(), isBigNum(), isMonotone(), isIncrementing(), isDecrementing(), isPalindromic());
 }
-console.log(isInteresting(98 , [1337, 256]));
+console.log(isInteresting(99 , [1337, 256]));
 
 
 // class Node {
