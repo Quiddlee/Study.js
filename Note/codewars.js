@@ -1605,82 +1605,82 @@
 
 //[1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]
 
-function isInteresting(number, awesomePhrases) {
-    if (number === 99 || number === 120) return 1;
-    if (number <= 97) return 0;
-    let num = Array.from(number.toString());
-    let check;
-
-
-    const isAwesomePhrase = (length = 0) => {
-        if (length === 3) return false;
-        const num = number + length;
-        if (num === awesomePhrases[0] || num === awesomePhrases[1] || num === awesomePhrases[2]) return check = length;
-        else return isAwesomePhrase(length + 1);
-    }
-
-
-    const isBigNum = (length = 0) => {
-        if (length === 3) return false;
-        if ((number + length).toString().slice(1).split('').every((e) => +e === 0)) return check = length;
-        else return isBigNum(length + 1);
-    }
-
-
-    const isMonotone = (length = 0) => {
-        if (length === 3) return false;
-        if ((number + length).toString().split('').every(e => e === num[0])) return check = length;
-        else return isMonotone(length + 1);
-    }
-
-
-    const isIncrementing = (length = 0) => {
-        if (length === 3) return false;
-        let isTrue = 0;
-
-
-        num = (number + length).toString().split('');
-        for (let i = 1; i <= num.length; i++) {
-            if (+num[i] === 0) isTrue ++;
-            if (+num[i - 1] + 1 === +num[i]) isTrue++;
-        }
-
-
-        return isTrue === num.length - 1 ? check = length : isIncrementing(length + 1);
-    }
-    num = Array.from(number.toString());
-
-
-    const isDecrementing = (length = 0) => {
-        if (length === 3 || number < 100) return false;
-        let isTrue = 0;
-        num = (number + length).toString().split('');
-        for (let i = 1; i < num.length; i++) {
-            if (+num[i - 1] - 1 === +num[i]) isTrue++;
-        }
-
-        return isTrue === num.length - 1 ? check = length : isDecrementing(length + 1);
-    }
-    num = Array.from(number.toString());
-
-
-    const isPalindromic = (length = 0) => {
-        if (length === 3) return false;
-        if ((number + length).toString().split('').join('') === (number + length).toString().split('').reverse().join('')) return check = length;
-        else return isPalindromic(length + 1);
-    }
-
-
-    const checkAll = (...cases) => {
-        if (cases.some(e => e === 0)) return 2;
-        if (cases.some(e => e === 1 || e === 2)) return 1;
-        if (cases.every(e => e === false)) return 0;
-    }
-
-
-    return checkAll(isAwesomePhrase(), isBigNum(), isMonotone(), isIncrementing(), isDecrementing(), isPalindromic());
-}
-console.log(isInteresting(99 , [1337, 256]));
+// function isInteresting(number, awesomePhrases) {
+//     if (number === 99 || number === 120) return 1;
+//     if (number <= 97) return 0;
+//     let num = Array.from(number.toString());
+//     let check;
+//
+//
+//     const isAwesomePhrase = (length = 0) => {
+//         if (length === 3) return false;
+//         const num = number + length;
+//         if (num === awesomePhrases[0] || num === awesomePhrases[1] || num === awesomePhrases[2]) return check = length;
+//         else return isAwesomePhrase(length + 1);
+//     }
+//
+//
+//     const isBigNum = (length = 0) => {
+//         if (length === 3) return false;
+//         if ((number + length).toString().slice(1).split('').every((e) => +e === 0)) return check = length;
+//         else return isBigNum(length + 1);
+//     }
+//
+//
+//     const isMonotone = (length = 0) => {
+//         if (length === 3) return false;
+//         if ((number + length).toString().split('').every(e => e === num[0])) return check = length;
+//         else return isMonotone(length + 1);
+//     }
+//
+//
+//     const isIncrementing = (length = 0) => {
+//         if (length === 3) return false;
+//         let isTrue = 0;
+//
+//
+//         num = (number + length).toString().split('');
+//         for (let i = 1; i <= num.length; i++) {
+//             if (+num[i] === 0) isTrue ++;
+//             if (+num[i - 1] + 1 === +num[i]) isTrue++;
+//         }
+//
+//
+//         return isTrue === num.length - 1 ? check = length : isIncrementing(length + 1);
+//     }
+//     num = Array.from(number.toString());
+//
+//
+//     const isDecrementing = (length = 0) => {
+//         if (length === 3 || number < 100) return false;
+//         let isTrue = 0;
+//         num = (number + length).toString().split('');
+//         for (let i = 1; i < num.length; i++) {
+//             if (+num[i - 1] - 1 === +num[i]) isTrue++;
+//         }
+//
+//         return isTrue === num.length - 1 ? check = length : isDecrementing(length + 1);
+//     }
+//     num = Array.from(number.toString());
+//
+//
+//     const isPalindromic = (length = 0) => {
+//         if (length === 3) return false;
+//         if ((number + length).toString().split('').join('') === (number + length).toString().split('').reverse().join('')) return check = length;
+//         else return isPalindromic(length + 1);
+//     }
+//
+//
+//     const checkAll = (...cases) => {
+//         if (cases.some(e => e === 0)) return 2;
+//         if (cases.some(e => e === 1 || e === 2)) return 1;
+//         if (cases.every(e => e === false)) return 0;
+//     }
+//
+//
+//     return checkAll(isAwesomePhrase(), isBigNum(), isMonotone(), isIncrementing(), isDecrementing(), isPalindromic());
+// }
+// console.log(isInteresting(99 , [1337, 256]));
 
 
 // class Node {
@@ -2266,3 +2266,33 @@ console.log(isInteresting(99 , [1337, 256]));
 // 19 16 23 24 24 33 37
 // 19 16 23 24 24 7  11
 // spwxxgk
+
+
+function sortArray(array) {
+    for (let i = 0; i < array.length; i++) {
+        let rememberId = -100;
+        let remember = -100;
+
+
+        for (let j = 0; j < array.length; j++) {
+            if (array[j] % 2 !== 0) {
+                if (array[j] > remember) {
+                    remember = array[j];
+                    rememberId = j;
+                }
+
+
+                if (array[j] < remember) {
+                    let temp = array[j];
+                    array[j] = remember;
+                    array[rememberId] = temp;
+                    rememberId = array.indexOf(remember);
+                }
+            }
+        }
+    }
+
+
+    return array;
+}
+console.log(sortArray([30, 49, -47, -24, 40, -6, -42, 6, 21, -38, 34, 49, 5, -22, 46]));
