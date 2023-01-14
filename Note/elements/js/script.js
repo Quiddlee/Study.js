@@ -1054,7 +1054,7 @@ localStorage.setItem('alex', person); // если мы хотим помести
 console.log(localStorage.getItem('alex'));
 
 
-//                                          regex
+//                                          regexp
 
 
 new RegExp('pattern', 'flags');

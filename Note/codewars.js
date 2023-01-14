@@ -1770,20 +1770,26 @@
 // }
 // console.log(treeByLevels(treeTwo));
 
-// function longestSlideDown (pyramid) {
-//     let res = 0;
+let total = 0;
+let m = 0;
+let n = 0
+function longestSlideDown(pyramid) {
+    if (m === pyramid.length) {
+        m = 0;
+        return total;
+    }
+    console.log(pyramid[m][n], m, n);
 
-//     for (let i = 1; i < pyramid.length; i++) {
-//         console.log(pyramid[i].splice(pyramid.indexOf(Math.max(...pyramid[i - 1])), 2));
-//         // res += Math.max(...pyramid[i]);
-//     }
+    total += pyramid[m][n];
 
-//     return res;
-// }
-// console.log(longestSlideDown([  [3],
-//                                 [7, 4],
-//                                 [2, 4, 6],
-//                                 [8, 5, 9, 3]    ]));
+    console.log(total);
+
+    return longestSlideDown(pyramid, m += 1, n = 0) + longestSlideDown(pyramid, m += 1, n = 1);
+}
+console.log(longestSlideDown([     [3],
+                                          [7, 4],
+                                         [2, 4, 6],
+                                        [8, 5, 9, 3]    ]));
 
 // function add(a, b) {
 //     let firstNum;
@@ -2268,31 +2274,31 @@
 // spwxxgk
 
 
-function sortArray(array) {
-    for (let i = 0; i < array.length; i++) {
-        let rememberId = -100;
-        let remember = -100;
-
-
-        for (let j = 0; j < array.length; j++) {
-            if (array[j] % 2 !== 0) {
-                if (array[j] > remember) {
-                    remember = array[j];
-                    rememberId = j;
-                }
-
-
-                if (array[j] < remember) {
-                    let temp = array[j];
-                    array[j] = remember;
-                    array[rememberId] = temp;
-                    rememberId = array.indexOf(remember);
-                }
-            }
-        }
-    }
-
-
-    return array;
-}
-console.log(sortArray([30, 49, -47, -24, 40, -6, -42, 6, 21, -38, 34, 49, 5, -22, 46]));
+// function sortArray(array) {
+//     for (let i = 0; i < array.length; i++) {
+//         let rememberId = -100;
+//         let remember = -100;
+//
+//
+//         for (let j = 0; j < array.length; j++) {
+//             if (array[j] % 2 !== 0) {
+//                 if (array[j] > remember) {
+//                     remember = array[j];
+//                     rememberId = j;
+//                 }
+//
+//
+//                 if (array[j] < remember) {
+//                     let temp = array[j];
+//                     array[j] = remember;
+//                     array[rememberId] = temp;
+//                     rememberId = array.indexOf(remember);
+//                 }
+//             }
+//         }
+//     }
+//
+//
+//     return array;
+// }
+// console.log(sortArray([30, 49, -47, -24, 40, -6, -42, 6, 21, -38, 34, 49, 5, -22, 46]));
