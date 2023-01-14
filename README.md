@@ -1,2 +1,2 @@
 # Study.js
-JavaScript course repo
+JavaScript | React course repo
