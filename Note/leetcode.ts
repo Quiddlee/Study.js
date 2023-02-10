@@ -16,3 +16,7 @@
 // }
 // console.log(largestAltitude([-5,1,5,0,-7]));
 
+function minimumTeachings(n: number, languages: number[][], friendships: number[][]): number {
+
+}
+console.log(minimumTeachings());
