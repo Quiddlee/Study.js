@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "watch": true,
+        "lib": ["es5", "es6", "dom", "dom.iterable", "ESNext"],
+        "strict": true,
+        "module": "ESNext",
+        "moduleResolution": "node",
+    },
+    "ts-node": {
+        "transpileOnly": true,
+        "files": true,
+    }
+}

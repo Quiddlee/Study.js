@@ -1740,56 +1740,64 @@
 
 // function treeByLevels (rootNode) {
 //     if (rootNode === null) {return [];}
-
+//
 //     const queue = [rootNode];
 //     const res = [];
-
+//
 //     function nodeTravel() {
 //         const currentNode = queue[0];
-
+//
 //         res.push(currentNode.value);
-
+//
 //         if (currentNode.left !== null) {
 //             queue.push(currentNode.left);
 //         }
-
+//
 //         if (currentNode.right !== null) {
 //             queue.push(currentNode.right);
 //         }
-
+//
 //         queue.shift();
-
+//
 //         if (queue.length !== 0) {
 //             nodeTravel();
 //         }
-
+//
 //         return res;
 //     }
-
+//
 //     return nodeTravel(rootNode);
 // }
 // console.log(treeByLevels(treeTwo));
 
-let total = 0;
-let m = 0;
-let n = 0
-function longestSlideDown(pyramid) {
-    if (m === pyramid.length) {
-        m = 0;
-        return total;
-    }
-    console.log(pyramid[m][n], m, n);
-
-    total += pyramid[m][n];
-
-    console.log(total);
-
-    return longestSlideDown(pyramid, m += 1, n = 0) + longestSlideDown(pyramid, m += 1, n = 1);
-}
-console.log(longestSlideDown([     [3],
-                                          [7, 4],
-                                         [2, 4, 6],
-                                        [8, 5, 9, 3]    ]));
+// let total = 0;
+// let m = 0;
+// let n = 0
+// let bestSum = 0;
+// function longestSlideDown(pyramid, target = pyramid[0][0], length = 1, indexNum = 0) {
+//     // console.log(total);
+//     if (length === pyramid.length) return total;
+//
+//     let check = indexNum;
+//
+//     for (const num of pyramid[length].slice(check, 2)) {
+//         console.log(pyramid[length].slice(check, 2), target);
+//         total = target + num;
+//
+//         check = pyramid[length].indexOf(num);
+//         // console.log(check);
+//
+//         if (total > bestSum) bestSum = total
+//
+//         longestSlideDown(pyramid, total, length + 1, check);
+//     }
+//
+//     return bestSum;
+// }
+// console.log(longestSlideDown([     [3],
+//                                           [7, 4],
+//                                          [2, 4, 6],
+//                                         [8, 5, 9, 3] ]));
 
 // function add(a, b) {
 //     let firstNum;
