@@ -36,16 +36,7 @@
 // console.log(bad(5));
 
 function searchInsert(nums: number[], target: number): number {
-    if (nums.includes(target)) {
-        return nums.indexOf(target);
-    }
-    else {
-        if (nums.includes(target - 1)) {
-            return nums.indexOf(target - 1) + 1;
-        }
-        else if (nums.includes(target + 1)) {
-            return nums.indexOf(target + 1);
-        }
-    }
+    nums.push(target);
+    return nums.sort((a, b) => a - b).indexOf(target);
 };
 console.log(searchInsert([3,6,7,8,10], 5));

@@ -15,6 +15,34 @@
 //     return Math.max(0, ...gain);
 // }
 // console.log(largestAltitude([-5,1,5,0,-7]));
-function minimumTeachings(n, languages, friendships) {
+// function search(nums: number[], target: number): number {
+//     return nums.indexOf(target);
+// };
+// console.log(search([-1,0,3,5,9,12], 2));
+// function bad(n: number): number {
+//     const numHalf = Math.round(n / 2);
+//     if (isBadVersion(numHalf)) {
+//         for (let i = numHalf; i >= 0; i--) {
+//             if (!isBadVersion(i)) return i + 1;
+//         }
+//     }
+//     else {
+//         return bad(n + numHalf);
+//     }
+// };
+// console.log(bad(5));
+function searchInsert(nums, target) {
+    if (nums.includes(target)) {
+        return nums.indexOf(target);
+    }
+    else {
+        if (nums.includes(target - 1)) {
+            return nums.indexOf(target - 1) + 1;
+        }
+        else if (nums.includes(target + 1)) {
+            return nums.indexOf(target + 1);
+        }
+    }
 }
-console.log(minimumTeachings());
+;
+console.log(searchInsert([3, 6, 7, 8, 10], 5));
