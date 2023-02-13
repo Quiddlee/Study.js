@@ -35,8 +35,25 @@
 // };
 // console.log(bad(5));
 
-function searchInsert(nums: number[], target: number): number {
-    nums.push(target);
-    return nums.sort((a, b) => a - b).indexOf(target);
+// function searchInsert(nums: number[], target: number): number {
+//     nums.push(target);
+//     return nums.sort((a, b) => a - b).indexOf(target);
+// };
+// console.log(searchInsert([3,6,7,8,10], 5));
+
+// function sortedSquares(nums: number[]): number[] {
+//     return nums.map(e => e**2).sort((a, b) => a - b);
+// };
+// console.log(sortedSquares([-4,-1,0,3,10]));
+
+// function rotate(nums: number[], k: number): void {
+//     while (k !== 0) {
+//         nums.unshift(...nums.splice(nums.length - 1));
+//         k -= 1;
+//     }
+// };
+// rotate([1,2,3,4,5,6,7], 3);
+
+function longestSubarray(nums: number[], limit: number): number {
+
 };
-console.log(searchInsert([3,6,7,8,10], 5));
