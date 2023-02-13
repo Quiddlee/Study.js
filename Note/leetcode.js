@@ -49,5 +49,25 @@
 // };
 // rotate([1,2,3,4,5,6,7], 3);
 function longestSubarray(nums, limit) {
+    const arrLength = nums.length;
+    let longestSize = 0;
+    let count = 0;
+    for (let i = 0; i < arrLength; i++) {
+        for (let j = i + 1; j < arrLength; j++) {
+            const indexI = nums.indexOf(nums[i]);
+            const indexJ = nums.indexOf(nums[j] + 1);
+            console.log(nums.slice(indexI, indexJ));
+            if (nums[i] < nums[j]) {
+                count = Math.abs(nums[i] - nums[j]);
+                if (count <= limit && nums.slice(indexI, indexJ).length > longestSize) {
+                    console.log(nums.slice(indexI, indexJ), nums[i], nums[j]);
+                    longestSize = nums.slice(indexI, indexJ).length;
+                    console.log(longestSize);
+                }
+            }
+        }
+    }
+    return longestSize;
 }
 ;
+console.log(longestSubarray([4, 2, 2, 2, 4, 4, 2, 2], 0));
