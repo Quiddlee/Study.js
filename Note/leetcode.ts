@@ -89,10 +89,27 @@
 // };
 // console.log(longestSubarray());
 
-function moveZeroes(nums: number[]): void {
-    const zeros = nums.filter(num => num === 0);
-    const numbers = nums.filter(num => num !== 0);
-    nums.splice(0);
-    nums.push(...numbers, ...zeros);
-};
-moveZeroes([0,1,0,3,12]);
+// function moveZeroes(nums: number[]): void {
+//     const zeros = nums.filter(num => num === 0);
+//     const numbers = nums.filter(num => num !== 0);
+//     nums.splice(0);
+//     nums.push(...numbers, ...zeros);
+// };
+// moveZeroes([0,1,0,3,12]);
+
+// function twoSum(numbers: number[], target: number): number[] {
+//     const length = numbers.length;
+
+//     for (let i = length - 1; i > 0; --i) {
+//         for (let j = length - 2; j >= 0; --j) {
+
+//             console.log(numbers[i], numbers[j]);
+//             if (numbers[i] + numbers[j] === target && i !== j) {
+//                 return [++j, ++i];
+//             }
+//         }
+//     }
+
+//     return [];
+// };
+// console.log(twoSum([0,0,3,4], 0));

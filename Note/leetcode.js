@@ -15,15 +15,6 @@
 //     return Math.max(0, ...gain);
 // }
 // console.log(largestAltitude([-5,1,5,0,-7]));
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 // function search(nums: number[], target: number): number {
 //     return nums.indexOf(target);
 // };
@@ -86,11 +77,23 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 //     return longestSize;
 // };
 // console.log(longestSubarray());
-function moveZeroes(nums) {
-    var zeros = nums.filter(function (num) { return num === 0; });
-    var numbers = nums.filter(function (num) { return num !== 0; });
-    nums.splice(0);
-    nums.push.apply(nums, __spreadArray(__spreadArray([], numbers, false), zeros, false));
-}
-;
-moveZeroes([0, 1, 0, 3, 12]);
+// function moveZeroes(nums: number[]): void {
+//     const zeros = nums.filter(num => num === 0);
+//     const numbers = nums.filter(num => num !== 0);
+//     nums.splice(0);
+//     nums.push(...numbers, ...zeros);
+// };
+// moveZeroes([0,1,0,3,12]);
+// function twoSum(numbers: number[], target: number): number[] {
+//     const length = numbers.length;
+//     for (let i = length - 1; i > 0; --i) {
+//         for (let j = length - 2; j >= 0; --j) {
+//             console.log(numbers[i], numbers[j]);
+//             if (numbers[i] + numbers[j] === target && i !== j) {
+//                 return [++j, ++i];
+//             }
+//         }
+//     }
+//     return [];
+// };
+// console.log(twoSum([0,0,3,4], 0));
