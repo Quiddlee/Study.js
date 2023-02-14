@@ -59,21 +59,23 @@ function longestSubarray(nums: number[], limit: number): number {
     let longestSize: number = 0;
     let count: number = 0;
     let subArr: number[];
-    let memo: {[key: number]: number} = {};
+    let memo: {[key: string]: number} = {};
 
     for (let i = 0; i < arrLength; i++) {
-        if (memo[nums[i]] in memo) break;
-        else memo[nums[i]] = nums[i];
-
+        
         for(let j = i; j < arrLength; j++) {
             subArr = nums.slice(i, j + 1);
+            if (`${Math.max(...subArr)}, ${Math.min(...subArr)}` in memo) {
+                break;
+            }
             count = Math.max(...subArr) - Math.min(...subArr);
 
 
             console.log(memo);
 
-
             if (count <= limit) {
+                memo[`${Math.max(...subArr)}, ${Math.min(...subArr)}`] = count;
+
                 if (subArr.length > longestSize) {
                     longestSize = subArr.length;
                 }

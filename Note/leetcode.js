@@ -54,15 +54,15 @@ function longestSubarray(nums, limit) {
     var subArr;
     var memo = {};
     for (var i = 0; i < arrLength; i++) {
-        if (memo[nums[i]] in memo)
-            break;
-        else
-            memo[nums[i]] = nums[i];
         for (var j = i; j < arrLength; j++) {
             subArr = nums.slice(i, j + 1);
+            if ("".concat(Math.max.apply(Math, subArr), ", ").concat(Math.min.apply(Math, subArr)) in memo) {
+                break;
+            }
             count = Math.max.apply(Math, subArr) - Math.min.apply(Math, subArr);
             console.log(memo);
             if (count <= limit) {
+                memo["".concat(Math.max.apply(Math, subArr), ", ").concat(Math.min.apply(Math, subArr))] = count;
                 if (subArr.length > longestSize) {
                     longestSize = subArr.length;
                 }
