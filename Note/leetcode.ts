@@ -88,3 +88,11 @@
 //     return longestSize;
 // };
 // console.log(longestSubarray());
+
+function moveZeroes(nums: number[]): void {
+    const zeros = nums.filter(num => num === 0);
+    const numbers = nums.filter(num => num !== 0);
+    nums.splice(0);
+    nums.push(...numbers, ...zeros);
+};
+moveZeroes([0,1,0,3,12]);
