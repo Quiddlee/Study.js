@@ -54,32 +54,32 @@
 // };
 // rotate([1,2,3,4,5,6,7], 3);
 
-function longestSubarray(nums: number[], limit: number): number {
-    const arrLength = nums.length - 1;
-    let subArr: number[];
-    let longestSize = 0;
-    let left = 0;
-    let right = arrLength;
-    let sum = 0;
-
-    while (right < left) {
-        sum = right - left;
-
-        console.log(nums.slice(right, left + 1))
-
-        if (sum === limit) {
-            return nums.slice(right, left + 1).length;
-        }
-        else if (sum < limit) {
-            ++left;
-        }
-        else {
-            right++
-        }
-    }
-
-    return longestSize;
-};
+// function longestSubarray(nums: number[], limit: number): number {
+//     const arrLength = nums.length - 1;
+//     let subArr: number[];
+//     let longestSize = 0;
+//     let left = 0;
+//     let right = arrLength;
+//     let sum = 0;
+//
+//     while (right < left) {
+//         sum = right - left;
+//
+//         console.log(nums.slice(right, left + 1))
+//
+//         if (sum === limit) {
+//             return nums.slice(right, left + 1).length;
+//         }
+//         else if (sum < limit) {
+//             ++left;
+//         }
+//         else {
+//             right++
+//         }
+//     }
+//
+//     return longestSize;
+// };
 
 // function moveZeroes(nums: number[]): void {
 //     const zeros = nums.filter(num => num === 0);
@@ -115,3 +115,35 @@ function longestSubarray(nums: number[], limit: number): number {
 //     return s.split(' ').map(elem => elem.split('').reverse().join('')).join(' ');
 // };
 // console.log(reverseWords("Let's take LeetCode contest"));
+
+class ListNode {
+    val: number
+    next: ListNode | null
+
+    constructor(val?: number, next?: ListNode | null) {
+        this.val = (val===undefined ? 0 : val);
+        this.next = (next===undefined ? null : next);
+    }
+};
+
+const listNode = new ListNode(1); 
+
+function middleNode(head: ListNode | null): ListNode | null {
+    let halfLength = 0;
+    let node = head;
+
+    for (halfLength;; --halfLength) {
+        if (node === null) {
+            halfLength = Math.round(halfLength / 2);
+            break;
+        }
+        else node = node.next;
+    }
+
+    node = head;
+    for (let i = 0;; --i) {
+        if (i === halfLength) return node;
+        else node = node.next;
+    }
+}
+middleNode();
