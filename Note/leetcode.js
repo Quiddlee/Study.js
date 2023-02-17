@@ -149,27 +149,43 @@
 //     prev.next = removedNode.next;
 //     return resultHead.next
 // }
-function lengthOfLongestSubstring(s) {
-    var strLength = s.length - 1;
-    var temp = [];
-    var biggestLength = 0;
-    for (var i = strLength; i >= 0; --i) {
-        if (!temp.includes(s[i])) {
-            temp[temp.length] = s[i];
-            var length_1 = temp.length;
-            if (length_1 > biggestLength) {
-                biggestLength = length_1;
-            }
-        }
-        else {
-            i = strLength--;
-            temp = [];
+// function lengthOfLongestSubstring(s: string): number {
+//     let strLength = s.length - 1;
+//     let temp: string[] = [];
+//     let biggestLength = 0;
+//     for (let i = strLength; i >= 0; --i) {
+//         if (!temp.includes(s[i])) {
+//             temp[temp.length] = s[i];
+//             const length = temp.length;
+//             if (length > biggestLength) {
+//                 biggestLength = length;
+//             }
+//         }
+//         else {
+//             i = strLength--;
+//             temp = [];
+//         }
+//     }
+//     return biggestLength;
+// };
+// console.log(lengthOfLongestSubstring("cdd"));  //"abcb"
+function checkInclusion(s1, s2) {
+    // for (let i = 0; i < s2.length; i++) {
+    //     console.log(s2.substr(i, s1.length));
+    //     if (s2.substr(i, s1.length) === s1) return true;
+    // };
+    for (var i = 0; i <= s1.length; i++) {
+        var index = s2.indexOf(s1[i]);
+        console.log(index);
+        if (index === -1)
+            continue;
+        console.log(index, s2.indexOf(s1[i + 1]), index, s2.indexOf(s1[i - 1]));
+        console.log(index === s2.indexOf(s1[i + 1]) || index === s2.indexOf(s1[i - 1]));
+        if (index === s2.indexOf(s1[i + 1]) || index === s2.indexOf(s1[i - 1])) {
+            return true;
         }
     }
-    return biggestLength;
+    return false;
 }
 ;
-console.log(lengthOfLongestSubstring("cdd")); //"abcb"
-function checkInclusion(s1, s2) {
-}
-;
+console.log(checkInclusion('ab', 'eidbaooo'));
