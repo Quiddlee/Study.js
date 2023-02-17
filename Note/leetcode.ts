@@ -116,34 +116,62 @@
 // };
 // console.log(reverseWords("Let's take LeetCode contest"));
 
-class ListNode {
-    val: number
-    next: ListNode | null
+// class ListNode {
+//     val: number
+//     next: ListNode | null
 
-    constructor(val?: number, next?: ListNode | null) {
-        this.val = (val===undefined ? 0 : val);
-        this.next = (next===undefined ? null : next);
+//     constructor(val?: number, next?: ListNode | null) {
+//         this.val = (val===undefined ? 0 : val);
+//         this.next = (next===undefined ? null : next);
+//     }
+// };
+
+// const listNode = new ListNode(1); 
+
+// function middleNode(head: ListNode | null): ListNode | null {
+//     let halfLength = 0;
+//     let node = head;
+
+//     for (halfLength;; --halfLength) {
+//         if (node === null) {
+//             halfLength = Math.round(halfLength / 2);
+//             break;
+//         }
+//         else node = node.next;
+//     }
+
+//     node = head;
+//     for (let i = 0;; --i) {
+//         if (i === halfLength) return node;
+//         else node = node.next;
+//     }
+// }
+// middleNode();
+
+function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+    let dummyHead = new ListNode(-Infinity);
+    dummyHead.next = head;
+    let resultHead = dummyHead;
+    let tail = head;
+    let i = n;
+
+    for(i; i > 0; --i) {
+        tail = tail.next;
     }
-};
 
-const listNode = new ListNode(1); 
+    let removedNode = head;
+    let prev = dummyHead;
 
-function middleNode(head: ListNode | null): ListNode | null {
-    let halfLength = 0;
-    let node = head;
-
-    for (halfLength;; --halfLength) {
-        if (node === null) {
-            halfLength = Math.round(halfLength / 2);
-            break;
+    for(i;;--i) {
+        if (tail) {
+            tail = tail.next;
+            removedNode = removedNode.next;
+            prev = prev.next;
         }
-        else node = node.next;
+        else break;
     }
 
-    node = head;
-    for (let i = 0;; --i) {
-        if (i === halfLength) return node;
-        else node = node.next;
-    }
+    prev.next = removedNode.next;
+
+    return resultHead.next
 }
-middleNode();

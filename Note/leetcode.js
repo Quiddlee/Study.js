@@ -101,32 +101,31 @@
 //     return s.split(' ').map(elem => elem.split('').reverse().join('')).join(' ');
 // };
 // console.log(reverseWords("Let's take LeetCode contest"));
-var ListNode = /** @class */ (function () {
-    function ListNode(val, next) {
-        this.val = (val === undefined ? 0 : val);
-        this.next = (next === undefined ? null : next);
-    }
-    return ListNode;
-}());
-;
-var listNode = new ListNode(1);
-function middleNode(head) {
-    var halfLength = 0;
-    var node = head;
-    for (halfLength;; --halfLength) {
-        if (node === null) {
-            halfLength = Math.round(halfLength / 2);
-            break;
-        }
-        else
-            node = node.next;
-    }
-    node = head;
-    for (var i = 0;; --i) {
-        if (i === halfLength)
-            return node;
-        else
-            node = node.next;
-    }
+// class ListNode {
+//     val: number
+//     next: ListNode | null
+//     constructor(val?: number, next?: ListNode | null) {
+//         this.val = (val===undefined ? 0 : val);
+//         this.next = (next===undefined ? null : next);
+//     }
+// };
+// const listNode = new ListNode(1); 
+// function middleNode(head: ListNode | null): ListNode | null {
+//     let halfLength = 0;
+//     let node = head;
+//     for (halfLength;; --halfLength) {
+//         if (node === null) {
+//             halfLength = Math.round(halfLength / 2);
+//             break;
+//         }
+//         else node = node.next;
+//     }
+//     node = head;
+//     for (let i = 0;; --i) {
+//         if (i === halfLength) return node;
+//         else node = node.next;
+//     }
+// }
+// middleNode();
+function removeNthFromEnd(head, n) {
 }
-middleNode();
