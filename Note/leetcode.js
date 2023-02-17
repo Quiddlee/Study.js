@@ -127,5 +127,46 @@
 //     }
 // }
 // middleNode();
-function removeNthFromEnd(head, n) {
+// function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+//     let dummyHead = new ListNode(-Infinity);
+//     dummyHead.next = head;
+//     let resultHead = dummyHead;
+//     let tail = head;
+//     let i = n;
+//     for(i; i > 0; --i) {
+//         tail = tail.next;
+//     }
+//     let removedNode = head;
+//     let prev = dummyHead;
+//     for(i;;--i) {
+//         if (tail) {
+//             tail = tail.next;
+//             removedNode = removedNode.next;
+//             prev = prev.next;
+//         }
+//         else break;
+//     }
+//     prev.next = removedNode.next;
+//     return resultHead.next
+// }
+function lengthOfLongestSubstring(s) {
+    var strLength = s.length - 1;
+    var temp = [];
+    var biggestLength = 0;
+    for (var i = strLength; i >= 0; --i) {
+        if (!temp.includes(s[i])) {
+            temp[temp.length] = s[i];
+            var length_1 = temp.length;
+            if (length_1 > biggestLength) {
+                biggestLength = length_1;
+            }
+        }
+        else {
+            i = strLength--;
+            temp = [];
+        }
+    }
+    return biggestLength;
 }
+;
+console.log(lengthOfLongestSubstring("cdd")); //"abcb"
