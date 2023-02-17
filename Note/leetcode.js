@@ -170,3 +170,6 @@ function lengthOfLongestSubstring(s) {
 }
 ;
 console.log(lengthOfLongestSubstring("cdd")); //"abcb"
+function checkInclusion(s1, s2) {
+}
+;

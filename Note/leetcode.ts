@@ -176,25 +176,29 @@
 //     return resultHead.next
 // }
 
-// function lengthOfLongestSubstring(s: string): number {
-//     let strLength = s.length - 1;
-//     let temp: string[] = [];
-//     let biggestLength = 0;
+function lengthOfLongestSubstring(s: string): number {
+    let strLength = s.length - 1;
+    let temp: string[] = [];
+    let biggestLength = 0;
 
-//     for (let i = strLength; i >= 0; --i) {
-//         if (!temp.includes(s[i])) {
-//             temp[temp.length] = s[i];
-//             const length = temp.length;
+    for (let i = strLength; i >= 0; --i) {
+        if (!temp.includes(s[i])) {
+            temp[temp.length] = s[i];
+            const length = temp.length;
             
-//             if (length > biggestLength) {
-//                 biggestLength = length;
-//             }
-//         }
-//         else {
-//             i = strLength--;
-//             temp = [];
-//         }
-//     }
-//     return biggestLength;
-// };
-// console.log(lengthOfLongestSubstring("cdd"));  //"abcb"
+            if (length > biggestLength) {
+                biggestLength = length;
+            }
+        }
+        else {
+            i = strLength--;
+            temp = [];
+        }
+    }
+    return biggestLength;
+};
+console.log(lengthOfLongestSubstring("cdd"));  //"abcb"
+
+function checkInclusion(s1: string, s2: string): boolean {
+
+};
