@@ -169,43 +169,44 @@
 //     return biggestLength;
 // };
 // console.log(lengthOfLongestSubstring("cdd"));  //"abcb"
-function checkInclusion(s1, s2) {
-    // for (let i = 0; i < s2.length; i++) {
-    //     console.log(s2.substr(i, s1.length));
-    //     if (s2.substr(i, s1.length) === s1) return true;
-    // };
-    // for (let i = 0; i <= s1.length; ++i) {
-    // const index = s2.indexOf(s1[i]);
-    // if (index === -1) continue;
-    // console.log(index, s2.indexOf(s1[i + 1]) + 1);
-    // if (index === s2.indexOf(s1[i + 1]) + 1) {
-    //     return true;
-    // }
-    // }
-    // const check = new RegExp(s1, 'g');
-    // const answ = s2.match(check) ? true : false;
-    // const answ2 = s2.split('').reverse().join('').match(check) ? true : false;
-    // return answ || answ2;
-    if (s1.split('').sort().join('') === s2.split('').sort().join(''))
-        return true;
-    var arr = [];
-    for (var i = s1.length - 1; i >= 0; --i) {
-        if (s2.indexOf(s1[i]) !== -1) {
-            arr[arr.length] = s2.indexOf(s1[i]);
-        }
-    }
-    var indexes = Array.from(new Set(arr));
-    console.log(indexes, indexes.length);
-    if (indexes.length < s1.length)
-        return false;
-    if (indexes.length === 1)
-        return true;
-    indexes.sort(function (a, b) { return a - b; });
-    for (var i = 0; i < indexes.length; ++i) {
-        if (Math.abs(indexes[i - 1] - indexes[i]) === 1)
-            return true;
-    }
-    return false;
+// function checkInclusion(s1: string, s2: string): boolean {
+//     // for (let i = 0; i < s2.length; i++) {
+//     //     console.log(s2.substr(i, s1.length));
+//     //     if (s2.substr(i, s1.length) === s1) return true;
+//     // };
+//     // for (let i = 0; i <= s1.length; ++i) {
+//         // const index = s2.indexOf(s1[i]);
+//         // if (index === -1) continue;
+//         // console.log(index, s2.indexOf(s1[i + 1]) + 1);
+//         // if (index === s2.indexOf(s1[i + 1]) + 1) {
+//         //     return true;
+//         // }
+//     // }
+//     // const check = new RegExp(s1, 'g');
+//     // const answ = s2.match(check) ? true : false;
+//     // const answ2 = s2.split('').reverse().join('').match(check) ? true : false;
+//     // return answ || answ2;
+//     if (s1.split('').sort().join('') === s2.split('').sort().join('')) return true;
+//     const arr: number[] = [];
+//     for (let i = s1.length - 1; i >= 0; --i) {
+//         if (s2.indexOf(s1[i]) !== -1) {
+//             arr[arr.length] = s2.indexOf(s1[i]);
+//         }
+//     }
+//     const indexes = Array.from(new Set(arr));
+//     console.log(indexes, indexes.length);
+//     if (indexes.length < s1.length) return false;
+//     if (indexes.length === 1) return true;
+//     indexes.sort((a, b) => a - b);
+//     for (let i = 0; i < indexes.length; ++i) {
+//         if (Math.abs(indexes[i - 1] - indexes[i]) === 1) return true 
+//     }
+//     return false;
+// };
+// console.log(checkInclusion('ky', 'ainwkckifykxlribaypk')); 
+function floodFill(image, sr, sc, color) {
 }
 ;
-console.log(checkInclusion('ky', 'ainwkckifykxlribaypk'));
+console.log(floodFill([[1, 1, 1],
+    [1, 1, 0],
+    [1, 0, 1]], 1, 1, 2));
