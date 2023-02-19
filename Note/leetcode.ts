@@ -247,9 +247,25 @@
 // };
 // console.log(checkInclusion('ky', 'ainwkckifykxlribaypk')); 
 
-function floodFill(image: number[][], sr: number, sc: number, color: number): number[][] {
+// function floodFill(image: number[][], sr: number, sc: number, color: number): number[][] {
     
+// };
+// console.log(floodFill([ [1,1,1],
+//                         [1,1,0],
+//                         [1,0,1]], 1, 1, 2));
+
+function mergeTrees(root1: TreeNode | null, root2: TreeNode | null): TreeNode | null {
+    if (!(root1 && root2)) return root1;
+
+    console.log(root1.val, root2.val);
+
+    if (root1.val !== null && root2.val !== null) {
+        root1.val += root2.val;
+    }
+    else if (root1.val === null) {
+        root1.val = root2.val;
+    }
+
+    return mergeTrees(root1.left, root2.left);
 };
-console.log(floodFill([ [1,1,1],
-                        [1,1,0],
-                        [1,0,1]], 1, 1, 2));
+console.log(mergeTrees([1,3,2,5], [2,1,3,null,4,null,7]));
