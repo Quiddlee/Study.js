@@ -255,17 +255,59 @@
 //                         [1,0,1]], 1, 1, 2));
 
 function mergeTrees(root1: TreeNode | null, root2: TreeNode | null): TreeNode | null {
-    if (!(root1 && root2)) return root1;
+    let rootNode = root2;
+    let secondRootNode = root1;
+    const queue1 = [rootNode];
+    const queue2 = [secondRootNode];
 
-    console.log(root1.val, root2.val);
+    while(queue1.length !== 0 && queue2.length !== 0) {
+        const currentNode1 = queue1[0];
+        const currentNode2 = queue2[0];
 
-    if (root1.val !== null && root2.val !== null) {
-        root1.val += root2.val;
+        if (currentNode1 && currentNode2) {
+            currentNode1.val += currentNode2.val;
+        }
+        else if (currentNode2) {
+            currentNode1.val = currentNode2.val;
+        }
+
+        if (currentNode1.left !== null) {
+            queue1.push(currentNode1.left);
+        }
+        else {
+            if (currentNode1.left || currentNode2.left) {
+                currentNode1.left = currentNode2.left;
+                queue1.shift();
+                queue2.shift();
+                continue;
+            }
+        }
+
+        if (currentNode2.left !== null) {
+            queue2.push(currentNode2.left);
+        }
+
+        if (currentNode1.right !== null) {
+            queue1.push(currentNode1.right);
+        }
+        else {
+            if (currentNode1.right || currentNode2.right) {
+                currentNode1.right = currentNode2.right;
+                queue1.shift();
+                queue2.shift();
+                continue;
+            }
+        }
+
+
+        if (currentNode2.right !== null) {
+            queue2.push(currentNode2.right);
+        }
+
+        queue1.shift();
+        queue2.shift();
     }
-    else if (root1.val === null) {
-        root1.val = root2.val;
-    }
 
-    return mergeTrees(root1.left, root2.left);
+    return rootNode;
 };
 console.log(mergeTrees([1,3,2,5], [2,1,3,null,4,null,7]));
