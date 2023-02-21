@@ -199,53 +199,42 @@
 // };
 // console.log(lengthOfLongestSubstring("cdd"));  //"abcb"
 
-// function checkInclusion(s1: string, s2: string): boolean {
-//     // for (let i = 0; i < s2.length; i++) {
-//     //     console.log(s2.substr(i, s1.length));
-//     //     if (s2.substr(i, s1.length) === s1) return true;
-//     // };
-    
-//     // for (let i = 0; i <= s1.length; ++i) {
-//         // const index = s2.indexOf(s1[i]);
+function checkInclusion(s1: string, s2: string): boolean {
+    if (s1.split('').sort().join('') === s2.split('').sort().join('')) return true;
+    const s1Len = s1.length;
+    const s2Len = s2.length;
+    const arr: number[] = [];
 
-//         // if (index === -1) continue;
-//         // console.log(index, s2.indexOf(s1[i + 1]) + 1);
+    for (let i = s2Len; i > 0; --i) {
+        if (s2.substr(i, s1Len) === s1) return true
+        if (s2.substr(i, s1Len) === s1.split('').reverse().join('')) return true
+    }
 
-//         // if (index === s2.indexOf(s1[i + 1]) + 1) {
-//         //     return true;
-//         // }
-//     // }
-//     // const check = new RegExp(s1, 'g');
-//     // const answ = s2.match(check) ? true : false;
-//     // const answ2 = s2.split('').reverse().join('').match(check) ? true : false;
+    for (let i = s1Len - 1; i >= 0; --i) {
+        if (s2.indexOf(s1[i]) !== -1) {
+            arr[arr.length] = s2.indexOf(s1[i]);
+            s2 = s2.replace(s1[i], ' ');
+        }
+    }
 
-//     // return answ || answ2;
-//     if (s1.split('').sort().join('') === s2.split('').sort().join('')) return true;
+    const indexes = Array.from(new Set(arr));
+    const indexLen = indexes.length;
 
-//     const arr: number[] = [];
+    console.log(indexes);
 
-//     for (let i = s1.length - 1; i >= 0; --i) {
-//         if (s2.indexOf(s1[i]) !== -1) {
-//             arr[arr.length] = s2.indexOf(s1[i]);
-//         }
-//     }
+    if (indexLen < s1Len) return false;
+    if (indexLen === 1) return true;
 
-//     const indexes = Array.from(new Set(arr));
+    indexes.sort((a, b) => a - b);
 
-//     console.log(indexes, indexes.length);
+    for (let i = 1; i < indexLen; ++i) {
+        console.log(indexes[i - 1], indexes[i]);
+        if (Math.abs(indexes[i - 1] - indexes[i]) !== 1) return false; 
+    }
 
-//     if (indexes.length < s1.length) return false;
-//     if (indexes.length === 1) return true;
-
-//     indexes.sort((a, b) => a - b);
-
-//     for (let i = 0; i < indexes.length; ++i) {
-//         if (Math.abs(indexes[i - 1] - indexes[i]) === 1) return true 
-//     }
-
-//     return false;
-// };
-// console.log(checkInclusion('ky', 'ainwkckifykxlribaypk')); 
+    return true;
+};
+console.log(checkInclusion('abc', 'bbbca'));
 
 // function floodFill(image: number[][], sr: number, sc: number, color: number): number[][] {
     
@@ -254,60 +243,60 @@
 //                         [1,1,0],
 //                         [1,0,1]], 1, 1, 2));
 
-function mergeTrees(root1: TreeNode | null, root2: TreeNode | null): TreeNode | null {
-    let rootNode = root2;
-    let secondRootNode = root1;
-    const queue1 = [rootNode];
-    const queue2 = [secondRootNode];
+// function mergeTrees(root1: TreeNode | null, root2: TreeNode | null): TreeNode | null {
+//     let rootNode = root2;
+//     let secondRootNode = root1;
+//     const queue1 = [rootNode];
+//     const queue2 = [secondRootNode];
 
-    while(queue1.length !== 0 && queue2.length !== 0) {
-        const currentNode1 = queue1[0];
-        const currentNode2 = queue2[0];
+//     while(queue1.length !== 0 && queue2.length !== 0) {
+//         const currentNode1 = queue1[0];
+//         const currentNode2 = queue2[0];
 
-        if (currentNode1 && currentNode2) {
-            currentNode1.val += currentNode2.val;
-        }
-        else if (currentNode2) {
-            currentNode1.val = currentNode2.val;
-        }
+//         if (currentNode1 && currentNode2) {
+//             currentNode1.val += currentNode2.val;
+//         }
+//         else if (currentNode2) {
+//             currentNode1.val = currentNode2.val;
+//         }
 
-        if (currentNode1.left !== null) {
-            queue1.push(currentNode1.left);
-        }
-        else {
-            if (currentNode1.left || currentNode2.left) {
-                currentNode1.left = currentNode2.left;
-                queue1.shift();
-                queue2.shift();
-                continue;
-            }
-        }
+//         if (currentNode1.left !== null) {
+//             queue1.push(currentNode1.left);
+//         }
+//         else {
+//             if (currentNode1.left || currentNode2.left) {
+//                 currentNode1.left = currentNode2.left;
+//                 queue1.shift();
+//                 queue2.shift();
+//                 continue;
+//             }
+//         }
 
-        if (currentNode2.left !== null) {
-            queue2.push(currentNode2.left);
-        }
+//         if (currentNode2.left !== null) {
+//             queue2.push(currentNode2.left);
+//         }
 
-        if (currentNode1.right !== null) {
-            queue1.push(currentNode1.right);
-        }
-        else {
-            if (currentNode1.right || currentNode2.right) {
-                currentNode1.right = currentNode2.right;
-                queue1.shift();
-                queue2.shift();
-                continue;
-            }
-        }
+//         if (currentNode1.right !== null) {
+//             queue1.push(currentNode1.right);
+//         }
+//         else {
+//             if (currentNode1.right || currentNode2.right) {
+//                 currentNode1.right = currentNode2.right;
+//                 queue1.shift();
+//                 queue2.shift();
+//                 continue;
+//             }
+//         }
 
 
-        if (currentNode2.right !== null) {
-            queue2.push(currentNode2.right);
-        }
+//         if (currentNode2.right !== null) {
+//             queue2.push(currentNode2.right);
+//         }
 
-        queue1.shift();
-        queue2.shift();
-    }
+//         queue1.shift();
+//         queue2.shift();
+//     }
 
-    return rootNode;
-};
-console.log(mergeTrees([1,3,2,5], [2,1,3,null,4,null,7]));
+//     return rootNode;
+// };
+// console.log(mergeTrees([1,3,2,5], [2,1,3,null,4,null,7]));
