@@ -239,13 +239,15 @@ function checkInclusion(s1: string, s2: string): boolean {
                     let j = 0;
                     
                     while (Object.values(letterIndexes)[i][j]) {
-                        const sum = val - Object.values(letterIndexes)[i][j];
-    
-                        if (sum < copy[key][j]) {
-                            copy[key] = [val];
-                            // console.log(copy[key]);
-                            // bestSumKey = key;
-                        }
+                        const sum = Math.abs(val - Object.values(letterIndexes)[i][j]);
+                        
+                        copy[key].forEach(elem => {
+                            if (sum < elem) {
+                                copy[key] = [val];
+                            }
+                        });
+                        // console.log(copy[key]);
+                        // bestSumKey = key;
 
                         j++;
                     }
@@ -261,7 +263,6 @@ function checkInclusion(s1: string, s2: string): boolean {
     }
 
     for (const value of Object.values(copy)) {
-        // console.log(...value);
         arr.push(...value);
     }
 
