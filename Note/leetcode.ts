@@ -202,10 +202,14 @@
 function checkInclusion(s1: string, s2: string): boolean {
     if (s1.split('').sort().join('') === s2.split('').sort().join('')) return true;
 
+    interface ILetters {
+        [key: string]: number[];
+    }
+
     const s1Len = s1.length;
     const s2Len = s2.length;
     const arr: number[] = [];
-    const letterIndexes: {[key: string]: number[]} = {};
+    const letterIndexes: ILetters = {};
     let bestSum = 500;
     let bestSumKey = '';
 
@@ -228,24 +232,35 @@ function checkInclusion(s1: string, s2: string): boolean {
 
     console.log(letterIndexes);
 
-    const copy = structuredClone(letterIndexes);
+    const copy: ILetters = structuredClone(letterIndexes);
 
     for (const [key, value] of Object.entries(letterIndexes)) {
         if (value.length > 1 && value.length !== s1.match(new RegExp(key, 'g'))?.length) {
             value.forEach(val => {
+                const arrSum = [];
                 let i = 1;
 
                 while (Object.values(letterIndexes)[i]) {
                     let j = 0;
+
                     
                     while (Object.values(letterIndexes)[i][j]) {
-                        const sum = Math.abs(val - Object.values(letterIndexes)[i][j]);
-                        
-                        copy[key].forEach(elem => {
-                            if (sum < elem) {
-                                copy[key] = [val];
-                            }
-                        });
+                        if (val !== Object.values(letterIndexes)[i][j]) {
+                            const sum = val - Object.values(letterIndexes)[i][j];
+                            arrSum.push(sum);
+                            // console.log(sum);
+                            // console.log(copy[key]);
+                            
+                            console.log(sum);
+                            console.log(arrSum);
+                            arrSum.every(elem => {
+                                if (sum < elem) {
+                                    copy[key] = [val];
+                                    // console.log(val, Object.values(letterIndexes)[i][j], elem);
+                                    // console.log(copy);
+                                }
+                            });
+                        }
                         // console.log(copy[key]);
                         // bestSumKey = key;
 
