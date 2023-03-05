@@ -63,6 +63,7 @@ function longestSubarray(nums: number[], limit: number): number {
     for (let i = 0; right < arrLength; --i) {
         const subArr = nums.slice(left, right + 1);
         const sum = Math.max(...subArr) - Math.min(...subArr);
+        console.log(subArr);
 
         if (sum <= limit) {
             const length = subArr.length;
