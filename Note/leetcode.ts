@@ -54,34 +54,34 @@
 // };
 // rotate([1,2,3,4,5,6,7], 3);
 
-function longestSubarray(nums: number[], limit: number): number {
-    const arrLength = nums.length;
-    let left = 0;
-    let right = 0;
-    let biggestLength = 0;
+// function longestSubarray(nums: number[], limit: number): number {
+//     const arrLength = nums.length;
+//     let left = 0;
+//     let right = 0;
+//     let biggestLength = 0;
 
-    for (let i = 0; right < arrLength; --i) {
-        const subArr = nums.slice(left, right + 1);
-        const sum = Math.max(...subArr) - Math.min(...subArr);
-        console.log(subArr);
+//     for (let i = 0; right < arrLength; --i) {
+//         const subArr = nums.slice(left, right + 1);
+//         const sum = Math.max(...subArr) - Math.min(...subArr);
+//         console.log(subArr);
 
-        if (sum <= limit) {
-            const length = subArr.length;
+//         if (sum <= limit) {
+//             const length = subArr.length;
 
-            if (length > biggestLength) {
-                biggestLength = length;
-            }
-        }
-        else {
-            ++left;
-        }
+//             if (length > biggestLength) {
+//                 biggestLength = length;
+//             }
+//         }
+//         else {
+//             ++left;
+//         }
 
-        ++right
-    } 
+//         ++right
+//     } 
 
-    return biggestLength;
-};
-console.log(longestSubarray([24,12,71,33,5,87,10,11,3,58,2,97,97,36,32,35,15,80,24,45,38,9,22,21,33,68,22,85,35,83,92,38,59,90,42,64,61,15,4,40,50,44,54,25,34,14,33,94,66,27,78,56,3,29,3,51,19,5,93,21,58,91,65,87,55,70,29,81,89,67,58,29,68,84,4,51,87,74,42,85,81,55,8,95,39], 87));
+//     return biggestLength;
+// };
+// console.log(longestSubarray([24,12,71,33,5,87,10,11,3,58,2,97,97,36,32,35,15,80,24,45,38,9,22,21,33,68,22,85,35,83,92,38,59,90,42,64,61,15,4,40,50,44,54,25,34,14,33,94,66,27,78,56,3,29,3,51,19,5,93,21,58,91,65,87,55,70,29,81,89,67,58,29,68,84,4,51,87,74,42,85,81,55,8,95,39], 87));
 
 // function moveZeroes(nums: number[]): void {
 //     const zeros = nums.filter(num => num === 0);
@@ -309,60 +309,59 @@ console.log(longestSubarray([24,12,71,33,5,87,10,11,3,58,2,97,97,36,32,35,15,80,
 //                         [1,1,0],
 //                         [1,0,1]], 1, 1, 2));
 
-// function mergeTrees(root1: TreeNode | null, root2: TreeNode | null): TreeNode | null {
-//     let rootNode = root2;
-//     let secondRootNode = root1;
-//     const queue1 = [rootNode];
-//     const queue2 = [secondRootNode];
+function mergeTrees(root1: TreeNode | null, root2: TreeNode | null): TreeNode | null {
+    let rootNode = root2;
+    let secondRootNode = root1;
+    const queue1 = [rootNode];
+    const queue2 = [secondRootNode];
 
-//     while(queue1.length !== 0 && queue2.length !== 0) {
-//         const currentNode1 = queue1[0];
-//         const currentNode2 = queue2[0];
+    while(queue1.length !== 0 && queue2.length !== 0) {
+        const currentNode1 = queue1[0];
+        const currentNode2 = queue2[0];
 
-//         if (currentNode1 && currentNode2) {
-//             currentNode1.val += currentNode2.val;
-//         }
-//         else if (currentNode2) {
-//             currentNode1.val = currentNode2.val;
-//         }
+        if (currentNode1 && currentNode2) {
+            currentNode1.val += currentNode2.val;
+        }
+        else if (currentNode2) {
+            currentNode1.val = currentNode2.val;
+        }
 
-//         if (currentNode1.left !== null) {
-//             queue1.push(currentNode1.left);
-//         }
-//         else {
-//             if (currentNode1.left || currentNode2.left) {
-//                 currentNode1.left = currentNode2.left;
-//                 queue1.shift();
-//                 queue2.shift();
-//                 continue;
-//             }
-//         }
+        if (currentNode1?.left !== null) {
+            queue1.push(currentNode1.left);
+        }
+        else {
+            if (currentNode1?.left || currentNode2?.left) {
+                currentNode1.left = currentNode2.left;
+                queue1.shift();
+                queue2.shift();
+                continue;
+            }
+        }
 
-//         if (currentNode2.left !== null) {
-//             queue2.push(currentNode2.left);
-//         }
+        if (currentNode2?.left !== null) {
+            queue2.push(currentNode2.left);
+        }
 
-//         if (currentNode1.right !== null) {
-//             queue1.push(currentNode1.right);
-//         }
-//         else {
-//             if (currentNode1.right || currentNode2.right) {
-//                 currentNode1.right = currentNode2.right;
-//                 queue1.shift();
-//                 queue2.shift();
-//                 continue;
-//             }
-//         }
+        if (currentNode1?.right !== null) {
+            queue1.push(currentNode1.right);
+        }
+        else {
+            if (currentNode1?.right || currentNode2?.right) {
+                currentNode1.right = currentNode2.right;
+                queue1.shift();
+                queue2.shift();
+                continue;
+            }
+        }
 
+        if (currentNode2?.right !== null) {
+            queue2.push(currentNode2.right);
+        }
 
-//         if (currentNode2.right !== null) {
-//             queue2.push(currentNode2.right);
-//         }
+        queue1.shift();
+        queue2.shift();
+    }
 
-//         queue1.shift();
-//         queue2.shift();
-//     }
-
-//     return rootNode;
-// };
-// console.log(mergeTrees([1,3,2,5], [2,1,3,null,4,null,7]));
+    return rootNode;
+};
+console.log(mergeTrees([1,3,2,5], [2,1,3,null,4,null,7]));
