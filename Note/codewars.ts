@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 // let s = "";
 
 // function getMathResult(a, b) {
@@ -122,19 +122,15 @@
 // console.log(counter);
 
 
-
 // const arr = [1, 2, 4, 6,];
 // arr.forEach(function (items, key, arr){
 //     console.log(`${key}: ${items} внутри массива ${arr}`);
 // }); 
 
 
-
-
 // const arrw = ["qqq", "aaa", "bbb"];
 // arrw.sort();
 // console.log(arrw.join(", "));
-
 
 
 // // arr.pop();
@@ -167,7 +163,6 @@
 
 // console.log(obj);
 // console.log(newObj);
-
 
 
 // const xd = {
@@ -206,7 +201,6 @@
 // const w =  {...q}; // клонирование объекта профит
 
 // console.log(w);
-
 
 
 // const personalPlanPeter = {
@@ -340,7 +334,6 @@
 // Object.setPrototypeOf();
 
 
-
 // const shoppingMallData = {
 //     shops: [{
 //             width: 10,
@@ -368,8 +361,6 @@
 // //     mallsWidth[i] = shoppingMallData.shops[i].width;
 // //     mallsLength[i] = shoppingMallData.shops[i].length;
 // // }
-
-
 
 
 // function isBudgetEnough(data) {
@@ -454,7 +445,6 @@
 // } else {
 //     console.log("Произошла ошибка");
 // }
-
 
 
 // const arr = [];
@@ -774,7 +764,6 @@
 //     return arr;
 // }
 // console.log(digitize(3214));
-
 
 
 // function findShort(s) {
@@ -1179,7 +1168,6 @@
 // }
 
 // return res.substring(res.indexOf(marks[0]), res.indexOf(marks[1])).replace(/[/.]/g, '');
-
 
 
 //     //Reference
@@ -2087,28 +2075,28 @@
 // ]));
 
 // function solution(list) {
-    // if (list.length === 0) {return '';}
-    // let res = list.toString();
-    // let check = '';
+// if (list.length === 0) {return '';}
+// let res = list.toString();
+// let check = '';
 
 
-    // for (let i = 1; i < list.length; i++) {
-    //     const firstElement = list[i - 1];
-    //     const secondElement = list[i];
+// for (let i = 1; i < list.length; i++) {
+//     const firstElement = list[i - 1];
+//     const secondElement = list[i];
 
 
-    //     // if (secondElement - firstElement === 1) {
-    //     //     list.splice(i - 1, 1);
-    //     // }
+//     // if (secondElement - firstElement === 1) {
+//     //     list.splice(i - 1, 1);
+//     // }
 
 
-    //     if (list[i] - list[i - 1] !== 1 && list[i] - list[i + 1] !== 1) {
-    //         check += `${list.splice(i - 1, 1)}-`;
-    //     }
-        
-    //     console.log(check);
-    //     // check += `${list[i]},`;
-    // }
+//     if (list[i] - list[i - 1] !== 1 && list[i] - list[i + 1] !== 1) {
+//         check += `${list.splice(i - 1, 1)}-`;
+//     }
+
+//     console.log(check);
+//     // check += `${list[i]},`;
+// }
 
 //     let result=[]
 
@@ -2140,7 +2128,7 @@
 //         }
 //     }
 
-    
+
 //     return result.toString();
 
 
@@ -2174,7 +2162,6 @@
 //                                 [0,1,1],
 //                                 [1,1,0]
 // ]));
-
 
 
 // let abc, key;
@@ -2312,12 +2299,84 @@
 // console.log(sortArray([30, 49, -47, -24, 40, -6, -42, 6, 21, -38, 34, 49, 5, -22, 46]));
 
 
-
-
-
-
-
-// function brightest(colors: string[]){
-
+// function brightest(colors: string[]): string {
+//     const colorArr = colors.map(elem => elem.replace('#', ''));
+//     const rgb: number[][] = [];
+//     const sliced: string[][] = [];
+//     const hexidecimal: { [key: string]: number } = {
+//         A: 10,
+//         B: 11,
+//         C: 12,
+//         D: 13,
+//         E: 14,
+//         F: 15
+//     };
+//
+//     colorArr.forEach(elem => {
+//         const subArr: string[] = [];
+//         for (let i = 2; i <= 6; i += 2) {
+//             subArr.push(elem.slice(i - 2, i));
+//         }
+//         sliced.push(subArr);
+//     });
+//
+//     sliced.forEach(arr => {
+//         const subArr: number[] = [];
+//
+//         arr.forEach(str => {
+//             for (let i = 1; i < str.length; i += 2) {
+//                 const [firstNum, secondNum] = [str[i - 1], str[i]].map(elem => {
+//                     return +(isNaN(+elem) ? hexidecimal[elem] : elem);
+//                 });
+//
+//                 if (firstNum === 0) {
+//                     subArr.push(firstNum + secondNum);
+//                     continue;
+//                 }
+//
+//                 subArr.push(firstNum * 16 + secondNum);
+//
+//             }
+//         });
+//
+//         rgb.push(subArr);
+//     });
+//
+//     const res = rgb.map(arr => {
+//         return Math.max(...arr);
+//     });
+//
+//     return colors[res.indexOf(Math.max(...res))];
 // }
-// console.log(brightest(["#001000", "#000000"]));
+//
+// console.log(brightest(['#399A3C', '#2F8BDD', '#D82754', '#78E024']));
+
+// function explode(s: string) {
+//     let res = '';
+//
+//     for (let i = 0; i < s.length; i++) {
+//         for (let j = 0; j < +s[i]; j++) {
+//             if (+s[i] === 0) continue;
+//             res += s[i];
+//         }
+//     }
+//
+//     return res;
+// }
+//
+// console.log(explode('312'));
+
+function getParticipants(handshakes: number) {
+    let res = 0;
+    while ((res * (res - 1) / 2) < handshakes) {
+        res++;
+    }
+    return res;
+}
+
+console.log(getParticipants(6));
+
+// 190 / 10,
+// 1225 / 25,
+// 4950 / 50,
+// 499500 / 500
