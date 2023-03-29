@@ -2366,17 +2366,79 @@
 //
 // console.log(explode('312'));
 
-function getParticipants(handshakes: number) {
-    let res = 0;
-    while ((res * (res - 1) / 2) < handshakes) {
-        res++;
-    }
-    return res;
+// function getParticipants(handshakes: number) {
+//     let res = 0;
+//     while ((res * (res - 1) / 2) < handshakes) {
+//         res++;
+//     }
+//     return res;
+// }
+//
+// console.log(getParticipants(6));
+
+
+// function duplicateEncode(word: string) {
+//     const wordLen = word.length;
+//     let res = '', left, right, count = 0;
+//     left = right = count = 0;
+//
+//     while (left !== wordLen) {
+//         if (word[left].toLowerCase() === word[right].toLowerCase()) count++;
+//
+//         if (right === wordLen - 1) {
+//             count > 1 ? res += ')' : res += '(';
+//             count = right = 0;
+//             left++
+//         } else right++;
+//     }
+//
+//     return res;
+// }
+//
+// console.log(duplicateEncode('Success'));
+
+
+// function nthFibo(n: number) {
+//     let one = 0;
+//     let two = 1;
+//
+//     for (let i = 0; i < n - 1; i++) {
+//         // console.log(one, two + ' = ' + (one + two));
+//         let temp = one;
+//         one = one + two;
+//         two = temp;
+//     }
+//
+//     return one;
+// }
+//
+// console.log(nthFibo(4));
+
+// function formatDuration(seconds:) {
+//
+// }
+
+// const head = (arr: number[]) => {
+//     return arr[0];
+// };
+// console.log(head([1, 2, 3]));
+//
+// const tail = (arr: number[]) => {
+//     return arr.slice(1);
+// };
+// console.log(tail([1, 2, 3, 4, 5]));
+//
+// const init = (arr: number[]) => {
+//     return arr.slice(0, arr.length - 1);
+// };
+// console.log(init([1, 2, 3, 4, 5]));
+//
+// const last = (arr: number[]) => {
+//     return arr[arr.length - 1];
+// };
+// console.log(last([1, 2, 3, 4, 5]));
+
+function deepCount(a: any) {
 }
 
-console.log(getParticipants(6));
-
-// 190 / 10,
-// 1225 / 25,
-// 4950 / 50,
-// 499500 / 500
+console.log(deepCount(["x", "y", ["z"]]));
