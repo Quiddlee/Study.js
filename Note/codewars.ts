@@ -2488,28 +2488,66 @@
 //
 // console.log(numberOfPairs([ 'red', 'red' ]));
 
-function sortByBit(arr: number[]) {
-    const nums: [ number, string ][] = [];
-    let sorted;
+// function sortByBit(arr: number[]) {
+//     const nums: [ number, string ][] = [];
+//     let sorted;
+//
+//     for (let i = 0; i < arr.length; i++) {
+//         nums.push([
+//             arr[ i ],
+//             parseInt(arr[ i ].toString()).toString(2)
+//                 .replace(/0/gi, '')
+//         ]);
+//     }
+//
+//     sorted = nums
+//         .sort((
+//             [ num1, bit1 ],
+//             [ num2, bit2 ]) =>
+//             +bit1 === +bit2 ? +num1 - +num2 : +bit1 - +bit2
+//         ).flat();
+//
+//     arr.splice(0);
+//     for (let i = 0; i < sorted.length; i += 2) arr.push(+sorted[ i ]);
+//     return arr;
+// }
+//
+// console.log(sortByBit([ 3, 8, 3, 6, 5, 7, 9, 1 ]));
 
-    for (let i = 0; i < arr.length; i++) {
-        nums.push([
-            arr[ i ],
-            parseInt(arr[ i ].toString()).toString(2)
-                .replace(/0/gi, '')
-        ]);
+// function recycle(array: { [ key: string ]: string }[]) {
+//     const materials = [ 'paper', 'glass', 'organic', 'plastic' ];
+//     const res = Array.from(new Array(4), () => Array.from(new Array(0)));
+//     for (const { type, material, secondMaterial } of array) {
+//         res[ materials.indexOf(material) ].push(type);
+//         secondMaterial && res[ materials.indexOf(secondMaterial) ].push(type);
+//     }
+//     return res;
+// }
+//
+// console.log(recycle([
+//     { 'type': 'rotten apples', 'material': 'organic' },
+//     { 'type': 'out of date yogurt', 'material': 'organic', 'secondMaterial': 'plastic' },
+//     { 'type': 'wine bottle', 'material': 'glass', 'secondMaterial': 'paper' },
+//     { 'type': 'amazon box', 'material': 'paper' },
+//     { 'type': 'beer bottle', 'material': 'glass', 'secondMaterial': 'paper' }
+// ]));
+
+// function calculate(...num1: number[]) {
+//     return (...num2: number[]) => {
+//         return [ ...num1, ...num2 ].reduce((prev, curr) => prev + curr);
+//     };
+// }
+//
+// console.log(calculate(1)(1));
+
+Array.prototype.map = function (callback, thisArg) {
+    console.log(this);
+    const newArr = [];
+
+    for (let i = 0, arrLeng = this.length; i < arrLeng; ++i) {
+        const currElem = this[ i ];
+        currElem && newArr.push(callback.call(thisArg, currElem, i, this));
     }
 
-    sorted = nums
-        .sort((
-            [ num1, bit1 ],
-            [ num2, bit2 ]) =>
-            +bit1 === +bit2 ? +num1 - +num2 : +bit1 - +bit2
-        ).flat();
-
-    arr.splice(0);
-    for (let i = 0; i < sorted.length; i += 2) arr.push(+sorted[ i ]);
-    return arr;
-}
-
-console.log(sortByBit([ 3, 8, 3, 6, 5, 7, 9, 1 ]));
+    return newArr;
+};
