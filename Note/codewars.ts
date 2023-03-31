@@ -2438,7 +2438,78 @@
 // };
 // console.log(last([1, 2, 3, 4, 5]));
 
-function deepCount(a: any) {
+// function deepCount(a: any[], count = 0) {
+//     a.forEach(elem => {
+//         count++
+//         if (Array.isArray(elem)) count = deepCount(elem, count);
+//     })
+//
+//     return count;
+// }
+//
+// console.log(deepCount([1, 2, [3, 4, [5]]]));
+
+// function getLengthOfMissingArray(arrayOfArrays: any[][] | any[]) {
+//     if (!arrayOfArrays?.sort((a, b) => a?.length - b?.length)) return 0
+//
+//     for (let i = 1; i < arrayOfArrays?.length; i++) {
+//         const nestedArr = arrayOfArrays[i - 1];
+//         if (!arrayOfArrays[i] || !nestedArr || nestedArr?.length === 0) return 0;
+//         if (nestedArr?.length + 1 !== arrayOfArrays[i]?.length) return nestedArr?.length + 1;
+//     }
+//
+//     return 0;
+// }
+//
+// console.log(getLengthOfMissingArray([[1], [2, 4], [5, 6, 7], null, [6, 7, 8, 9]]));
+
+// function numberOfPairs(gloves: string[]) {
+//     let arr = [ ...gloves ];
+//     let left, right, count;
+//     left = count = 0;
+//     right = 1;
+//
+//     while (left !== arr.length) {
+//         if (arr.length <= 1) return count;
+//         if (arr[ left ] === arr[ right ]) {
+//             delete arr[ left ];
+//             delete arr[ right ];
+//             arr = arr.filter(e => e !== undefined);
+//             left = right = 0;
+//             count++;
+//         }
+//
+//         if (right >= arr.length) right = ++left + 1;
+//         else right++;
+//     }
+//
+//     return count;
+// }
+//
+// console.log(numberOfPairs([ 'red', 'red' ]));
+
+function sortByBit(arr: number[]) {
+    const nums: [ number, string ][] = [];
+    let sorted;
+
+    for (let i = 0; i < arr.length; i++) {
+        nums.push([
+            arr[ i ],
+            parseInt(arr[ i ].toString()).toString(2)
+                .replace(/0/gi, '')
+        ]);
+    }
+
+    sorted = nums
+        .sort((
+            [ num1, bit1 ],
+            [ num2, bit2 ]) =>
+            +bit1 === +bit2 ? +num1 - +num2 : +bit1 - +bit2
+        ).flat();
+
+    arr.splice(0);
+    for (let i = 0; i < sorted.length; i += 2) arr.push(+sorted[ i ]);
+    return arr;
 }
 
-console.log(deepCount(["x", "y", ["z"]]));
+console.log(sortByBit([ 3, 8, 3, 6, 5, 7, 9, 1 ]));
