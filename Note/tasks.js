@@ -124,7 +124,6 @@
 // console.log(findMaxNumber(1, 5, 12, 11));
 
 
-
 //(**) Задача с собеседований на числа Фибоначчи
 
 //Создайте функцию, которая будет принимать в себя один аргумент-целое положительное число. Она должна возвращать строку, в которой будут через пробел выведены числа Фибоначчи. Причем, их количество должно быть равно переданному аргументу. Если переданный аргумент не число - вернуть пустую строку. Решать без применения рекурсии.
@@ -242,16 +241,16 @@
 // // console.log(discount);
 
 
-const add1 = function(a) {
+const add1 = function (a) {
     console.log(a);
-    return a + 1
-}
+    return a + 1;
+};
 
 
-const addAll3 = function(a, b, c) {
+const addAll3 = function (a, b, c) {
     console.log(a, b, c);
-    return a + b + c
-}
+    return a + b + c;
+};
 
 
 // const composeWithArgs = (...args) => (...nums) => {

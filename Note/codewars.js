@@ -1,10 +1,17 @@
 'use strict';
-Array.prototype.map = function (callback, thisArg) {
-    console.log(this);
-    const newArr = [];
-    for (let i = 0, arrLeng = this.length; i < arrLeng; ++i) {
-        const currElem = this[i];
-        currElem && newArr.push(callback.call(thisArg, currElem, i, this));
-    }
-    return newArr;
+
+Function.prototype.myBind = function (ctx) {
+    console.log(this, ctx);
+    ctx.func = this;
+    return check.func;
 };
+
+let wassup = function () {
+    return this.prop;
+};
+
+const check = { prop: 'cool' };
+
+wassup = wassup.myBind(check);
+console.log(wassup());
+console.log(check);

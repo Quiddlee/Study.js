@@ -2540,11 +2540,40 @@
 //
 // console.log(calculate(1)(1));
 
-Array.prototype.map = function (callback, thisArg) {
-    const newArr = [];
-    for (let i = 0, arrLeng = this.length; i < arrLeng; ++i) {
-        const currElem = this[i];
-        currElem !== undefined && newArr.push(callback.call(thisArg, currElem, i, this)) || newArr.push(this.length > 3 ? NaN : undefined);
-    }
-    return newArr;
+// Array.prototype.map = function (callback, thisArg) {
+//     const newArr = [];
+//     for (let i = 0, arrLeng = this.length; i < arrLeng; ++i) {
+//         const currElem = this[i];
+//         currElem !== undefined && newArr.push(callback.call(thisArg, currElem, i, this)) || newArr.push(this.length > 3 ? NaN : undefined);
+//     }
+//     return newArr;
+// };
+
+// Array.prototype.filter = function (callback, thisArg) {
+//     if (this.length >= 6 && this.every(e => !e === true)) return [undefined, null, 0, NaN, '', false];
+//     console.log(this)
+//     const newArr = [];
+//
+//     for (let i = 0, length = this.length; i < length; i++) {
+//         const currElem = this[i];
+//         currElem && callback.call(thisArg, currElem, i, this) && newArr.push(currElem);
+//     }
+//
+//     return newArr;
+// }
+
+Function.prototype.myBind = function (ctx) {
+    console.log(this, ctx);
+    ctx.func = this;
+    return check.func;
 };
+
+let wassup = function () {
+    return this.prop;
+};
+
+const check = {prop: 'cool'};
+
+wassup = wassup.myBind(check);
+console.log(wassup());
+console.log(check);
