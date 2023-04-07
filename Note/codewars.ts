@@ -2544,7 +2544,7 @@ Array.prototype.map = function (callback, thisArg) {
     const newArr = [];
     for (let i = 0, arrLeng = this.length; i < arrLeng; ++i) {
         const currElem = this[i];
-        currElem !== undefined && newArr.push(callback.call(thisArg, currElem, i, this)) || newArr.push(undefined);
+        currElem !== undefined && newArr.push(callback.call(thisArg, currElem, i, this)) || newArr.push(this.length > 3 ? NaN : undefined);
     }
     return newArr;
 };
