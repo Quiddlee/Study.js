@@ -1,17 +1,33 @@
 'use strict';
-
+var obj1 = { prop: 1 }, obj2 = { prop: 2 };
 Function.prototype.myBind = function (ctx) {
-    console.log(this, ctx);
-    ctx.func = this;
-    return check.func;
+    const fn = this;
+    const context = { ...ctx };
+
+    context.func = function () {
+        return (() => {
+            return fn.call(this);
+        })()
+    }
+
+    // ctx.func = function() {
+    //     return () => {
+    //         return this.prop;
+    //     }
+    // }
+    // return ctx.func()
+
+    // return function () {
+    //     return fn.call(context);
+    // };
 };
 
-let wassup = function () {
-    return this.prop;
+let check = function () {
+    console.log(this.prop);
 };
 
-const check = { prop: 'cool' };
-
-wassup = wassup.myBind(check);
-console.log(wassup());
-console.log(check);
+console.log('sup');
+check = check.myBind(obj1);
+check();
+check = check.myBind(obj2);
+check();

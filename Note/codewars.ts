@@ -2562,18 +2562,36 @@
 //     return newArr;
 // }
 
-Function.prototype.myBind = function (ctx) {
-    console.log(this, ctx);
-    ctx.func = this;
-    return check.func;
+// Function.prototype.bind = function (ctx: { [key: string]: string | Function }) {
+//     console.log(this, ctx);
+//     ctx.func = this;
+//     return check.func;
+// };
+interface IObj {
+    prop: number;
+}
+
+var obj1: IObj = { prop: 1 },
+    obj2: IObj = { prop: 2 };
+
+Function.prototype.bind = function (ctx) {
+    const fn = this;
+    const context = { ...ctx };
+
+    context.func = function () {
+        return (() => {
+            return fn.call(this);
+        })();
+    };
+
 };
 
-let wassup = function () {
-    return this.prop;
+let check = function (this: any) {
+    console.log(this.prop);
 };
 
-const check = {prop: 'cool'};
-
-wassup = wassup.myBind(check);
-console.log(wassup());
-console.log(check);
+console.log('sup');
+check = check.myBind(obj1);
+check();
+check = check.myBind(obj2);
+check();
