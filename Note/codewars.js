@@ -1,33 +1,9 @@
 'use strict';
-var obj1 = { prop: 1 }, obj2 = { prop: 2 };
-Function.prototype.myBind = function (ctx) {
-    const fn = this;
-    const context = { ...ctx };
-
-    context.func = function () {
-        return (() => {
-            return fn.call(this);
-        })()
-    }
-
-    // ctx.func = function() {
-    //     return () => {
-    //         return this.prop;
-    //     }
-    // }
-    // return ctx.func()
-
-    // return function () {
-    //     return fn.call(context);
-    // };
-};
-
-let check = function () {
-    console.log(this.prop);
-};
-
-console.log('sup');
-check = check.myBind(obj1);
-check();
-check = check.myBind(obj2);
-check();
+function handAngle(date) {
+    console.log(date, date.toString().match(/\d\d:\d\d/)[0]);
+    let [hours, minutes] = date.toString().match(/\d\d:\d\d/)[0].split(':').map(e => +e);
+    minutes = minutes === 0 ? 12 : minutes / 5;
+    console.log(hours, minutes);
+    return 0.0;
+}
+console.log(handAngle(new Date('2023-04-10T06:00:49.556Z')));

@@ -2567,31 +2567,35 @@
 //     ctx.func = this;
 //     return check.func;
 // };
-interface IObj {
-    prop: number;
+// interface IObj {
+//     prop: number;
+// }
+//
+// var obj1: IObj = { prop: 1 },
+//     obj2: IObj = { prop: 2 };
+//
+// Function.prototype.bind = function (ctx) {
+//     const fn = this;
+//     const context = { ...ctx };
+//
+//     context.func = function () {
+//         return (() => {
+//             return fn.call(this);
+//         })();
+//     };
+//
+// };
+//
+// let check = function (this: any) {
+//     console.log(this.prop);
+// };
+//
+// console.log('sup');
+// check = check.myBind(obj1);
+// check();
+// check = check.myBind(obj2);
+// check();
+
+function myLanguages(results) {
+    return Object.entries(results).filter(arr => arr[1] >= 60).sort(([, score], [, secondScore]) => secondScore - score).flat().filter(e => typeof e === 'string');
 }
-
-var obj1: IObj = { prop: 1 },
-    obj2: IObj = { prop: 2 };
-
-Function.prototype.bind = function (ctx) {
-    const fn = this;
-    const context = { ...ctx };
-
-    context.func = function () {
-        return (() => {
-            return fn.call(this);
-        })();
-    };
-
-};
-
-let check = function (this: any) {
-    console.log(this.prop);
-};
-
-console.log('sup');
-check = check.myBind(obj1);
-check();
-check = check.myBind(obj2);
-check();
