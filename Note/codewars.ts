@@ -26,7 +26,7 @@
 // const slice = "slice wassup";
 // console.log(slice.slice(9, 16)); // slice - вырезать слово или букву и показать её
 // console.log(slice.slice(9)); // можно указать только где начинается слово, он вырежит его до конца предл.
-// console.log(slice.substring(9, 16)); // Вроде одно и тоже.  
+// console.log(slice.substring(9, 16)); // Вроде одно и тоже.
 // console.log(slice.substr(9, 6)); // вторая цифра означает кол-во символов а не номер строки. Функционал тот же.
 
 // const num = 34.34;
@@ -73,7 +73,6 @@
 // }
 // console.log(getCoupNumber(34));
 
-
 // function learnJS(lang, callback) {
 //     console.log(`Я учу: ${lang}`);
 //     callback();
@@ -100,9 +99,8 @@
 
 // const {border, bg} = options.colors; // деструктуризация объекта. Условно говоря разобрать объект и добраться до его частей.
 // options.makeTest();
-// console.log(Object.keys(options).length); // замена каунтера. 
+// console.log(Object.keys(options).length); // замена каунтера.
 // // console.log(options['colors']['border']);
-
 
 // // delete options.name;
 // // console.log(options);
@@ -121,29 +119,24 @@
 // }
 // console.log(counter);
 
-
 // const arr = [1, 2, 4, 6,];
 // arr.forEach(function (items, key, arr){
 //     console.log(`${key}: ${items} внутри массива ${arr}`);
-// }); 
-
+// });
 
 // const arrw = ["qqq", "aaa", "bbb"];
 // arrw.sort();
 // console.log(arrw.join(", "));
 
-
 // // arr.pop();
 // // arr.push("wassup");
 // // console.log(arr);
-
 
 // const obj = {
 //     a: 2,
 //     b: 3,
 //     c: 4,
 // };
-
 
 // function copy (obj) {
 //     let copyObj = {};
@@ -158,12 +151,10 @@
 // const newObj = copy(obj); //*** значения объекта нельзя присвоить другому объекту
 //                             // нужно писать функцию клонирования выше
 
-
 // newObj.a = 15;
 
 // console.log(obj);
 // console.log(newObj);
-
 
 // const xd = {
 //     d: 2,
@@ -177,7 +168,6 @@
 // console.log(xd);
 // console.log(clone);
 
-
 // const newArray = ["word", "aaa", "shrek"];
 
 // const array = newArray.slice(); // метод слайс условно говоря копирует один массив в другой
@@ -186,12 +176,10 @@
 // console.log(newArray);
 // console.log(array);
 
-
 // const video = ["youtube", "twitch", "Eugene"];
-// const blogs = ["myBlog", "youtBlog", "ourBlog"]; //метод объеденения массивов "...спред" 
+// const blogs = ["myBlog", "youtBlog", "ourBlog"]; //метод объеденения массивов "...спред"
 // const myArr = [...video, ...blogs, "insta", "vscode"];
 // console.log(myArr);
-
 
 // const q = {
 //     one: 1,
@@ -201,7 +189,6 @@
 // const w =  {...q}; // клонирование объекта профит
 
 // console.log(w);
-
 
 // const personalPlanPeter = {
 //     name: "Peter",
@@ -244,7 +231,6 @@
 //     return a;
 // }
 // console.log(showProgrammingLangs(personalPlanPeterCopy));
-
 
 // const family = ['Peter', 'Ann', 'Alex', 'Linda'];
 
@@ -312,7 +298,6 @@
 // }
 // console.log(availableCurr(allCurr, 'USD'));
 
-
 // const soldier = {
 //     health: 400,
 //     armor: 100
@@ -324,15 +309,13 @@
 
 // john.__proto__ = soldier; // прото связывает один объект с другим ***Это устаревший формат***
 
-
-// Object.setPrototypeOf(john, soldier); // 1 объект которому навязывают прототип 2 - прототип 
-// console.log(john.armor); 
+// Object.setPrototypeOf(john, soldier); // 1 объект которому навязывают прототип 2 - прототип
+// console.log(john.armor);
 
 // const john = Object.create(soldier);
 
 // Object.getPrototypeOf();
 // Object.setPrototypeOf();
-
 
 // const shoppingMallData = {
 //     shops: [{
@@ -361,7 +344,6 @@
 // //     mallsWidth[i] = shoppingMallData.shops[i].width;
 // //     mallsLength[i] = shoppingMallData.shops[i].length;
 // // }
-
 
 // function isBudgetEnough(data) {
 //     // const mallsWidth = [];
@@ -422,7 +404,7 @@
 // }
 // console.log(sortStudentsByGroups(students));
 
-// !!"1" // Bang! Bang! you're boolian 
+// !!"1" // Bang! Bang! you're boolian
 
 // console.log("b" > "a");
 
@@ -445,7 +427,6 @@
 // } else {
 //     console.log("Произошла ошибка");
 // }
-
 
 // const arr = [];
 // for (let i = 5; i <= 10; i++) {
@@ -487,7 +468,6 @@
 // });
 // console.log(square);
 
-
 // const myName = "bravo";
 
 // function areYouPlayingBanjo(name) {
@@ -499,7 +479,7 @@
 //         return name + " plays banjo";
 //     } else {
 //         return name + " does not play banjo";
-//     }  
+//     }
 //     }
 // }
 // console.log(areYouPlayingBanjo(myName));
@@ -535,7 +515,6 @@
 // }
 // console.log(betterThanAverage(classScore, 90));
 
-
 // let word = "";
 
 // function removeChar(str) {
@@ -553,12 +532,10 @@
 // }
 // console.log(countSheep(3));
 
-
 // function evenOrOdd(number) {
 //     return number % 2 ? "Odd" : "Even"; // можно не писать 0 когда проверяем отсаток от деления
 // }
 // console.log(evenOrOdd(10));
-
 
 // function litres(time) {
 //     let res = time;
@@ -575,7 +552,7 @@
 // console.log(litres(11.8));
 
 // function simpleMultiplication(number) {
-//     return number % 2 ? number * 9 : number * 8; 
+//     return number % 2 ? number * 9 : number * 8;
 // }
 // console.log(simpleMultiplication(3));
 
@@ -604,14 +581,13 @@
 //     for (let i = 0; i < arr.length; i++) {
 //         if (arr[i] < 0) {
 //             continue;
-//         } else{ 
+//         } else{
 //         res += arr[i];
 //         }
 //     }
 // return res;
 // }
 // console.log(positiveSum([-1,-2,-3,-4,-5]));
-
 
 // function positiveSum(arr) {
 //     let res = 0;
@@ -621,7 +597,6 @@
 //     return res;
 // }
 // console.log(positiveSum([10, 150, -5]));
-
 
 // function century(year) {
 //     return Math.round(year / 97.42);
@@ -723,7 +698,6 @@
 // };
 // console.log(getmiddle("test"));
 
-
 // function reverseWords(str) {
 //     const arr = [];
 //     str.split(" ").forEach(element => {
@@ -764,7 +738,6 @@
 //     return arr;
 // }
 // console.log(digitize(3214));
-
 
 // function findShort(s) {
 //     const arr = [];
@@ -847,7 +820,6 @@
 // }
 // console.log(addBinary(50, 50));
 
-
 // function bill (a, b) {
 //     let decimal = a + b;
 //     return (Number(decimal).toString(2));
@@ -864,7 +836,7 @@
 //     switch (operation) {
 //         case '+' :
 //             return value1 + value2;
-//         case '-' : 
+//         case '-' :
 //             return value1 - value2;
 //         case '*' :
 //             return value1 * value2;
@@ -876,7 +848,6 @@
 
 // }
 // console.log(basicOp('*', 4, 7));
-
 
 // function sumArray(array) {
 //     if (array == null || '') {
@@ -1075,7 +1046,7 @@
 
 //     for (let i = 0; i < arr.length; i++) {
 //         if (arr[i].length !== new Set(arr[i]).size) {
-//             return 'Try again!'; 
+//             return 'Try again!';
 //         }
 
 //     }
@@ -1126,9 +1097,9 @@
 //     res += arr[i].reduce((a, b) => a + b, 0);
 // }
 
-// return res === 405 ? 'Finished!' : 'Try again!'; 
+// return res === 405 ? 'Finished!' : 'Try again!';
 // }
-// console.log(checkForDuplicates([[5, 3, 9, 6, 7, 8, 4, 1, 2], 
+// console.log(checkForDuplicates([[5, 3, 9, 6, 7, 8, 4, 1, 2],
 //                                 [6, 7, 2, 1, 9, 5, 3, 4, 8],
 //                                 [1, 9, 8, 3, 4, 2, 5, 6, 7],
 //                                 [8, 5, 4, 7, 6, 1, 9, 2, 3],
@@ -1137,7 +1108,6 @@
 //                                 [9, 6, 1, 5, 3, 7, 2, 8, 4],
 //                                 [2, 8, 7, 4, 1, 9, 6, 3, 5],
 //                                 [3, 4, 5, 2, 8, 6, 1, 7, 9]]));
-
 
 // function solution(input, markers) {
 //     let res = input.split('');
@@ -1169,7 +1139,6 @@
 
 // return res.substring(res.indexOf(marks[0]), res.indexOf(marks[1])).replace(/[/.]/g, '');
 
-
 //     //Reference
 //     url = url.replace("https://", '');
 //     url = url.replace("http://", '');
@@ -1177,7 +1146,6 @@
 //     return url.split('.')[0];        //если в строке есть точка или запятая, мы можем раздеть их, такой записью
 // }
 // console.log(domainName("http://google.com"));
-
 
 // function expression(number, operation){
 // 	if(!operation) return number;
@@ -1227,7 +1195,7 @@
 // function nine(a) {return expression(9, a);}
 
 // function plus(b) {
-//     return y => y + b; 
+//     return y => y + b;
 // }
 // function minus(b) {
 //     return y => y - b;
@@ -1361,11 +1329,11 @@
 //     for (let i = 0; i < arr.length; i++) {
 //         for (let j = 1; j < 2; j++) {
 //             res += arr[i][j - 1];
-//             res -= arr[i][j];  
+//             res -= arr[i][j];
 //         }
-//     } 
+//     }
 
-//     return res;   
+//     return res;
 // }
 // console.log(number([[10,0],[3,5],[5,8]]));
 
@@ -1386,7 +1354,7 @@
 // function zeros(n) {
 //     let res = 0;
 
-//     for (let i = 5; Math.floor(n / i) >= 1; i *= 5) {  
+//     for (let i = 5; Math.floor(n / i) >= 1; i *= 5) {
 //         res += Math.floor(n / i);
 //     }
 
@@ -1407,7 +1375,7 @@
 //     };
 
 //     const check = arr[length];
-//     let foundIt; 
+//     let foundIt;
 
 //     for (const item in matches) {
 //         if (check === item) {
@@ -1670,7 +1638,6 @@
 // }
 // console.log(isInteresting(99 , [1337, 256]));
 
-
 // class Node {
 //     constructor(value, left = null, right = null) {
 //         this.value = value;
@@ -1839,10 +1806,8 @@
 // console.log(add('63829983432984289347293874', '90938498237058927340892374089'));
 // 91002328220491911630239667963
 
-
 // const Sudoku = (arr) => {
 //     if (arr.length === 1 && arr[0][0] !== 1) return false;
-
 
 //     const check = new Array(arr.length);
 //     const sudokuSize = arr.length;
@@ -1851,11 +1816,10 @@
 //     let rows = 0;
 //     let isRepeat;
 
-
 //     const repeatCheck = (array) => {
 //         for (let i = 0; i < sudokuSize; i++) {
 //             if (array[i].length !== new Set(array[i]).size) {
-//                 return false; 
+//                 return false;
 //             }
 //         }
 
@@ -1863,51 +1827,42 @@
 //     };
 //     isRepeat = repeatCheck(arr);
 
-
 //     for (let i = 0; i < sudokuSize; i++) {
 //         check[i] = new Array(sudokuSize);
 //         regions[i] = new Array(0);
-
 
 //         for (let j = 0; j < sudokuSize; j++) {
 //             check[i][j] = arr[j][i];
 //         }
 //     }
 
-
 //     if (arr.length > 15) {
 //         return repeatCheck(check);
 //     }
 
-
 //     for (let k = 0; k < sudokuSize; k++) {
 //         let slice;
 //         let secondSlice;
-
 
 //         if (arr.length < 9) {
 //             slice = Math.ceil(sudokuSize / 3.5);
 //             secondSlice = Math.ceil(sudokuSize / 2);
 //         }
 
-
 //         if (arr.length >= 9) {
 //             slice = Math.ceil(sudokuSize / 3.5);
 //             secondSlice = Math.ceil(sudokuSize / 1.5);
 //         }
-
 
 //         if (k === slice) {
 //             columns = 0;
 //             rows = slice;
 //         }
 
-
 //         if (k === secondSlice) {
 //             columns = 0;
 //             rows = secondSlice;
 //         }
-
 
 //         for (let i = columns; i < columns + slice; i++) {
 //             for (let j = rows; j < rows + slice; j++) {
@@ -1917,7 +1872,6 @@
 //         columns += slice;
 //     }
 //     isRepeat = repeatCheck(regions);
-
 
 //     return isRepeat;
 // };
@@ -2079,16 +2033,13 @@
 // let res = list.toString();
 // let check = '';
 
-
 // for (let i = 1; i < list.length; i++) {
 //     const firstElement = list[i - 1];
 //     const secondElement = list[i];
 
-
 //     // if (secondElement - firstElement === 1) {
 //     //     list.splice(i - 1, 1);
 //     // }
-
 
 //     if (list[i] - list[i - 1] !== 1 && list[i] - list[i + 1] !== 1) {
 //         check += `${list.splice(i - 1, 1)}-`;
@@ -2103,7 +2054,7 @@
 //     for(let i=0;i<list.length;i++){
 //         //write first value in range to result
 //         result.push(list[i].toString());
-//         //if this is the last entry, we are done 
+//         //if this is the last entry, we are done
 //         if(i === list.length - 1){
 //             break
 //         }
@@ -2116,7 +2067,7 @@
 //             //modify the OUTER LOOP index variable.
 //             //This means when we return to the beginning of hte for loop,
 //             // we will be at the beginning of the next range
-//             i++ 
+//             i++
 //             e1 = list[i]
 //             e2 = list[i+1]
 //             isRange = true
@@ -2128,15 +2079,13 @@
 //         }
 //     }
 
-
 //     return result.toString();
-
 
 //     return check;
 // }
 // console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]));
 
-// // "-6,-3-1,3-5,7-11,14,15,17-20"  
+// // "-6,-3-1,3-5,7-11,14,15,17-20"
 
 // function getGeneration(cells, generations) {
 //     const res = [];
@@ -2162,7 +2111,6 @@
 //                                 [0,1,1],
 //                                 [1,1,0]
 // ]));
-
 
 // let abc, key;
 // abc = "アイウエオァィゥェォカキクケコサシスセソタチツッテトナニヌネノハヒフヘホマミムメモヤャユュヨョラリルレロワヲンー";
@@ -2255,7 +2203,6 @@
 // console.log(c.encode("ドモアリガトゴザイマス"));
 // console.log(c.decode("xt'k o vwixl qzswej!"));
 
-
 // c  o d e w  a  r  s
 // 3 15 4 5 23 1 18 19
 //         +
@@ -2267,7 +2214,6 @@
 // 19 16 23 24 24 33 37
 // 19 16 23 24 24 7  11
 // spwxxgk
-
 
 // function sortArray(array) {
 //     for (let i = 0; i < array.length; i++) {
@@ -2297,7 +2243,6 @@
 //     return array;
 // }
 // console.log(sortArray([30, 49, -47, -24, 40, -6, -42, 6, 21, -38, 34, 49, 5, -22, 46]));
-
 
 // function brightest(colors: string[]): string {
 //     const colorArr = colors.map(elem => elem.replace('#', ''));
@@ -2376,7 +2321,6 @@
 //
 // console.log(getParticipants(6));
 
-
 // function duplicateEncode(word: string) {
 //     const wordLen = word.length;
 //     let res = '', left, right, count = 0;
@@ -2396,7 +2340,6 @@
 // }
 //
 // console.log(duplicateEncode('Success'));
-
 
 // function nthFibo(n: number) {
 //     let one = 0;
@@ -2596,6 +2539,32 @@
 // check = check.myBind(obj2);
 // check();
 
-function myLanguages(results) {
-    return Object.entries(results).filter(arr => arr[1] >= 60).sort(([, score], [, secondScore]) => secondScore - score).flat().filter(e => typeof e === 'string');
-}
+// function myLanguages(results) {
+//     return Object.entries(results).filter(arr => arr[1] >= 60).sort(([, score], [, secondScore]) => secondScore - score).flat().filter(e => typeof e === 'string');
+// }
+
+var runLengthEncoding = function (str: string) {
+  const res = [];
+  let left = 0;
+  let right = 0;
+  let counter = 0;
+
+  while (left !== str.length) {
+    if (str[left] === str[right]) {
+      right++;
+      counter++;
+    } else {
+      res.push([counter, str[left]]);
+      counter = 1;
+      left = right;
+      right++;
+    }
+  }
+
+  return res;
+};
+console.log(
+  runLengthEncoding(
+    'WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW'
+  )
+);
