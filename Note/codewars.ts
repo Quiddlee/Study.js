@@ -2569,27 +2569,81 @@
 //   )
 // );
 
-var func = function () {
-  return this.prop;
+// var func = function () {
+//   return this.prop;
+// };
+
+// var obj1 = { prop: 1 },
+//   obj2 = { prop: 2 };
+
+// Function.prototype.bind = function (ctx) {
+//  	console.log(this.fun);
+//   this.fun = this.fun || this
+//   const newFun = () => {
+//     return this.fun.call(ctx);
+//   };
+//   newFun.fun = this.fun || this
+
+//   console.log(newFun.fun.call(ctx), 123);
+
+// 	return newFun
+// };
+// func = func.bind(obj1);
+// console.log(func());
+
+// func = func.bind(obj2);
+// console.log(func());
+
+const parse = (num: number, type: string = 's') => {
+  if (type === 's') {
+    return num === 1 ? 'second' : 'seconds';
+  } else if (type === 'm') {
+    return num === 1 ? 'minute' : 'minutes';
+  } else if (type === 'h') {
+    return num === 1 ? 'hour' : 'hours';
+  } else if (type === 'd') {
+    return num === 1 ? 'day' : 'days';
+  } else if (type === 'y') {
+    return num === 1 ? 'year' : 'years';
+  }
+  return;
 };
 
-var obj1 = { prop: 1 },
-  obj2 = { prop: 2 };
+function formatDuration(seconds: number) {
+  if (seconds === 0) return 'now';
 
-Function.prototype.bind = function (ctx) {
- 	console.log(this.fun);
-  this.fun = this.fun || this
-  const newFun = () => {
-    return this.fun.call(ctx);
-  }; 
-  newFun.fun = this.fun || this
-  
-  console.log(newFun.fun.call(ctx), 123);
+  let init = seconds;
+  const yrs = Math.floor(init / 31536000);
+  const day = Math.floor((init %= 31536000) / 86400);
+  const hrs = Math.floor((init %= 86400) / 3600);
+  const min = Math.floor((init %= 3600) / 60);
+  const sec = (init %= 60);
 
-	return newFun
-};
-func = func.bind(obj1);
-console.log(func());
-
-func = func.bind(obj2);
-console.log(func());
+  if (seconds < 60) {
+    return `${seconds} ${parse(seconds)}`.trim();
+  } else if (seconds >= 60 && seconds < 3600) {
+    return `${min} ${parse(min, 'm')} ${
+      sec === 0 ? '' : `and ${sec} ${parse(sec)}`
+    }`.trim();
+  } else if (seconds >= 3600 && seconds < 86400) {
+    return `${hrs} ${parse(hrs, 'h')}${
+      min === 0 ? '' : `, ${min} ${parse(min, 'm')}`
+    } ${sec === 0 ? '' : `and ${sec} ${parse(sec)}`}`.trim();
+  } else if (seconds >= 86400 && seconds < 31536000) {
+    return `${day} ${parse(day, 'd')}${
+      hrs === 0 ? '' : `, ${hrs} ${parse(hrs, 'h')}`
+    }${min === 0 ? '' : `, ${min} ${parse(min, 'm')}`} ${
+      sec === 0 ? '' : `and ${sec} ${parse(sec)}`
+    }`.trim();
+  } else if (seconds >= 31536000) {
+    let res = `${yrs} ${parse(yrs, 'y')}${
+      day === 0 ? '' : `, ${day} ${parse(day, 'd')}`
+    }${
+      hrs === 0 ? '' : `${min === 0 ? ' and' : ','} ${hrs} ${parse(hrs, 'h')}`
+    }${
+      min === 0 ? '' : `${sec === 0 ? ' and' : ','} ${min} ${parse(min, 'm')}`
+    } ${sec === 0 ? '' : `and ${sec} ${parse(sec)}`}`.trim();
+    return res.replace(/\,$/, ' and');
+  }
+}
+console.log(formatDuration(3662));
