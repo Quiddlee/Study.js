@@ -1,9 +1,16 @@
 'use strict';
-function handAngle(date) {
-    console.log(date, date.toString().match(/\d\d:\d\d/)[0]);
-    let [hours, minutes] = date.toString().match(/\d\d:\d\d/)[0].split(':').map(e => +e);
-    minutes = minutes === 0 ? 12 : minutes / 5;
-    console.log(hours, minutes);
-    return 0.0;
-}
-console.log(handAngle(new Date('2023-04-10T06:00:49.556Z')));
+var func = function () {
+    return this.prop;
+};
+var obj1 = { prop: 1 }, obj2 = { prop: 2 };
+Function.prototype.bind = function (ctx) {
+    const fn = this;
+    console.log(this);
+    return () => {
+        return fn.call(ctx);
+    };
+};
+func = func.bind(obj1);
+console.log(func());
+func = func.bind(obj2);
+console.log(func());

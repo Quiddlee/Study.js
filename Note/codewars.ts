@@ -2543,28 +2543,53 @@
 //     return Object.entries(results).filter(arr => arr[1] >= 60).sort(([, score], [, secondScore]) => secondScore - score).flat().filter(e => typeof e === 'string');
 // }
 
-var runLengthEncoding = function (str: string) {
-  const res = [];
-  let left = 0;
-  let right = 0;
-  let counter = 0;
+// var runLengthEncoding = function (str: string) {
+//   const res = [];
+//   let left = 0;
+//   let right = 0;
+//   let counter = 0;
 
-  while (left !== str.length) {
-    if (str[left] === str[right]) {
-      right++;
-      counter++;
-    } else {
-      res.push([counter, str[left]]);
-      counter = 1;
-      left = right;
-      right++;
-    }
-  }
+//   while (left !== str.length) {
+//     if (str[left] === str[right]) {
+//       right++;
+//       counter++;
+//     } else {
+//       res.push([counter, str[left]]);
+//       counter = 1;
+//       left = right;
+//       right++;
+//     }
+//   }
 
-  return res;
+//   return res;
+// };
+// console.log(
+//   runLengthEncoding(
+//     'WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW'
+//   )
+// );
+
+var func = function () {
+  return this.prop;
 };
-console.log(
-  runLengthEncoding(
-    'WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW'
-  )
-);
+
+var obj1 = { prop: 1 },
+  obj2 = { prop: 2 };
+
+Function.prototype.bind = function (ctx) {
+ 	console.log(this.fun);
+  this.fun = this.fun || this
+  const newFun = () => {
+    return this.fun.call(ctx);
+  }; 
+  newFun.fun = this.fun || this
+  
+  console.log(newFun.fun.call(ctx), 123);
+
+	return newFun
+};
+func = func.bind(obj1);
+console.log(func());
+
+func = func.bind(obj2);
+console.log(func());
