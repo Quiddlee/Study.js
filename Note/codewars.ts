@@ -2594,56 +2594,56 @@
 // func = func.bind(obj2);
 // console.log(func());
 
-const parse = (num: number, type: string = 's') => {
-  if (type === 's') {
-    return num === 1 ? 'second' : 'seconds';
-  } else if (type === 'm') {
-    return num === 1 ? 'minute' : 'minutes';
-  } else if (type === 'h') {
-    return num === 1 ? 'hour' : 'hours';
-  } else if (type === 'd') {
-    return num === 1 ? 'day' : 'days';
-  } else if (type === 'y') {
-    return num === 1 ? 'year' : 'years';
-  }
-  return;
-};
+// const parse = (num: number, type: string = 's') => {
+//   if (type === 's') {
+//     return num === 1 ? 'second' : 'seconds';
+//   } else if (type === 'm') {
+//     return num === 1 ? 'minute' : 'minutes';
+//   } else if (type === 'h') {
+//     return num === 1 ? 'hour' : 'hours';
+//   } else if (type === 'd') {
+//     return num === 1 ? 'day' : 'days';
+//   } else if (type === 'y') {
+//     return num === 1 ? 'year' : 'years';
+//   }
+//   return;
+// };
 
-function formatDuration(seconds: number) {
-  if (seconds === 0) return 'now';
+// function formatDuration(seconds: number) {
+//   if (seconds === 0) return 'now';
 
-  let init = seconds;
-  const yrs = Math.floor(init / 31536000);
-  const day = Math.floor((init %= 31536000) / 86400);
-  const hrs = Math.floor((init %= 86400) / 3600);
-  const min = Math.floor((init %= 3600) / 60);
-  const sec = (init %= 60);
+//   let init = seconds;
+//   const yrs = Math.floor(init / 31536000);
+//   const day = Math.floor((init %= 31536000) / 86400);
+//   const hrs = Math.floor((init %= 86400) / 3600);
+//   const min = Math.floor((init %= 3600) / 60);
+//   const sec = (init %= 60);
 
-  if (seconds < 60) {
-    return `${seconds} ${parse(seconds)}`.trim();
-  } else if (seconds >= 60 && seconds < 3600) {
-    return `${min} ${parse(min, 'm')} ${
-      sec === 0 ? '' : `and ${sec} ${parse(sec)}`
-    }`.trim();
-  } else if (seconds >= 3600 && seconds < 86400) {
-    return `${hrs} ${parse(hrs, 'h')}${
-      min === 0 ? '' : `, ${min} ${parse(min, 'm')}`
-    } ${sec === 0 ? '' : `and ${sec} ${parse(sec)}`}`.trim();
-  } else if (seconds >= 86400 && seconds < 31536000) {
-    return `${day} ${parse(day, 'd')}${
-      hrs === 0 ? '' : `, ${hrs} ${parse(hrs, 'h')}`
-    }${min === 0 ? '' : `, ${min} ${parse(min, 'm')}`} ${
-      sec === 0 ? '' : `and ${sec} ${parse(sec)}`
-    }`.trim();
-  } else if (seconds >= 31536000) {
-    let res = `${yrs} ${parse(yrs, 'y')}${
-      day === 0 ? '' : `, ${day} ${parse(day, 'd')}`
-    }${
-      hrs === 0 ? '' : `${min === 0 ? ' and' : ','} ${hrs} ${parse(hrs, 'h')}`
-    }${
-      min === 0 ? '' : `${sec === 0 ? ' and' : ','} ${min} ${parse(min, 'm')}`
-    } ${sec === 0 ? '' : `and ${sec} ${parse(sec)}`}`.trim();
-    return res.replace(/\,$/, ' and');
-  }
-}
-console.log(formatDuration(3662));
+//   if (seconds < 60) {
+//     return `${seconds} ${parse(seconds)}`.trim();
+//   } else if (seconds >= 60 && seconds < 3600) {
+//     return `${min} ${parse(min, 'm')} ${
+//       sec === 0 ? '' : `and ${sec} ${parse(sec)}`
+//     }`.trim();
+//   } else if (seconds >= 3600 && seconds < 86400) {
+//     return `${hrs} ${parse(hrs, 'h')}${
+//       min === 0 ? '' : `, ${min} ${parse(min, 'm')}`
+//     } ${sec === 0 ? '' : `and ${sec} ${parse(sec)}`}`.trim();
+//   } else if (seconds >= 86400 && seconds < 31536000) {
+//     return `${day} ${parse(day, 'd')}${
+//       hrs === 0 ? '' : `, ${hrs} ${parse(hrs, 'h')}`
+//     }${min === 0 ? '' : `, ${min} ${parse(min, 'm')}`} ${
+//       sec === 0 ? '' : `and ${sec} ${parse(sec)}`
+//     }`.trim();
+//   } else if (seconds >= 31536000) {
+//     let res = `${yrs} ${parse(yrs, 'y')}${
+//       day === 0 ? '' : `, ${day} ${parse(day, 'd')}`
+//     }${
+//       hrs === 0 ? '' : `${min === 0 ? ' and' : ','} ${hrs} ${parse(hrs, 'h')}`
+//     }${
+//       min === 0 ? '' : `${sec === 0 ? ' and' : ','} ${min} ${parse(min, 'm')}`
+//     } ${sec === 0 ? '' : `and ${sec} ${parse(sec)}`}`.trim();
+//     return res.replace(/\,$/, ' and');
+//   }
+// }
+// console.log(formatDuration(3662));
