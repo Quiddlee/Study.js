@@ -365,3 +365,25 @@
 //     return rootNode;
 // };
 // console.log(mergeTrees([1,3,2,5], [2,1,3,null,4,null,7]));
+
+// @ts-ignore
+function summaryRanges(nums: number[]): string[] {
+    const res = [];
+    let init = 0;
+    let left = 0;
+    let right = 1;
+
+    while (right <= nums.length) {
+        if (nums[left] + 1 !== nums[right]) {
+            nums[init] === nums[left] ? res.push(nums[init].toString()) : res.push(`${nums[init]}->${nums[left]}`);
+            init = right;
+        }
+
+        left++;
+        right++;
+    }
+
+    return res;
+}
+
+console.log(summaryRanges([0, 1, 2, 4, 5, 7]));

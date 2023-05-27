@@ -2113,15 +2113,13 @@
 // ]));
 
 // let abc, key;
-// abc = "アイウエオァィゥェォカキクケコサシスセソタチツッテトナニヌネノハヒフヘホマミムメモヤャユュヨョラリルレロワヲンー";
-// key = "カタカナ";
+// abc = 'アイウエオァィゥェォカキクケコサシスセソタチツッテトナニヌネノハヒフヘホマミムメモヤャユュヨョラリルレロワヲンー';
+// key = 'カタカナ';
 // const c = new VigenereCipher(key, abc);
 //
-//
-// function createKeyWord(str, key)  {
+// function createKeyWord(str, key) {
 //     let i = 0;
 //     let keyWord = '';
-//
 //
 //     while (keyWord.length < str.length) {
 //         if (i === key.length) i = 0;
@@ -2129,14 +2127,11 @@
 //         i++;
 //     }
 //
-//
 //     return keyWord;
 // }
 //
-//
 // function VigenereCipher(key, abc) {
 //     const modulus = abc.length;
-//
 //
 //     this.encode = function (str) {
 //         if (abc.match(str.replace(/\d/, ''))) return str;
@@ -2146,27 +2141,22 @@
 //         let encoded = '';
 //         let keyWord = createKeyWord(str, key);
 //
-//
 //         for (let i = 0; i < str.length; i++) {
 //             keyMap.push(abc.indexOf(keyWord[i]));
-//
 //
 //             if (abc.indexOf(str[i]) === -1) strMap.push(str[i]);
 //             else strMap.push(abc.indexOf(str[i]));
 //
-//
-//             if (typeof(strMap[i]) === "number") result.push((strMap[i] + keyMap[i]) % modulus);
+//             if (typeof strMap[i] === 'number')
+//                 result.push((strMap[i] + keyMap[i]) % modulus);
 //             else result.push(strMap[i]);
 //
-//
-//             if (typeof(result[i]) === "number") encoded += abc[result[i]];
+//             if (typeof result[i] === 'number') encoded += abc[result[i]];
 //             else encoded += result[i];
 //         }
 //
-//
 //         return encoded;
 //     };
-//
 //
 //     this.decode = function (str) {
 //         if (abc.match(str.replace(/\d/, ''))) return str;
@@ -2176,32 +2166,27 @@
 //         let decoded = '';
 //         let keyWord = createKeyWord(str, key);
 //
-//
 //         for (let i = 0; i < str.length; i++) {
 //             keyMap.push(abc.indexOf(keyWord[i]));
-//
 //
 //             if (abc.indexOf(str[i]) === -1) strMap.push(str[i]);
 //             else strMap.push(abc.indexOf(str[i]));
 //
-//
-//             if (typeof(strMap[i]) === "number") {
+//             if (typeof strMap[i] === 'number') {
 //                 result.push((strMap[i] - keyMap[i]) % modulus);
-//                 if (result[i] < 0) while(result[i] < 0) result[i] += modulus;
-//             }
-//             else result.push((strMap[i]));
+//                 if (result[i] < 0) while (result[i] < 0) result[i] += modulus;
+//             } else result.push(strMap[i]);
 //
-//
-//             if (typeof(result[i]) === "number") decoded += abc[result[i]];
+//             if (typeof result[i] === 'number') decoded += abc[result[i]];
 //             else decoded += result[i];
 //         }
-//
 //
 //         return decoded;
 //     };
 // }
-// console.log(c.encode("ドモアリガトゴザイマス"));
-// console.log(c.decode("xt'k o vwixl qzswej!"));
+//
+// console.log(c.encode('ドモアリガトゴザイマス'));
+// console.log(c.decode('xt\'k o vwixl qzswej!'));
 
 // c  o d e w  a  r  s
 // 3 15 4 5 23 1 18 19
@@ -2647,3 +2632,42 @@
 //   }
 // }
 // console.log(formatDuration(3662));
+//
+// class Animal {
+//     constructor(name: string, type: string) {
+//         this._name = name;
+//         this._type = type;
+//     }
+//
+//     private _name: string;
+//
+//     get name() {
+//         return this._name;
+//     }
+//
+//     set name(val) {
+//         this._name = val;
+//     }
+//
+//     private _type: string;
+//
+//     get type() {
+//         return this._type;
+//     }
+//
+//     toString() {
+//         return `${this.name} is a ${this.type}`;
+//     }
+// }
+//
+// const dog = new Animal('Max', 'dog');
+// console.log(dog.toString());
+// console.log(dog.type);
+// console.log(dog.name);
+// console.log(dog.name = 'Lessie');
+
+let newFunction = function () {
+    this.newFunction = newFunction;
+};
+
+console.log(new newFunction);
