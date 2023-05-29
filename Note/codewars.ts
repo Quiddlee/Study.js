@@ -2745,53 +2745,117 @@
 //     return `Hello ${ this.master }`;
 //   }
 // }
+//
+// class Cube {
+//   #length: number;
+//   #surfaceArea: number;
+//   #volume: number;
+//
+//   constructor(length: number) {
+//     this.#length = length;
+//     this.#surfaceArea = this.#calcSurfaceArea();
+//     this.#volume = this.#calcVolume();
+//   }
+//
+//   get surfaceArea() {
+//     return this.#surfaceArea;
+//   }
+//
+//   set surfaceArea(val) {
+//     this.#surfaceArea = val;
+//     this.#length = Math.sqrt(val / 6);
+//     this.#volume = this.#calcVolume();
+//   }
+//
+//   get volume() {
+//     return this.#volume;
+//   }
+//
+//   set volume(val) {
+//     this.#volume = val;
+//     this.#length = Math.cbrt(val);
+//     this.#surfaceArea = this.#calcSurfaceArea();
+//   }
+//
+//   get length() {
+//     return this.#length;
+//   }
+//
+//   set length(val: number) {
+//     this.#length = val;
+//     this.#surfaceArea = this.#calcSurfaceArea();
+//     this.#volume = this.#calcVolume();
+//   }
+//
+//   #calcSurfaceArea() {
+//     return 6 * this.#length ** 2;
+//   }
+//
+//   #calcVolume() {
+//     return this.#length ** 3;
+//   }
+// }
 
-class Cube {
-  #length: number;
-  #surfaceArea: number;
-  #volume: number;
+// @ts-ignore
+class File {
+  #filename: string;
+  #extension: string;
+  #fullName: string;
+  #contents: string;
+  #line = 0;
+  #char = 0;
 
-  constructor(length: number) {
-    this.#length = length;
-    this.#surfaceArea = this.#calcSurfaceArea();
-    this.#volume = this.#calcVolume();
+  constructor(fullName: string, contents: string) {
+    this.#fullName = fullName;
+    this.#contents = contents;
+    this.#filename = fullName.slice(0, fullName.lastIndexOf('.'));
+    this.#extension = fullName.slice(fullName.lastIndexOf('.') + 1);
   }
 
-  get surfaceArea() {
-    return this.#surfaceArea;
+  get fullName() {
+    return this.#fullName;
   }
 
-  set surfaceArea(val) {
-    this.#surfaceArea = val;
-    this.#length = Math.sqrt(val / 6);
-    this.#volume = this.#calcVolume();
+  set fullName(val) {
+    val;
   }
 
-  get volume() {
-    return this.#volume;
+  get filename() {
+    return this.#filename;
   }
 
-  set volume(val) {
-    this.#volume = val;
-    this.#length = Math.cbrt(val);
-    this.#surfaceArea = this.#calcSurfaceArea();
+  set filename(val) {
+    val;
   }
 
-  get length() {
-    return this.#length;
+  get extension() {
+    return this.#extension;
   }
 
-  set length(val: number) {
-    this.#length = val;
-    this.#surfaceArea = this.#calcSurfaceArea();
-    this.#volume = this.#calcVolume();
+  set extension(val) {
+    val;
   }
 
-  #calcSurfaceArea() {
-    return 6 * this.#length ** 2;
+  getContents() {
+    return this.#contents;
   }
 
-  #calcVolume() {
-    return this.#length ** 3;
+  write(str: string) {
+    this.#contents += `\n${ str }`;
+  }
+
+  gets() {
+    const line = this.#contents.split('\n')?.[this.#line];
+    this.#line++;
+    return line;
+  }
+
+  getc() {
+    const char = this.#contents.split('')?.[this.#char];
+    this.#char++;
+    return char;
   }
 }
+
+// @ts-ignore
+const myFile = new File('text.txt', 123);
