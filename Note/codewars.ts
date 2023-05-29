@@ -2671,77 +2671,127 @@
 // };
 //
 // console.log(new newFunction);
+//
+// class Animal {
+//   name: string;
+//   age: number;
+//   legs: number;
+//   species: string;
+//   status: string;
+//
+//   constructor(
+//       name: string,
+//       age: number,
+//       legs: number,
+//       species: string,
+//       status: string
+//   ) {
+//     this.name = name;
+//     this.age = age;
+//     this.legs = legs;
+//     this.species = species;
+//     this.status = status;
+//   }
+//
+//   introduce() {
+//     return `Hello, my name is ${ this.name } and I am ${ this.age } years old.`;
+//   }
+// }
+//
+// class Shark extends Animal {
+//   constructor(name: string, age: number, status: string) {
+//     super(
+//         name,
+//         age,
+//         0,
+//         'shark',
+//         status
+//     );
+//   }
+// }
+//
+// class Cat extends Animal {
+//   constructor(name: string, age: number, status: string) {
+//     super(
+//         name,
+//         age,
+//         4,
+//         'cat',
+//         status
+//     );
+//   }
+//
+//   introduce() {
+//     return `Hello, my name is ${ this.name } and I am ${ this.age } years old.  Meow meow!`;
+//   }
+// }
+//
+// class Dog extends Animal {
+//   master: string;
+//
+//   constructor(name: string, age: number, status: string, master: string) {
+//     super(
+//         name,
+//         age,
+//         4,
+//         'dog',
+//         status
+//     );
+//
+//     this.master = master;
+//   }
+//
+//   greetMaster() {
+//     return `Hello ${ this.master }`;
+//   }
+// }
 
-class Animal {
-  name: string;
-  age: number;
-  legs: number;
-  species: string;
-  status: string;
+class Cube {
+  #length: number;
+  #surfaceArea: number;
+  #volume: number;
 
-  constructor(
-      name: string,
-      age: number,
-      legs: number,
-      species: string,
-      status: string
-  ) {
-    this.name = name;
-    this.age = age;
-    this.legs = legs;
-    this.species = species;
-    this.status = status;
+  constructor(length: number) {
+    this.#length = length;
+    this.#surfaceArea = this.#calcSurfaceArea();
+    this.#volume = this.#calcVolume();
   }
 
-  introduce() {
-    return `Hello, my name is ${ this.name } and I am ${ this.age } years old.`;
-  }
-}
-
-class Shark extends Animal {
-  constructor(name: string, age: number, status: string) {
-    super(
-        name,
-        age,
-        0,
-        'shark',
-        status
-    );
-  }
-}
-
-class Cat extends Animal {
-  constructor(name: string, age: number, status: string) {
-    super(
-        name,
-        age,
-        4,
-        'cat',
-        status
-    );
+  get surfaceArea() {
+    return this.#surfaceArea;
   }
 
-  introduce() {
-    return `Hello, my name is ${ this.name } and I am ${ this.age } years old.  Meow meow!`;
-  }
-}
-
-class Dog extends Animal {
-  master: string;
-
-  constructor(name: string, age: number, status: string, master: string) {
-    super(
-        name,
-        age,
-        4,
-        'dog',
-        status
-    );
-
-    this.master = master;
+  set surfaceArea(val) {
+    this.#surfaceArea = val;
+    this.#length = Math.sqrt(val / 6);
+    this.#volume = this.#calcVolume();
   }
 
-  greetMaster() {
-    return `Hello ${ this.master }`;
+  get volume() {
+    return this.#volume;
+  }
+
+  set volume(val) {
+    this.#volume = val;
+    this.#length = Math.cbrt(val);
+    this.#surfaceArea = this.#calcSurfaceArea();
+  }
+
+  get length() {
+    return this.#length;
+  }
+
+  set length(val: number) {
+    this.#length = val;
+    this.#surfaceArea = this.#calcSurfaceArea();
+    this.#volume = this.#calcVolume();
+  }
+
+  #calcSurfaceArea() {
+    return 6 * this.#length ** 2;
+  }
+
+  #calcVolume() {
+    return this.#length ** 3;
   }
 }
