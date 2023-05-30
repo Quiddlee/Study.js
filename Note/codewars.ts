@@ -2888,30 +2888,30 @@
 // console.log(bogdan.name);
 // console.log(bogdan.getName());
 
-
-Array.prototype.square = function () {
-  return this.map((e, i) => e = e ** 2);
-};
-
-Array.prototype.cube = function () {
-  return this.map((e, i) => e = e ** 3);
-};
-
-Array.prototype.average = function () {
-  return this.reduce((acc, curr) => acc + curr, 0) / this.length;
-};
-
-Array.prototype.sum = function () {
-  return this.reduce((acc, curr) => acc + curr, 0);
-};
-
-Array.prototype.even = function () {
-  return this.filter(e => e % 2 === 0);
-};
-
-Array.prototype.odd = function () {
-  return this.filter(e => e % 2 !== 0);
-};
+//
+// Array.prototype.square = function () {
+//   return this.map((e, i) => e = e ** 2);
+// };
+//
+// Array.prototype.cube = function () {
+//   return this.map((e, i) => e = e ** 3);
+// };
+//
+// Array.prototype.average = function () {
+//   return this.reduce((acc, curr) => acc + curr, 0) / this.length;
+// };
+//
+// Array.prototype.sum = function () {
+//   return this.reduce((acc, curr) => acc + curr, 0);
+// };
+//
+// Array.prototype.even = function () {
+//   return this.filter(e => e % 2 === 0);
+// };
+//
+// Array.prototype.odd = function () {
+//   return this.filter(e => e % 2 !== 0);
+// };
 
 // const arr = [1, 2, 3, 4, 5];
 // const newArr = arr.square();
@@ -2922,11 +2922,30 @@ Array.prototype.odd = function () {
 // const arr = [];
 // const newArr = arr.average();
 
-const arr = [ 1, 2, 3, 4, 5 ];
-const newArr = arr.even();
+// const arr = [ 1, 2, 3, 4, 5 ];
+// const newArr = arr.even();
+//
+// const arr2 = [ 1, 2, 3, 4, 5 ];
+// const newArr2 = arr.odd();
+//
+// console.log(newArr);
+// console.log(newArr2);
 
-const arr2 = [ 1, 2, 3, 4, 5 ];
-const newArr2 = arr.odd();
+Array.prototype.reduce = function (process, initial) {
+  let acc = initial || this[0];
 
-console.log(newArr);
-console.log(newArr2);
+  for (let i = 0; i < this.length; i++) {
+    if (!initial && i === 0) continue;
+    acc = process(acc, this[i]);
+  }
+
+  return acc;
+};
+
+const check = [ 'a', 'b', 'a' ];
+
+console.log(check.reduce(function (obj, elem) {
+  if (!obj[elem]) obj[elem] = 0;
+  obj[elem] += 1;
+  return obj;
+}, {}));
