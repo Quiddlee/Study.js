@@ -2950,28 +2950,42 @@
 //   return obj;
 // }, {}));
 
-Object.prototype.hash = function (string) {
-  if (!string.includes('.')) return console.log(this[string]);
+// Object.prototype.hash = function (string) {
+//   if (!string.includes('.')) return console.log(this[string]);
+//
+//   const accesor = string.slice(0, string.indexOf('.'));
+//   const remainingAccs = string.slice(string.indexOf('.') + 1);
+//
+//   return this[accesor]?.hash(remainingAccs);
+// };
+//
+// const obj = {
+//   person: {
+//     name: 'joe',
+//     history: {
+//       hometown: 'bratislava',
+//       bio: {
+//         funFact: 'I like fishing.'
+//       }
+//     }
+//   }
+// };
+//
+// obj.hash('person.name'); // 'joe'
+// obj.hash('person.history.bio'); // { funFact: 'I like fishing.' }
+// obj.hash('person.history.homeStreet'); // undefined
+// obj.hash('person.animal.pet.needNoseAntEater'); // undefined
 
-  const accesor = string.slice(0, string.indexOf('.'));
-  const remainingAccs = string.slice(string.indexOf('.') + 1);
+function generateName() {
+  const ABC = 'abcdefghijklmnopqrstuvwxyz';
+  let name = '';
 
-  return this[accesor]?.hash(remainingAccs);
-};
-
-const obj = {
-  person: {
-    name: 'joe',
-    history: {
-      hometown: 'bratislava',
-      bio: {
-        funFact: 'I like fishing.'
-      }
-    }
+  for (let i = 0; i < 6; i++) {
+    const rndmNum = Math.floor(Math.random() * 26);
+    name += ABC[rndmNum];
   }
-};
 
-obj.hash('person.name'); // 'joe'
-obj.hash('person.history.bio'); // { funFact: 'I like fishing.' }
-obj.hash('person.history.homeStreet'); // undefined
-obj.hash('person.animal.pet.needNoseAntEater'); // undefined
+  if (photoManager.nameExists(name)) return generateName();
+
+  return name;
+}
