@@ -2797,65 +2797,93 @@
 // }
 
 // @ts-ignore
-class File {
-  #filename: string;
-  #extension: string;
-  #fullName: string;
-  #contents: string;
-  #line = 0;
-  #char = 0;
+// class File {
+//   #filename: string;
+//   #extension: string;
+//   #fullName: string;
+//   #contents: string;
+//   #line = 0;
+//   #char = 0;
+//
+//   constructor(fullName: string, contents: string) {
+//     this.#fullName = fullName;
+//     this.#contents = contents;
+//     this.#filename = fullName.slice(0, fullName.lastIndexOf('.'));
+//     this.#extension = fullName.slice(fullName.lastIndexOf('.') + 1);
+//   }
+//
+//   get fullName() {
+//     return this.#fullName;
+//   }
+//
+//   set fullName(val) {
+//     val;
+//   }
+//
+//   get filename() {
+//     return this.#filename;
+//   }
+//
+//   set filename(val) {
+//     val;
+//   }
+//
+//   get extension() {
+//     return this.#extension;
+//   }
+//
+//   set extension(val) {
+//     val;
+//   }
+//
+//   getContents() {
+//     return this.#contents;
+//   }
+//
+//   write(str: string) {
+//     this.#contents += `\n${ str }`;
+//   }
+//
+//   gets() {
+//     const line = this.#contents.split('\n')?.[this.#line];
+//     this.#line++;
+//     return line;
+//   }
+//
+//   getc() {
+//     const char = this.#contents.split('')?.[this.#char];
+//     this.#char++;
+//     return char;
+//   }
+// }
+//
+// // @ts-ignore
+// const myFile = new File('text.txt', 123);
 
-  constructor(fullName: string, contents: string) {
-    this.#fullName = fullName;
-    this.#contents = contents;
-    this.#filename = fullName.slice(0, fullName.lastIndexOf('.'));
-    this.#extension = fullName.slice(fullName.lastIndexOf('.') + 1);
+class Person {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 
-  get fullName() {
-    return this.#fullName;
-  }
-
-  set fullName(val) {
-    val;
-  }
-
-  get filename() {
-    return this.#filename;
-  }
-
-  set filename(val) {
-    val;
-  }
-
-  get extension() {
-    return this.#extension;
-  }
-
-  set extension(val) {
-    val;
-  }
-
-  getContents() {
-    return this.#contents;
-  }
-
-  write(str: string) {
-    this.#contents += `\n${ str }`;
-  }
-
-  gets() {
-    const line = this.#contents.split('\n')?.[this.#line];
-    this.#line++;
-    return line;
-  }
-
-  getc() {
-    const char = this.#contents.split('')?.[this.#char];
-    this.#char++;
-    return char;
+  getName() {
+    return this.firstName + ' ' + this.lastName;
   }
 }
 
-// @ts-ignore
-const myFile = new File('text.txt', 123);
+Object.defineProperty(Person.prototype, 'name', {
+  get: function () {
+    return this.getName();
+  },
+
+  set: function (val) {
+    this.lastName = val.slice(val.indexOf(' ') + 1);
+    this.firstName = val.slice(0, val.indexOf(' '));
+  }
+});
+
+const bogdan = new Person('Bogdan', 'Scherbina');
+console.log(bogdan.name);
+bogdan.name = 'Check 123';
+console.log(bogdan.name);
+console.log(bogdan.getName());
