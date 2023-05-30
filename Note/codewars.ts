@@ -2930,22 +2930,48 @@
 //
 // console.log(newArr);
 // console.log(newArr2);
+//
+// Array.prototype.reduce = function (process, initial) {
+//   let acc = initial || this[0];
+//
+//   for (let i = 0; i < this.length; i++) {
+//     if (!initial && i === 0) continue;
+//     acc = process(acc, this[i]);
+//   }
+//
+//   return acc;
+// };
+//
+// const check = [ 'a', 'b', 'a' ];
+//
+// console.log(check.reduce(function (obj, elem) {
+//   if (!obj[elem]) obj[elem] = 0;
+//   obj[elem] += 1;
+//   return obj;
+// }, {}));
 
-Array.prototype.reduce = function (process, initial) {
-  let acc = initial || this[0];
+Object.prototype.hash = function (string) {
+  if (!string.includes('.')) return console.log(this[string]);
 
-  for (let i = 0; i < this.length; i++) {
-    if (!initial && i === 0) continue;
-    acc = process(acc, this[i]);
-  }
+  const accesor = string.slice(0, string.indexOf('.'));
+  const remainingAccs = string.slice(string.indexOf('.') + 1);
 
-  return acc;
+  return this[accesor]?.hash(remainingAccs);
 };
 
-const check = [ 'a', 'b', 'a' ];
+const obj = {
+  person: {
+    name: 'joe',
+    history: {
+      hometown: 'bratislava',
+      bio: {
+        funFact: 'I like fishing.'
+      }
+    }
+  }
+};
 
-console.log(check.reduce(function (obj, elem) {
-  if (!obj[elem]) obj[elem] = 0;
-  obj[elem] += 1;
-  return obj;
-}, {}));
+obj.hash('person.name'); // 'joe'
+obj.hash('person.history.bio'); // { funFact: 'I like fishing.' }
+obj.hash('person.history.homeStreet'); // undefined
+obj.hash('person.animal.pet.needNoseAntEater'); // undefined
