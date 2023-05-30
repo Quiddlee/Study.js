@@ -2860,30 +2860,73 @@
 // // @ts-ignore
 // const myFile = new File('text.txt', 123);
 
-class Person {
-  constructor(firstName, lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
+// class Person {
+//   constructor(firstName, lastName) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//   }
+//
+//   getName() {
+//     return this.firstName + ' ' + this.lastName;
+//   }
+// }
+//
+// Object.defineProperty(Person.prototype, 'name', {
+//   get: function () {
+//     return this.getName();
+//   },
+//
+//   set: function (val) {
+//     this.lastName = val.slice(val.indexOf(' ') + 1);
+//     this.firstName = val.slice(0, val.indexOf(' '));
+//   }
+// });
+//
+// const bogdan = new Person('Bogdan', 'Scherbina');
+// console.log(bogdan.name);
+// bogdan.name = 'Check 123';
+// console.log(bogdan.name);
+// console.log(bogdan.getName());
 
-  getName() {
-    return this.firstName + ' ' + this.lastName;
-  }
-}
 
-Object.defineProperty(Person.prototype, 'name', {
-  get: function () {
-    return this.getName();
-  },
+Array.prototype.square = function () {
+  return this.map((e, i) => e = e ** 2);
+};
 
-  set: function (val) {
-    this.lastName = val.slice(val.indexOf(' ') + 1);
-    this.firstName = val.slice(0, val.indexOf(' '));
-  }
-});
+Array.prototype.cube = function () {
+  return this.map((e, i) => e = e ** 3);
+};
 
-const bogdan = new Person('Bogdan', 'Scherbina');
-console.log(bogdan.name);
-bogdan.name = 'Check 123';
-console.log(bogdan.name);
-console.log(bogdan.getName());
+Array.prototype.average = function () {
+  return this.reduce((acc, curr) => acc + curr, 0) / this.length;
+};
+
+Array.prototype.sum = function () {
+  return this.reduce((acc, curr) => acc + curr, 0);
+};
+
+Array.prototype.even = function () {
+  return this.filter(e => e % 2 === 0);
+};
+
+Array.prototype.odd = function () {
+  return this.filter(e => e % 2 !== 0);
+};
+
+// const arr = [1, 2, 3, 4, 5];
+// const newArr = arr.square();
+
+// const arr = [1, 2, 3, 4, 5];
+// const newArr = arr.cube();
+
+// const arr = [];
+// const newArr = arr.average();
+
+const arr = [ 1, 2, 3, 4, 5 ];
+const newArr = arr.even();
+
+const arr2 = [ 1, 2, 3, 4, 5 ];
+const newArr2 = arr.odd();
+
+console.log(newArr);
+console.log(newArr2);
