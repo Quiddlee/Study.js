@@ -2976,16 +2976,50 @@
 // obj.hash('person.history.homeStreet'); // undefined
 // obj.hash('person.animal.pet.needNoseAntEater'); // undefined
 
-function generateName() {
-  const ABC = 'abcdefghijklmnopqrstuvwxyz';
-  let name = '';
+// function generateName() {
+//   const ABC = 'abcdefghijklmnopqrstuvwxyz';
+//   let name = '';
+//
+//   for (let i = 0; i < 6; i++) {
+//     const rndmNum = Math.floor(Math.random() * 26);
+//     name += ABC[rndmNum];
+//   }
+//
+//   if (photoManager.nameExists(name)) return generateName();
+//
+//   return name;
+// }
 
-  for (let i = 0; i < 6; i++) {
-    const rndmNum = Math.floor(Math.random() * 26);
-    name += ABC[rndmNum];
+Object.create = function (prototype, properties) {
+  if (!prototype && typeof prototype !== 'object') throw new TypeError('Wrong prototype argument');
+
+  const newObj = {};
+  Object.setPrototypeOf(newObj, prototype);
+
+  // return properties ? this.defineProperties(newObj, properties) : newObj;
+
+  if (properties) {
+    for (const [ propName, prop ] of Object.entries(properties))
+      newObj[propName] = prop?.writable ? prop : Object.freeze(prop.value);
   }
 
-  if (photoManager.nameExists(name)) return generateName();
+  return newObj;
+};
 
-  return name;
-}
+const proto = {
+  sayHello() {
+    console.log('Hello');
+  }
+};
+
+const obj = Object.create(proto, {
+  property1: {
+    value: 42,
+    writable: true
+  },
+  property2: {}
+});
+
+console.log(obj);
+
+obj.sayHello();
