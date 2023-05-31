@@ -2989,37 +2989,84 @@
 //
 //   return name;
 // }
+//
+// Object.create = function (prototype, properties) {
+//   if (!prototype && typeof prototype !== 'object') throw new TypeError('Wrong prototype argument');
+//
+//   const newObj = {};
+//   Object.setPrototypeOf(newObj, prototype);
+//
+//   // return properties ? this.defineProperties(newObj, properties) : newObj;
+//
+//   if (properties) {
+//     for (const [ propName, prop ] of Object.entries(properties))
+//       newObj[propName] = prop?.writable ? prop : Object.freeze(prop.value);
+//   }
+//
+//   return newObj;
+// };
+//
+// const proto = {
+//   sayHello() {
+//     console.log('Hello');
+//   }
+// };
+//
+// const obj = Object.create(proto, {
+//   property1: {
+//     value: 42,
+//     writable: true
+//   },
+//   property2: {}
+// });
+//
+// console.log(obj);
+//
+// obj.sayHello();
 
-Object.create = function (prototype, properties) {
-  if (!prototype && typeof prototype !== 'object') throw new TypeError('Wrong prototype argument');
+var Cat = (function () {
+  const weights = new Map();
+  let avg = 0;
 
-  const newObj = {};
-  Object.setPrototypeOf(newObj, prototype);
+  const calcAvg = () => {
+    avg = 0;
+    for (const weight of weights.values())
+      avg += weight;
+    avg /= weights.size;
+  };
 
-  // return properties ? this.defineProperties(newObj, properties) : newObj;
+  const closure = function (name, weight) {
+    if (!name || !weight) throw new Error('Wrong arguments');
+    weights.set(name, weight);
 
-  if (properties) {
-    for (const [ propName, prop ] of Object.entries(properties))
-      newObj[propName] = prop?.writable ? prop : Object.freeze(prop.value);
-  }
+    calcAvg();
 
-  return newObj;
-};
+    this._weight = weight;
+    this.name = name;
 
-const proto = {
-  sayHello() {
-    console.log('Hello');
-  }
-};
+    Object.defineProperties(this, {
+      weight: {
+        set: function (val) {
+          this._weight = val;
+          weights.set(this.name, this._weight);
+          calcAvg();
+        },
 
-const obj = Object.create(proto, {
-  property1: {
-    value: 42,
-    writable: true
-  },
-  property2: {}
-});
+        get: function () {
+          return this._weight;
+        }
+      }
+    });
+  };
 
-console.log(obj);
+  closure.averageWeight = function () {
+    return avg;
+  };
 
-obj.sayHello();
+  return closure;
+}());
+
+const felix = new Cat('Felix', 25);
+const aCat = new Cat('cat', 12);
+
+console.log(Cat.averageWeight());
