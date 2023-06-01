@@ -3023,50 +3023,82 @@
 // console.log(obj);
 //
 // obj.sayHello();
+//
+// var Cat = (function () {
+//   const weights = new Map();
+//   let avg = 0;
+//
+//   const calcAvg = () => {
+//     avg = 0;
+//     for (const weight of weights.values())
+//       avg += weight;
+//     avg /= weights.size;
+//   };
+//
+//   const closure = function (name, weight) {
+//     if (!name || !weight) throw new Error('Wrong arguments');
+//     weights.set(name, weight);
+//
+//     calcAvg();
+//
+//     this._weight = weight;
+//     this.name = name;
+//
+//     Object.defineProperties(this, {
+//       weight: {
+//         set: function (val) {
+//           this._weight = val;
+//           weights.set(this.name, this._weight);
+//           calcAvg();
+//         },
+//
+//         get: function () {
+//           return this._weight;
+//         }
+//       }
+//     });
+//   };
+//
+//   closure.averageWeight = function () {
+//     return avg;
+//   };
+//
+//   return closure;
+// }());
+//
+// const felix = new Cat('Felix', 25);
+// const aCat = new Cat('cat', 12);
+//
+// console.log(Cat.averageWeight());
 
-var Cat = (function () {
-  const weights = new Map();
-  let avg = 0;
+function nouveau(Constructor, ...rest) {
+    const instance = Object.create(Constructor.prototype);
+    const fnInstance = Constructor.call(instance, ...rest);
+    return fnInstance &&
+    (typeof fnInstance === 'object' ||
+        typeof fnInstance === 'function')
+        ? fnInstance
+        : instance;
+}
 
-  const calcAvg = () => {
-    avg = 0;
-    for (const weight of weights.values())
-      avg += weight;
-    avg /= weights.size;
-  };
-
-  const closure = function (name, weight) {
-    if (!name || !weight) throw new Error('Wrong arguments');
-    weights.set(name, weight);
-
-    calcAvg();
-
-    this._weight = weight;
+function Person(name, age) {
     this.name = name;
+    this.age = age;
+}
 
-    Object.defineProperties(this, {
-      weight: {
-        set: function (val) {
-          this._weight = val;
-          weights.set(this.name, this._weight);
-          calcAvg();
-        },
+Person.prototype.introduce = function () {
+    return 'My name is ' + this.name + ' and I am ' + this.age;
+};
+var john = new Person('John', 30);
+var jack = new Person('Jack', 40);
+console.log(john.introduce()); // My name is John and I am 30
+console.log(jack.introduce()); // My name is Jack and I am 40
 
-        get: function () {
-          return this._weight;
-        }
-      }
-    });
-  };
+function ReturnsArray(name) {
+    this.name = name;
+    return [1, 2, 3];
+}
 
-  closure.averageWeight = function () {
-    return avg;
-  };
-
-  return closure;
-}());
-
-const felix = new Cat('Felix', 25);
-const aCat = new Cat('cat', 12);
-
-console.log(Cat.averageWeight());
+var arr = new ReturnsArray('arr?');
+console.log(arr.name); // undefined
+console.log(arr); // [1, 2, 3]
