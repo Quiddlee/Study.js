@@ -3071,34 +3071,67 @@
 //
 // console.log(Cat.averageWeight());
 
-function nouveau(Constructor, ...rest) {
-    const instance = Object.create(Constructor.prototype);
-    const fnInstance = Constructor.call(instance, ...rest);
-    return fnInstance &&
-    (typeof fnInstance === 'object' ||
-        typeof fnInstance === 'function')
-        ? fnInstance
-        : instance;
+// function nouveau(Constructor, ...rest) {
+//     const instance = Object.create(Constructor.prototype);
+//     const fnInstance = Constructor.call(instance, ...rest);
+//     return fnInstance &&
+//     (typeof fnInstance === 'object' ||
+//         typeof fnInstance === 'function')
+//         ? fnInstance
+//         : instance;
+// }
+//
+// function Person(name, age) {
+//     this.name = name;
+//     this.age = age;
+// }
+//
+// Person.prototype.introduce = function () {
+//     return 'My name is ' + this.name + ' and I am ' + this.age;
+// };
+// var john = new Person('John', 30);
+// var jack = new Person('Jack', 40);
+// console.log(john.introduce()); // My name is John and I am 30
+// console.log(jack.introduce()); // My name is Jack and I am 40
+//
+// function ReturnsArray(name) {
+//     this.name = name;
+//     return [1, 2, 3];
+// }
+//
+// var arr = new ReturnsArray('arr?');
+// console.log(arr.name); // undefined
+// console.log(arr); // [1, 2, 3]
+
+class PaginationHelper {
+    currentPageStart = 0;
+    currentPageEnd = 0;
+
+    constructor(collection, itemsPerPage) {
+        this.collection = collection;
+        this.itemsPerPage = itemsPerPage;
+    }
+
+    itemCount() {
+        return this.collection.length;
+    }
+
+    pageCount() {
+        return Math.round((this.collection.length + 1) / this.itemsPerPage);
+    }
+
+    pageItemCount(pageIndex) {
+        pageIndex += 1;
+
+        const end = this.itemsPerPage * pageIndex;
+        const start = Math.abs(this.itemsPerPage - end);
+        return this.collection.slice(start, end).length || -1;
+    }
+
+    pageIndex(itemIndex) {
+        if (!this.itemCount() || itemIndex > this.itemCount() || itemIndex < 0) return -1;
+
+        const index = Math.floor(itemIndex / this.itemsPerPage);
+        return index <= this.pageCount() ? index : -1;
+    }
 }
-
-function Person(name, age) {
-    this.name = name;
-    this.age = age;
-}
-
-Person.prototype.introduce = function () {
-    return 'My name is ' + this.name + ' and I am ' + this.age;
-};
-var john = new Person('John', 30);
-var jack = new Person('Jack', 40);
-console.log(john.introduce()); // My name is John and I am 30
-console.log(jack.introduce()); // My name is Jack and I am 40
-
-function ReturnsArray(name) {
-    this.name = name;
-    return [1, 2, 3];
-}
-
-var arr = new ReturnsArray('arr?');
-console.log(arr.name); // undefined
-console.log(arr); // [1, 2, 3]
