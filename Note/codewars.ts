@@ -3103,60 +3103,65 @@
 // console.log(arr.name); // undefined
 // console.log(arr); // [1, 2, 3]
 
-class PaginationHelper {
-    currentPageStart = 0;
-    currentPageEnd = 0;
+// class PaginationHelper {
+//     currentPageStart = 0;
+//     currentPageEnd = 0;
+//
+//     constructor(collection, itemsPerPage) {
+//         this.collection = collection;
+//         this.itemsPerPage = itemsPerPage;
+//     }
+//
+//     itemCount() {
+//         return this.collection.length;
+//     }
+//
+//     pageCount() {
+//         const collCopy = [...this.collection];
+//         let counter = 0;
+//
+//         while (collCopy.length !== 0) {
+//             counter++;
+//             collCopy.splice(0, this.itemsPerPage);
+//         }
+//
+//         return counter;
+//     }
+//
+//     pageItemCount(pageIndex) {
+//         if (pageIndex < 0) return -1;
+//         pageIndex += 1;
+//
+//         const end = this.itemsPerPage * pageIndex;
+//         const start = Math.abs(this.itemsPerPage - end);
+//         return this.collection.slice(start, end).length || -1;
+//     }
+//
+//     pageIndex(itemIndex) {
+//         if (!this.itemCount() || itemIndex >= this.itemCount() || itemIndex < 0) return -1;
+//         if (itemIndex === this.itemsPerPage) return 1;
+//
+//         let counter = 0;
+//         let steps = 0;
+//         let incr = 0;
+//
+//         while (incr !== itemIndex) {
+//             if (steps === this.itemsPerPage) {
+//                 steps = 0;
+//                 counter++;
+//             }
+//
+//
+//             steps++
+//             incr++
+//         }
+//         if (steps === this.itemsPerPage) counter++;
+//         console.log(counter < this.itemCount(), counter, this.itemCount());
+//         return counter < this.itemCount() ? counter : -1;
+//     }
+// }
 
-    constructor(collection, itemsPerPage) {
-        this.collection = collection;
-        this.itemsPerPage = itemsPerPage;
-    }
-
-    itemCount() {
-        return this.collection.length;
-    }
-
-    pageCount() {
-        const collCopy = [...this.collection];
-        let counter = 0;
-
-        while (collCopy.length !== 0) {
-            counter++;
-            collCopy.splice(0, this.itemsPerPage);
-        }
-
-        return counter;
-    }
-
-    pageItemCount(pageIndex) {
-        if (pageIndex < 0) return -1;
-        pageIndex += 1;
-
-        const end = this.itemsPerPage * pageIndex;
-        const start = Math.abs(this.itemsPerPage - end);
-        return this.collection.slice(start, end).length || -1;
-    }
-
-    pageIndex(itemIndex) {
-        if (!this.itemCount() || itemIndex >= this.itemCount() || itemIndex < 0) return -1;
-        if (itemIndex === this.itemsPerPage) return 1;
-
-        let counter = 0;
-        let steps = 0;
-        let incr = 0;
-
-        while (incr !== itemIndex) {
-            if (steps === this.itemsPerPage) {
-                steps = 0;
-                counter++;
-            }
-
-
-            steps++
-            incr++
-        }
-        if (steps === this.itemsPerPage) counter++;
-        console.log(counter < this.itemCount(), counter, this.itemCount());
-        return counter < this.itemCount() ? counter : -1;
-    }
-}
+const newFunction = function () {
+    return newFunction;
+};
+console.log(new new newFunction);
