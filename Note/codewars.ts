@@ -3161,7 +3161,70 @@
 //     }
 // }
 
-const newFunction = function () {
-    return newFunction;
-};
-console.log(new new newFunction);
+// const newFunction = function () {
+//     return newFunction;
+// };
+// console.log(new new newFunction);
+
+function undoRedo(object) {
+    let undoTemp: { [key: string]: number | string } = {};
+    let undo: Function;
+    let redoTemp: { [key: string]: number | string } = {};
+    let redo: Function;
+
+    return {
+        set: function (key: string, value: string | number) {
+            undoTemp.key = key;
+            undoTemp.value = object[key];
+            undo = () => object[undoTemp.key] = undoTemp.value;
+
+            redoTemp.key = key;
+            redoTemp.value = value;
+            redo = () => object[redoTemp.key] = redoTemp.value;
+
+            object[key] = value;
+        },
+
+        get: function (key: string | number) {
+            return object[key];
+        },
+
+        del: function (key: string | number) {
+            undoTemp.key = key;
+            undoTemp.value = object[key];
+            undo = () => object[undoTemp.key] = undoTemp.value;
+
+            redoTemp.key = key;
+            redo = () => delete object[redoTemp.key];
+
+            delete object[key];
+        },
+
+        undo: function () {
+            undo();
+        },
+
+        redo: function () {
+            redo();
+        }
+    };
+}
+
+const obj = {
+    x: 1,
+    y: 2
+}
+
+const unRe = undoRedo(obj);
+
+unRe.set('y', 10);
+console.log(unRe.get('y'));
+unRe.undo();
+console.log(unRe.get('y'));
+unRe.redo();
+console.log(unRe.get('y'));
+
+unRe.del('x');
+console.log(unRe.get('x'));
+unRe.undo();
+console.log(unRe.get('x'));
