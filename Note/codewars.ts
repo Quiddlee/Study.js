@@ -3117,10 +3117,19 @@ class PaginationHelper {
     }
 
     pageCount() {
-        return Math.round((this.collection.length + 1) / this.itemsPerPage);
+        const collCopy = [...this.collection];
+        let counter = 0;
+
+        while (collCopy.length !== 0) {
+            counter++;
+            collCopy.splice(0, this.itemsPerPage);
+        }
+
+        return counter;
     }
 
     pageItemCount(pageIndex) {
+        if (pageIndex < 0) return -1;
         pageIndex += 1;
 
         const end = this.itemsPerPage * pageIndex;
@@ -3129,9 +3138,25 @@ class PaginationHelper {
     }
 
     pageIndex(itemIndex) {
-        if (!this.itemCount() || itemIndex > this.itemCount() || itemIndex < 0) return -1;
+        if (!this.itemCount() || itemIndex >= this.itemCount() || itemIndex < 0) return -1;
+        if (itemIndex === this.itemsPerPage) return 1;
 
-        const index = Math.floor(itemIndex / this.itemsPerPage);
-        return index <= this.pageCount() ? index : -1;
+        let counter = 0;
+        let steps = 0;
+        let incr = 0;
+
+        while (incr !== itemIndex) {
+            if (steps === this.itemsPerPage) {
+                steps = 0;
+                counter++;
+            }
+
+
+            steps++
+            incr++
+        }
+        if (steps === this.itemsPerPage) counter++;
+        console.log(counter < this.itemCount(), counter, this.itemCount());
+        return counter < this.itemCount() ? counter : -1;
     }
 }
