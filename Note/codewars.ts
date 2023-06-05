@@ -3166,65 +3166,103 @@
 // };
 // console.log(new new newFunction);
 
-function undoRedo(object) {
-    let undoTemp: { [key: string]: number | string } = {};
-    let undo: Function;
-    let redoTemp: { [key: string]: number | string } = {};
-    let redo: Function;
-
-    return {
-        set: function (key: string, value: string | number) {
-            undoTemp.key = key;
-            undoTemp.value = object[key];
-            undo = () => object[undoTemp.key] = undoTemp.value;
-
-            redoTemp.key = key;
-            redoTemp.value = value;
-            redo = () => object[redoTemp.key] = redoTemp.value;
-
-            object[key] = value;
-        },
-
-        get: function (key: string | number) {
-            return object[key];
-        },
-
-        del: function (key: string | number) {
-            undoTemp.key = key;
-            undoTemp.value = object[key];
-            undo = () => object[undoTemp.key] = undoTemp.value;
-
-            redoTemp.key = key;
-            redo = () => delete object[redoTemp.key];
-
-            delete object[key];
-        },
-
-        undo: function () {
-            undo();
-        },
-
-        redo: function () {
-            redo();
-        }
-    };
+interface ITemp {
+  key: string;
+  value: number;
+  isDelete: boolean;
 }
 
-const obj = {
-    x: 1,
-    y: 2
+interface IUndoTemp extends ITemp {
+  undo: Function;
 }
 
-const unRe = undoRedo(obj);
+interface IRedoTemp extends ITemp {
+  redo: Function;
+}
 
-unRe.set('y', 10);
-console.log(unRe.get('y'));
-unRe.undo();
-console.log(unRe.get('y'));
-unRe.redo();
-console.log(unRe.get('y'));
+interface IStack<T extends IRedoTemp | IUndoTemp> {
+  stack: T[];
+  getLastOperation: () => T | undefined;
 
-unRe.del('x');
-console.log(unRe.get('x'));
-unRe.undo();
-console.log(unRe.get('x'));
+  add(key: string, value: number): void;
+
+  add(key: string, value: number, isDelete: boolean): void;
+}
+
+function undoRedo(object: any) {
+  const operation = function (this: IRedoTemp | IUndoTemp, deleteOrChange: boolean) {
+    deleteOrChange
+        ? delete object[this.key]
+        : object[this.key] = this.value;
+  };
+
+  const undoStack: IStack<IUndoTemp> = {
+    stack: [],
+
+    add(key: string, value: number, isDelete: boolean = false) {
+      this.stack.push({
+        key,
+        value,
+        isDelete,
+        undo: operation
+      });
+    },
+
+    getLastOperation() {
+      return this.stack.pop();
+    }
+  };
+
+  let redoStack: IStack<IRedoTemp> = {
+    stack: [],
+
+    add(key: string, value: number, isDelete: boolean = false) {
+      this.stack.push({
+        key,
+        value,
+        isDelete,
+        redo: operation
+      });
+    },
+
+    getLastOperation() {
+      return this.stack.pop();
+    }
+  };
+
+  return {
+    set: function (key: string, value: number) {
+      undoStack.add(key, object[key]);
+
+      object[key] = value;
+    },
+
+    get: function (key: string) {
+      return object[key];
+    },
+
+    del: function (key: string) {
+      undoStack.add(key, object[key], true);
+
+      delete object[key];
+    },
+
+    undo: function () {
+      const lastOper = undoStack.getLastOperation()!;
+      const { key, isDelete } = lastOper;
+
+      redoStack.add(key, object[key], isDelete);
+
+      lastOper.undo(isDelete);
+    },
+
+    redo: function () {
+      const lastOper = redoStack.getLastOperation()!;
+      const { key, isDelete } = lastOper;
+
+      undoStack.add(key, object[key], isDelete);
+
+      lastOper.redo(isDelete);
+    },
+  };
+}
