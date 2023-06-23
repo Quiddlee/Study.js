@@ -3241,11 +3241,17 @@
 //   };
 // }
 
-function factory(x: number) {
-  return (arr: number[]) => arr.map(elem => elem * x);
+// function factory(x: number) {
+//   return (arr: number[]) => arr.map(elem => elem * x);
+// }
+//
+// const fives = factory(5);
+// const myArr = [ 1, 2, 3 ];
+//
+// console.log(fives(myArr));
+
+// console.log(Math.ceil(Math.log2(4)) + 1);
+
+function compose(...funcs) {
+  return (x) => funcs.reduceRight((acc, curr) => curr(acc), x);
 }
-
-const fives = factory(5);
-const myArr = [ 1, 2, 3 ];
-
-console.log(fives(myArr));
