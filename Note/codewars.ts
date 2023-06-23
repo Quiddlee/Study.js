@@ -3165,78 +3165,87 @@
 //     return newFunction;
 // };
 // console.log(new new newFunction);
+//
+// class Stack {
+//   #stack = [];
+//   #type;
+//   #object;
+//
+//   constructor(type: string, objectPointer: Object) {
+//     this.#type = type;
+//     this.#object = objectPointer;
+//   }
+//
+//   add(key, value, isDelete = false) {
+//     const object = this.#object;
+//     const operation = {
+//       key,
+//       value,
+//       isDelete,
+//     };
+//     const action = function(deleteOrChange) {
+//       return deleteOrChange || !this.value
+//         ? delete object[this.key]
+//         : (object[this.key] = this.value);
+//     };
+//
+//     operation[this.#type] = action.bind(operation);
+//     this.#stack.push(operation);
+//   }
+//
+//   get() {
+//     return this.#stack.pop();
+//   }
+//
+//   clear() {
+//     this.#stack = [];
+//   }
+// }
+//
+// function undoRedo(object) {
+//   const undoStack = new Stack('undo', object);
+//   const redoStack = new Stack('redo', object);
+//
+//   return {
+//     set(key, value) {
+//       redoStack.clear();
+//       undoStack.add(key, object[key]);
+//
+//       object[key] = value;
+//     },
+//
+//     get(key) {
+//       return object[key];
+//     },
+//
+//     del(key) {
+//       redoStack.clear();
+//       undoStack.add(key, object[key]);
+//
+//       delete object[key];
+//     },
+//
+//     undo() {
+//       const { key, isDelete, undo } = undoStack.get();
+//       redoStack.add(key, object[key]);
+//
+//       undo(isDelete);
+//     },
+//
+//     redo() {
+//       const { key, isDelete, redo } = redoStack.get();
+//       undoStack.add(key, object[key]);
+//
+//       redo(isDelete);
+//     },
+//   };
+// }
 
-class Stack {
-  #stack = [];
-  #type;
-  #object;
-
-  constructor(type: string, objectPointer: Object) {
-    this.#type = type;
-    this.#object = objectPointer;
-  }
-
-  add(key, value, isDelete = false) {
-    const object = this.#object;
-    const operation = {
-      key,
-      value,
-      isDelete,
-    };
-    const action = function(deleteOrChange) {
-      return deleteOrChange || !this.value
-        ? delete object[this.key]
-        : object[this.key] = this.value;
-    };
-
-    operation[this.#type] = action.bind(operation);
-    this.#stack.push(operation);
-  }
-
-  get() {
-    return this.#stack.pop();
-  }
-
-  clear() {
-    this.#stack = [];
-  }
+function factory(x: number) {
+  return (arr: number[]) => arr.map(elem => elem * x);
 }
 
-function undoRedo(object) {
-  const undoStack = new Stack('undo', object);
-  const redoStack = new Stack('redo', object);
+const fives = factory(5);
+const myArr = [ 1, 2, 3 ];
 
-  return {
-    set(key, value) {
-      redoStack.clear();
-      undoStack.add(key, object[key]);
-
-      object[key] = value;
-    },
-
-    get(key) {
-      return object[key];
-    },
-
-    del(key) {
-      redoStack.clear();
-      undoStack.add(key, object[key]);
-
-      delete object[key];
-    },
-
-    undo() {
-      const { key, isDelete, undo } = undoStack.get();
-      redoStack.add(key, object[key]);
-
-      undo(isDelete);
-    },
-
-    redo() {
-      const { key, isDelete, redo } = redoStack.get();
-      undoStack.add(key, object[key]);
-
-      redo(isDelete);
-    },
-  };
-}
+console.log(fives(myArr));
