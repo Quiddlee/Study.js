@@ -3256,28 +3256,43 @@
 //   return (x) => funcs.reduceRight((acc, curr) => curr(acc), x);
 // }
 
-function memo(fn) {
-  const cache = {};
-  const objCache = new Map();
+// function memo(fn) {
+//   const cache = {};
+//   const objCache = new Map();
+//
+//   return (x) => {
+//     if (x instanceof Object) {
+//       const obj = objCache.get(x);
+//       if (obj) {
+//         return obj;
+//       } else {
+//         const res = fn(x);
+//         objCache.set(x, res);
+//         return res;
+//       }
+//     }
+//
+//     if (x in cache) {
+//       return cache[x];
+//     } else {
+//       const res = fn(x);
+//       cache[x] = res;
+//       return res;
+//     }
+//   };
+// }
 
-  return (x) => {
-    if (x instanceof Object) {
-      const obj = objCache.get(x);
-      if (obj) {
-        return obj;
-      } else {
-        const res = fn(x);
-        objCache.set(x, res);
-        return res;
-      }
-    }
 
-    if (x in cache) {
-      return cache[x];
-    } else {
-      const res = fn(x);
-      cache[x] = res;
-      return res;
-    }
-  };
+function F(n) {
+  if (n > 0) {
+    return n - M(F(n - 1));
+  }
+  return 1;
+}
+
+function M(n) {
+  if (n > 0) {
+    return n - F(M(n - 1));
+  }
+  return 0;
 }
