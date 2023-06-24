@@ -3297,12 +3297,18 @@
 //   return 0;
 // }
 
-function once(fn) {
-  let count = 0;
-  return (...args) => {
-    if (count === 0) {
-      count++;
-      return fn(...args);
-    }
+// function once(fn) {
+//   let count = 0;
+//   return (...args) => {
+//     if (count === 0) {
+//       count++;
+//       return fn(...args);
+//     }
+//   };
+// }
+
+var multiFilter = function(...args) {
+  return (elem) => {
+    return args.some(fn => !fn(elem)) ? false : true;
   };
-}
+};
