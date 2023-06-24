@@ -3307,8 +3307,12 @@
 //   };
 // }
 
-var multiFilter = function(...args) {
-  return (elem) => {
-    return args.some(fn => !fn(elem)) ? false : true;
-  };
-};
+// var multiFilter = function(...args) {
+//   return (elem) => {
+//     return args.some(fn => !fn(elem)) ? false : true;
+//   };
+// };
+
+function flip(fn) {
+  return (...args) => fn(...args.reverse());
+}
