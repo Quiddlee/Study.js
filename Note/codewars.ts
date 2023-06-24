@@ -3252,6 +3252,32 @@
 
 // console.log(Math.ceil(Math.log2(4)) + 1);
 
-function compose(...funcs) {
-  return (x) => funcs.reduceRight((acc, curr) => curr(acc), x);
+// function compose(...funcs) {
+//   return (x) => funcs.reduceRight((acc, curr) => curr(acc), x);
+// }
+
+function memo(fn) {
+  const cache = {};
+  const objCache = new Map();
+
+  return (x) => {
+    if (x instanceof Object) {
+      const obj = objCache.get(x);
+      if (obj) {
+        return obj;
+      } else {
+        const res = fn(x);
+        objCache.set(x, res);
+        return res;
+      }
+    }
+
+    if (x in cache) {
+      return cache[x];
+    } else {
+      const res = fn(x);
+      cache[x] = res;
+      return res;
+    }
+  };
 }
