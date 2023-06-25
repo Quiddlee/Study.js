@@ -3313,6 +3313,21 @@
 //   };
 // };
 
-function flip(fn) {
-  return (...args) => fn(...args.reverse());
+// function flip(fn) {
+//  return (...args) => fn(...args.reverse());
+// }
+
+function cache(func) {
+  const memo = {};
+
+  return (a, b) => {
+    const key = JSON.stringify(a) + JSON.stringify(b);
+
+    if (key in memo) return memo[key];
+
+    const res = func(a, b);
+    memo[key] = res;
+
+    return res;
+  };
 }
