@@ -3317,17 +3317,29 @@
 //  return (...args) => fn(...args.reverse());
 // }
 
-function cache(func) {
-  const memo = {};
+//function cache(func) {
+//  const memo = {};
+//
+//  return (a, b) => {
+//    const key = JSON.stringify(a) + JSON.stringify(b);
+//
+//    if (key in memo) return memo[key];
+//
+//    const res = func(a, b);
+//    memo[key] = res;
+//
+//    return res;
+//  };
+//}
 
-  return (a, b) => {
-    const key = JSON.stringify(a) + JSON.stringify(b);
-
-    if (key in memo) return memo[key];
-
-    const res = func(a, b);
-    memo[key] = res;
-
-    return res;
+function add(n) {
+  const adder = (num) => {
+    n += num;
+    return adder;
   };
+
+  adder.valueOf = () => n;
+
+  return adder;
 }
+
