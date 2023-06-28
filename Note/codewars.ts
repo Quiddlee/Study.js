@@ -3347,7 +3347,7 @@
 function curryPartial(fn, ...argsMain) {
   if (argsMain.length >= fn.length) return fn(...argsMain);
 
-  return function curry(...args) {
+  return function curry(...args: number[]): number | Function {
     if (args.length + (argsMain.length ?? 0) >= fn.length) return fn(...[ ...argsMain, ...args ]);
     else return curry.bind(null, ...args);
   };
