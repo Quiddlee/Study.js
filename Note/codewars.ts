@@ -3332,14 +3332,23 @@
 //  };
 //}
 
-function add(n) {
-  const adder = (num) => {
-    n += num;
-    return adder;
+// function add(n) {
+//   const adder = (num) => {
+//     n += num;
+//     return adder;
+//   };
+//
+//   adder.valueOf = () => n;
+//
+//   return adder;
+// }
+//
+
+function curryPartial(fn, ...argsMain) {
+  if (argsMain.length >= fn.length) return fn(...argsMain);
+
+  return function curry(...args) {
+    if (args.length + (argsMain.length ?? 0) >= fn.length) return fn(...[ ...argsMain, ...args ]);
+    else return curry.bind(null, ...args);
   };
-
-  adder.valueOf = () => n;
-
-  return adder;
 }
-
