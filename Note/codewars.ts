@@ -3282,7 +3282,6 @@
 //   };
 // }
 
-
 // function F(n) {
 //   if (n > 0) {
 //     return n - M(F(n - 1));
@@ -3344,11 +3343,92 @@
 // }
 //
 
-function curryPartial(fn, ...argsMain) {
-  if (argsMain.length >= fn.length) return fn(...argsMain);
+// function curryPartial(fn, ...argsMain) {
+//   if (argsMain.length >= fn.length) return fn(...argsMain);
+//
+//   return function curry(...args: number[]): number | Function {
+//     if (args.length + (argsMain.length ?? 0) >= fn.length) return fn(...[ ...argsMain, ...args ]);
+//     else return curry.bind(null, ...args);
+//   };
+// }
 
-  return function curry(...args: number[]): number | Function {
-    if (args.length + (argsMain.length ?? 0) >= fn.length) return fn(...[ ...argsMain, ...args ]);
-    else return curry.bind(null, ...args);
-  };
-}
+
+// function longestSlideDown(pyramid: number[][]) {
+//   let sum = pyramid[0][0];
+//   let pointer = 0;
+//
+//   for (let i = 1; i < pyramid.length; i++) {
+//     console.log('sum =', sum);
+//     const left = pyramid[i][pointer];
+//     const right = pyramid[i][pointer + 1];
+//
+//     if (left > right && left) {
+//       sum += left;
+//     }
+//
+//     console.log('pointer =', pointer);
+//
+//     if (right > left && right) {
+//       sum += right;
+//       pointer += 1;
+//     }
+//
+//     console.log(left, right);
+//   }
+//
+//   return sum;
+// }
+
+// function longestSlideDown(pyramid: number[][], sum = 0, slice = 1) {
+//   if ()
+//
+//   for (const row of pyramid) {
+//     row.forEach(num => {
+//       let subSum = sum + num;
+//       longestSlideDown(pyramid.slice(slice), subSum, slice + 1);
+//     });
+//   }
+//
+//   return sum;
+// }
+//
+// console.log(longestSlideDown(
+//   [
+//     [ 3 ],
+//     [ 7, 4 ],
+//     [ 2, 4, 6 ],
+//     [ 8, 5, 9, 3 ],
+//   ],
+// ));  // 23
+
+const createIterator = (array) => {
+  const len = array.length;
+  let currIndex = 0;
+
+  return (() => {
+    const iteratorObj = {
+      next() {
+        const currElem = array[currIndex];
+        const iterObj = { value: currElem, done: currIndex >= len };
+        currIndex += currIndex < len ? 1 : 0;
+        return iterObj;
+      },
+
+      get index() {
+        return currIndex;
+      },
+    };
+
+    return iteratorObj;
+  })();
+};
+
+const array = [ 'One', 'Two' ];
+const iterator = createIterator(array);
+
+console.log(iterator.index); // 0
+
+console.log(iterator.next()); // {value: array[0], done: false}
+console.log(iterator.next()); // {value: array[0], done: false}
+console.log(iterator.next()); // {value: array[0], done: false}
+console.log(iterator.index); // 1

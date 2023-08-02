@@ -73,7 +73,7 @@
 // console.log(factorial(5));
 
 
-// 1) Создайте функцию, которая принимает в себя целое число минут и возвращает время в нужном формате строки. 
+// 1) Создайте функцию, которая принимает в себя целое число минут и возвращает время в нужном формате строки.
 
 // function getTimeFromMinutes(minutes) {
 //     if (minutes < 0 || minutes !== parseInt(minutes)) {return 'Ошибка, проверьте данные';}
@@ -88,7 +88,7 @@
 
 //     if (minutes > 100 || minutes > 59) {
 //         hours = minutes / 60;
-//         mins = Math.round(minutes % 60); 
+//         mins = Math.round(minutes % 60);
 //     }
 
 //     if (hours > 5 || hours === 0) {
@@ -177,7 +177,7 @@
 // function showListOfFilms(arr) {
 //     return arr.reduce((sum, current) => `${typeof(sum) === 'object' ? sum.name : sum}, ${current.name}`);
 // }
-// console.log(showListOfFilms(films));    
+// console.log(showListOfFilms(films));
 
 
 // function setFilmsIds(arr) {
